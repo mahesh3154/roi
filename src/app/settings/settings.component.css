@@ -1,0 +1,52 @@
+.employessModelBox li {
+  float: left;
+  padding: 10px 20px;
+  border: 2px solid #eee;
+  list-style-type: none;
+  margin: 30px
+}
+
+.clear {
+  clear: both;
+}
+
+h3 {
+  margin: 5px;
+  font-size: 13px
+}
+
+.employee-icons {
+  font-size: 40px;
+  padding: 10px
+}
+
+button {
+  margin-right: 30px
+}
+
+.employee-footer {
+  margin-top: 30px
+}
+
+.sticker {
+  margin: 20px;
+  background: #bbb;
+  padding: 20px
+}
+
+.sticker>.title {
+  font-size: 16px
+}
+
+.sticker>.designation {
+  font-size: 12px
+}
+
+.sticker>.edit {
+  float: right;
+  padding-left: 30px
+}
+
+.sticker>.description {
+  float: left;
+}

@@ -1,0 +1,77 @@
+ .clear {
+   clear: both;
+ }
+
+ h3 {
+   padding: 0px;
+   font-size: 14px
+ }
+
+ :host ::ng-deep .ui-table .ui-table-tbody>tr>td {
+   border: none !important;
+ }
+
+ :host ::ng-deep .ui-table .ui-table-thead>tr>th {
+   background: none;
+   padding: 0px;
+   border: none;
+ }
+
+ :host ::ng-deep .ui-table .ui-table-tbody>tr:nth-child(even) {
+   background: none;
+ }
+
+ :host ::ng-deep .ui-corner-all {
+   border-radius: 0px
+ }
+ :host ::ng-deep   .ui-table .ui-sortable-column.ui-state-highlight{
+   color: #000;
+ }
+:host ::ng-deep  .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon{
+  color:#000;
+}
+ :host ::ng-deep .ui-inputtext {
+   border: 1px solid #a6a6a6;
+ }
+
+ :host ::ng-deep .ui-tabview .ui-tabview-panels {
+   border: none
+ }
+
+ .location-sticker {
+   margin: 1px;
+   border: 1px solid #000;
+   padding: 10px
+ }
+
+ .location-sticker>.wrapper {
+   float: left;
+ }
+.location-sticker>.edit {
+   float: right;
+   color: #b51f23
+ }
+ .location-sticker>.wrapper>.title {
+   font-size: 16px
+ }
+
+ .location-sticker>.wrapper>.address {
+   font-size: 12px;
+   color: #DBDBDB
+ }
+
+ .location-sticker>.wrapper>.phone>i,
+ .location-sticker>.wrapper>.email>i {
+   font-size: 12px;
+   color: #b51f23
+ }
+
+ 
+
+ .location-sticker>.wrapper>.phone {
+   color: #b51f23
+ }
+
+ .location-sticker>.wrapper>.email {
+   color: #b51f23
+ }

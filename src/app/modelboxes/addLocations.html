@@ -1,0 +1,54 @@
+<div class="ui-g">
+  <form [formGroup]="addLocationForm" (ngSubmit)="onRegisterSubmit(addLocationForm)">
+    {{location | json}}
+    <div>
+      <div class="clear"></div>
+      <div>
+        <h3>Clinic Name</h3>
+        <span class="ui-float-label">
+    <input id="float-input" formControlName="name"  class="form-control" type="text" size="30" pInputText  > 
+</span>
+        <h3>AddressLine</h3>
+        <span class="ui-float-label">
+    <input id="float-input" formControlName="address"  class="form-control" type="text" size="30" pInputText > 
+</span>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <h3>Country</h3>
+            <span class="ui-float-label">
+<p-dropdown [options]="cities2" formControlName="country"  optionLabel="name"></p-dropdown>
+</span></div>
+          <div class="ui-g-6">
+            <h3>State</h3>
+            <span class="ui-float-label">
+<p-dropdown [options]="cities2" formControlName="state"  optionLabel="name"></p-dropdown>
+</span></div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <h3>City</h3>
+            <span class="ui-float-label">
+<p-dropdown [options]="cities2" formControlName="city"   optionLabel="name"></p-dropdown>
+</span></div>
+          <div class="ui-g-6">
+            <h3>Postral Code</h3>
+            <span class="ui-float-label">
+    <input id="float-input" formControlName="postralcode"   class="form-control" type="text" size="30" pInputText > 
+</span></div>
+        </div>
+
+        <h3>Email Address</h3>
+        <span class="ui-float-label">
+    <input id="float-input" formControlName="email"  class="form-control" type="text" size="30" pInputText > 
+</span>
+
+
+      </div>
+      <div class="employee-footer">
+        <button pButton type="button" label="Disable" [disabled]="!addLocationForm.valid" (click)="handleClick($event)"></button>
+        <button pButton type="button" label="Cance" (click)="handleClick($event)"></button>
+        <button pButton type="button" label="Update" (click)="handleClick($event)"></button>
+      </div>
+    </div>
+  </form>
+</div>

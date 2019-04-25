@@ -1,0 +1,89 @@
+<p-tabView>
+  <p-tabPanel header="Basic Info">
+    <div class="ui-g">
+      <div class="ui-g-4">
+        <div>
+          <h3 class="first">Address</h3>
+          <textarea rows="5" cols="30" pInputTextarea></textarea>
+        </div>
+        <div>
+          <h3 class="first">Google Map Url</h3>
+          <input id="input" type="text" size="30" pInputText>
+          <span id="text">{{text}}</span>
+        </div>
+      </div>
+      <div class="ui-g-8">
+        <h3 class="mainHeader">Bank Details</h3>
+        <div class="ui-g">
+          <div class="ui-g-6">
+
+            <div>
+              <h3 class="first">Account Number</h3>
+              <input id="input" type="text" size="30" pInputText>
+              <span id="text">{{text}}</span>
+            </div>
+            <div>
+              <h3 class="first">Email Address</h3>
+              <input id="input" type="text" size="30" pInputText>
+              <span id="text">{{text}}</span>
+            </div>
+          </div>
+          <div class="ui-g-6">
+            <div>
+              <h3 class="first">IFSC Code</h3>
+              <input id="input" type="text" size="30" pInputText>
+              <span id="text">{{text}}</span>
+            </div>
+            <div>
+              <h3 class="first">Pan</h3>
+              <input id="input" type="text" size="30" pInputText>
+              <span id="text">{{text}}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p-button label="Save"></p-button>
+
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="Employee">
+    <div class="ui-g">
+
+      <div class="ui-g-6" *ngFor="let employee of employees">
+        <div class="sticker">
+          <div class="description">
+            <div class="title"> {{employee.name}}</div>
+            <div class="designation"> {{employee.email}}</div>
+          </div>
+          <div class="edit"><i  (click)="EditEmployeeModelBox(employee)"  class="fas fa-pencil-alt"></i></div>
+          <div class="clear"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <button type="button" (click)="addEmployeeModelBox()" pButton icon="pi pi-info-circle" label="Show"></button>
+
+  </p-tabPanel>
+  <p-tabPanel header="POS">
+    <div class="ui-g">
+
+      <div class="ui-g-6" *ngFor="let employee of employees">
+        <div class="sticker">
+          <div class="description">
+            <div class="title"> {{employee.empname}}</div>
+            <div class="designation"> {{employee.email}}</div>
+          </div>
+          <div class="edit"><i  (click)="addPos()"  class="fas fa-pencil-alt"></i></div>
+          <div class="clear"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <button type="button" (click)="addPos()" pButton icon="pi pi-info-circle" label="Show"></button>
+  </p-tabPanel>
+</p-tabView>
