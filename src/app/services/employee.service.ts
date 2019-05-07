@@ -5,13 +5,28 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class EmployeeService {
+  private url = 'http://23.96.83.133:8080/';
 
   constructor(private http: HttpClient) { }
 
   getAllEmployees() {
     return this.http
-      .get('http://34.73.98.162:8080/admin/viewList', {
-        headers: { 'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTQ1Mzg2NTgsImV4cCI6MTU1NDYyNTA1OH0.WlaLIR_4udhxV-7eH1Untx1qcRj_xGpbwCAe6turcIU' }
-      });
+      .get(`${this.url}admin/viewList`);
+  }
+  createEmployees(data) {
+    return this.http
+      .post(`${this.url}employee`, data);
+  }
+  getAllPosList() {
+    return this.http
+      .get(`${this.url}pos/list`);
+  }
+  submitPosList(data) {
+    return this.http
+      .post(`${this.url}pos`, data);
+  }
+  disablePostId(data) {
+    return this.http
+      .post(`${this.url}pos`, data);
   }
 }

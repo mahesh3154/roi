@@ -5,49 +5,51 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class PatientService {
+        private url = 'http://23.96.83.133:8080/';
+
     auth: any;
+    
     constructor(private http: HttpClient) {
-        this.auth = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTU4MjkwNjEsImV4cCI6MTU1NTkxNTQ2MX0.bdbtn8zFuf9tbdd32HWkFXe2oZIip6WjNQChaf7bqKc';
     }
     getAllPatients() {
         return this.http
-            .get('http://34.73.98.162:8080/patient/viewList', {
-                headers: { 'Content-Type': 'application/json; charset=utf-8', Authorization: this.auth }
+            .get(`${this.url}patient/viewList`, {
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
             });
     }
     getSinglePatientDetails(id) {
         return this.http
-            .get(`http://34.73.98.162:8080/patient/info/${id}`, {
-                headers: { 'Content-Type': 'application/json; charset=utf-8', Authorization: this.auth }
+            .get(`${this.url}patient/info/${id}`, {
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
             });
     }
     addPatient(data) {
         return this.http
-            .post('http://34.73.98.162:8080/patient', data, {
-                headers: { 'Content-Type': 'application/json ', accept: 'application/json', Authorization: this.auth }
+            .post(`${this.url}patient`, data, {
+                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
 
             });
     }
 
     addPayments(data, id) {
         return this.http
-            .post(`http://34.73.98.162:8080/patient/payment/${id}`,
+            .post(`${this.url}patient/payment/${id}`,
             data, {
-                headers: { 'Content-Type': 'application/json ', accept: 'application/json', Authorization: this.auth }
+                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
 
             });
     }
 
     getAllPayments() {
         return this.http
-            .get('http://34.73.98.162:8080/patient/payment/list/9164', {
-                headers: { 'Content-Type': 'application/json; charset=utf-8', Authorization: this.auth }
+            .get(`${this.url}patient/payment/list/9164`, {
+                headers: { 'Content-Type': 'application/json; charset=utf-8'}
             });
     }
     getAllDoctors() {
         return this.http
-            .get('http://34.73.98.162:8080/schedule/doctorlist', {
-                headers: { 'Content-Type': 'application/json; charset=utf-8', Authorization: this.auth }
+            .get(`${this.url}schedule/doctorlist`, {
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
             });
     }
 }

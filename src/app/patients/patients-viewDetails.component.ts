@@ -10,14 +10,15 @@ import { Patient } from '../models/patients.model';
   styleUrls: ['./patients.component.css']
 })
 export class PatientsViewDetailsComponent implements OnInit {
-  details: any;
+  details: any = {};
   patientId: any;
   displayDialog: boolean;
-  patient: Patient = {};
+  patient: any = {};
   selectedCar: Patient;
   newPatient: boolean;
-  patients: Patient[];
+  patients: any = [];
   cols: any;
+  rating:number;
   constructor(
     private patientService: PatientService,
     public dialogService: DialogService,
@@ -30,11 +31,18 @@ export class PatientsViewDetailsComponent implements OnInit {
     this.patients = [];
     this.cols = [
       { field: 'invoice_date', header: 'Invoice Date' },
-      { field: 'invoice_type', header: 'Type' },
+      { field: 'payment_method', header: 'Type' },
       { field: 'amount', header: 'Amount' },
     ];
     this.patientService.getAllPayments().subscribe(data => this.patients = data);
-    this.patientService.getSinglePatientDetails(this.patientId).subscribe(data => this.details = data[0]);
+    this.patientService.getSinglePatientDetails(this.patientId).subscribe(
+     suc => {
+        this.details= suc[0];
+      },
+      err => {
+        console.log(err);
+      }
+    );
 
   }
 
@@ -70,15 +78,12 @@ export class PatientsViewDetailsComponent implements OnInit {
   }
   showDialogToAdd() {
     this.newPatient = true;
-    this.patient = {};
     this.displayDialog = true;
   }
-  save() {
-    let patients = [...this.patients];
+  save(patient) {
     this.patientService.addPayments(this.patient, this.patientId).subscribe(
       suc => {
-        console.log('teststtststs');
-        this.patients.push(this.patient);
+        this.patients.push(patient);
 
       },
       err => {

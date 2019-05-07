@@ -46,8 +46,10 @@
       </div>
       <div class="employee-footer">
         <button pButton type="button" label="Disable" [disabled]="!addLocationForm.valid" (click)="handleClick($event)"></button>
-        <button pButton type="button" label="Cance" (click)="handleClick($event)"></button>
+        <button pButton type="button" label="Cancel" (click)="handleClick($event)"></button>
         <button pButton type="button" label="Update" (click)="handleClick($event)"></button>
+        <button pButton type="button" label="Add" (click)="addLocation($event)"></button>
+
       </div>
     </div>
   </form>

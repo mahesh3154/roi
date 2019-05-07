@@ -117,15 +117,6 @@ export class AddPatients {
         }
     }
     sumbmit() {
-
-        this.postReq = this.addPatientsForm.value;
-        this.postReq.gender = this.postReq.gender.name;
-        this.postReq.age = parseInt(this.postReq.age);
-        this.postReq.problem = this.postReq.problem.name;
-        this.postReq.city_country = this.postReq.city_country.name;
-        this.postReq.source = this.postReq.source.name;
-
-        return this.patientService.addPatient(this.postReq).subscribe(data => this.patientresponse = data);
-
+        this.ref.close(this.addPatientsForm.value);
     }
 }

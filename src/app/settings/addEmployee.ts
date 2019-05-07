@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
     templateUrl: './addEmployee.html',
     styleUrls: ['./settings.component.css']
-
 })
 export class AddEmployee {
     data: {};
@@ -17,13 +16,14 @@ export class AddEmployee {
     user: any;
     constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, private formBuilder: FormBuilder) { }
     ngOnInit() {
-        this.typeofEmployess = [{ id: 1, logo: 'fas fa-stethoscope', label: 'Doctor' },
+        this.typeofEmployess = [{ id: 1, logo: 'fas fa-stethoscope', label: 'doctor' },
         { id: 2, logo: 'fas fa-headset', label: 'Front Desk' },
         { id: 3, logo: 'fas fa-briefcase', label: 'Manager' },
         { id: 4, logo: 'fas fa-bullhorn', label: 'Marketing' },
         { id: 5, logo: 'fas  fa-file-invoice', label: 'Accounts' }];
         this.addEmployeeForm = this.formBuilder.group({
-            name: ['', Validators.required],
+            role: ['', Validators.required],
+            empname: ['', Validators.required],
             email: ['', Validators.required],
             phonenumber: ['', Validators.required]
         });
@@ -33,13 +33,14 @@ export class AddEmployee {
             this.user = this.data;
             this.addEmployeeForm.patchValue({
                 index: this.user.empid,
-                name: this.user.empname,
+                empname: this.user.empname,
                 email: this.user.email,
-                phonenumber: this.user.phoneNumeber
+                phonenumber: this.user.phoneNumeber,
+                role: this.user.role
             });
         }
     }
-    handleClick() {
-        alert('SUCCESS!! :-)\n\n' +  JSON.stringify(this.addEmployeeForm.value));
+    addEmployee() {
+        this.ref.close(this.addEmployeeForm.value);
     }
 }

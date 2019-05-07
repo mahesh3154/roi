@@ -51,7 +51,7 @@ export class AddLocations {
             });
         }
     }
-    handleClick() {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.addLocationForm.value));
+    addLocation() {
+        this.ref.close(this.addLocationForm.value);
     }
 }

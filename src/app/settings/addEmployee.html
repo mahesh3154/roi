@@ -11,7 +11,7 @@
 
         </ul>
         ---->
-        <p-selectButton [options]="typeofEmployess" optionLabel="name">
+        <p-selectButton [options]="typeofEmployess" formControlName="role" optionLabel="name">
           <ng-template let-item>
             <div style="padding: .5em 1em">
               <i class="{{item.value.logo}}"></i>
@@ -24,7 +24,7 @@
       <div>
         <h3>Name</h3>
         <span class="ui-float-label">
-    <input id="float-input" formControlName="name"  class="form-control" type="text" size="30" pInputText  > 
+    <input id="float-input" formControlName="empname"  class="form-control" type="text" size="30" pInputText  > 
 </span>
         <h3>Email Id</h3>
         <span class="ui-float-label">
@@ -41,6 +41,7 @@
         <button pButton type="button" label="Disable" (click)="handleClick($event)"></button>
         <button pButton type="button" label="Cance" (click)="handleClick($event)"></button>
         <button pButton type="button" label="Update" (click)="handleClick($event)"></button>
+        <button pButton type="button" label="Add" (click)="addEmployee($event)"></button>
       </div>
     </div>
   </form>

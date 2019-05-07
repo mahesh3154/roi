@@ -77,7 +77,7 @@
           <ng-template pTemplate="body" let-patient>
             <tr >
               <td>{{patient.invoice_date}}</td>
-              <td>{{patient.invoice_type}}</td>
+              <td>{{patient.payment_method}}</td>
               <td>{{patient.amount}}</td>
               <td></td>
             </tr>
@@ -115,13 +115,13 @@
               <div class="ui-g-12">
                 <div class="ui-g" style="width:250px;margin-bottom:10px">
                   <div class="ui-g-4">
-                    <p-radioButton name="group2" value="cash" label="Cash" [(ngModel)]="patient.invoice_type" inputId="preopt1"></p-radioButton>
+                    <p-radioButton name="group2" value="cash" label="Cash" [(ngModel)]="patient.payment_method" inputId="preopt1"></p-radioButton>
                   </div>
                   <div class="ui-g-4">
-                    <p-radioButton name="group2" value="card" label="Card" [(ngModel)]="patient.invoice_type" inputId="preopt2"></p-radioButton>
+                    <p-radioButton name="group2" value="card" label="Card" [(ngModel)]="patient.payment_method" inputId="preopt2"></p-radioButton>
                   </div>
                   <div class="ui-g-4">
-                    <p-radioButton name="group2" value="net banking" label="Net Banking" [(ngModel)]="patient.invoice_type" inputId="preopt3"></p-radioButton>
+                    <p-radioButton name="group2" value="net banking" label="Net Banking" [(ngModel)]="patient.payment_method" inputId="preopt3"></p-radioButton>
                   </div>
                 </div>
               </div>

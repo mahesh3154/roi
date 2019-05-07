@@ -1,3 +1,138 @@
-<p>
-  billing works!
-</p>
+<p-tabView>
+  <p-tabPanel header="Income">
+    <div class="ui-g">
+      <div class="ui-g-8">
+        <p-table [value]="billings" [columns]="cols">
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of colsBilling" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-billing>
+            <tr>
+              <td>{{billing.invoice_date}}</td>
+              <td>{{billing.patientname}}</td>
+              <td>{{billing.payment_method}}</td>
+              <td>{{billing.amount}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="ui-g-4">
+        <div class="billing-expenses">
+          <div>{{totalAmount}}</div>
+          <div>Total Amount</div>
+
+        </div>
+        <div class="billing-expenses">
+          <div>{{amountByCash}}</div>
+          <div>By Cash</div>
+
+        </div>
+        <div class="billing-expenses">
+          <div>{{amountByCard}}</div>
+          <div>By Card</div>
+        </div>
+        <div class="billing-expenses">
+          <div>{{amountByBank}}</div>
+          <div>By Bank</div>
+
+        </div>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Expenses" [selected]="true">
+    <div class="ui-g">
+      <div class="ui-g-8">
+        <p-table [value]="expenses">
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of colsExpenses" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-expense>
+            <tr>
+              <td>{{expense.invoice_date}}</td>
+              <td>{{expense.vendor}}</td>
+              <td>{{expense.payment_method}}</td>
+              <td>{{expense.amount}}</td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary" let-rowData>
+            <div style="text-align:left">
+              <button type="button" pButton icon="fa fa-plus" (click)="showDialog()" label="Add"></button>
+            </div>
+          </ng-template>
+        </p-table>
+        <p-dialog header="Add Expenses" [style]="{width: '500px', height: '200px'}" [(visible)]="displayDialog" [responsive]="true"
+          showEffect="fade" [modal]="true" [style]="{width: '300px'}">
+          <div class="ui-g ui-fluid" *ngIf="newExpenses">
+            <p-selectButton [options]="expensesType" [(ngModel)]="payment_method" optionLabel="name">
+              <ng-template let-item>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                <div style="padding: .5em 1em">
+                  <div><i class="{{item.value.icon}}"></i></div>
+                  <div>{{item.value.type}}</div>
+                </div>
+              </ng-template>
+            </p-selectButton>
+            <div class="ui-g-12">
+              <div class="ui-g-12">
+                <label for="invoivedate">Invoice Date</label>
+              </div>
+              <div class="ui-g-8">
+                <p-calendar [(ngModel)]="expense.invoice_date"></p-calendar>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <div class="ui-g-12">
+                <label for="amount">Amount</label>
+              </div>
+              <div class="ui-g-8">
+                <input pInputText id="amount" [(ngModel)]="expense.amount" />
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <div class="ui-g-12">
+                <label for="amount">Payment Mode</label>
+              </div>
+          
+            </div>
+
+          </div>
+          <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+              <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
+              <button type="button" pButton icon="fa fa-check" (click)="save(expenses)" label="Save"></button>
+            </div>
+          </p-footer>
+        </p-dialog>
+
+      </div>
+      <div class="ui-g-4">
+        <div class="billing-expenses">
+          <div>{{expensestotalAmount}}</div>
+          <div>Total Amount</div>
+
+        </div>
+        <div class="billing-expenses">
+          <div>{{expensesamountByCash}}</div>
+          <div>By Cash</div>
+
+        </div>
+        <div class="billing-expenses">
+          <div>{{expensesamountByCard}}</div>
+          <div>By Card</div>
+        </div>
+
+      </div>
+    </div>
+  </p-tabPanel>
+
+</p-tabView>

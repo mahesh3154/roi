@@ -11,12 +11,16 @@ import { MainService } from './services/main.service';
 })
 export class AppComponent {
   title = 'my-app';
-  locations: any;
+  locations: any = [];
   admins: any = [];
+  postReq: any = {};
   constructor(public dialogService: DialogService, public mainService: MainService) { }
 
   ngOnInit() {
-    this.locations = [{ name: 'this.location.empid', address: 'this.location.empname', country: 'New York', state: 'New York', city: 'Rome', postralcode: 'this.location.phoneNumeber', email: 'this.location.email' }];
+    this.mainService.getAllLocations().subscribe(data => this.locations = data);
+    this.mainService.getAdmins().subscribe(data => this.admins = data);
+
+
   }
 
   addLocation() {
@@ -25,7 +29,18 @@ export class AppComponent {
       width: '70%',
       contentStyle: { "max-height": "650px" }
     });
-    ref.onClose.subscribe(() => {
+    ref.onClose.subscribe((data) => {
+      data.city = data.city.name;
+      data.state = data.state.name;
+      data.country = data.state.country
+      this.mainService.addLocation(data).subscribe(
+        suc => {
+          this.locations.push(data);
+        },
+        err => {
+          console.log(err);
+        }
+      );
     });
   }
   addAdminModelbox() {
@@ -35,14 +50,9 @@ export class AppComponent {
       contentStyle: { "max-height": "650px" }
     });
     ref.onClose.subscribe((data) => {
-      let postReq = {};
-      postReq.name = data.name;
-      postReq.email = data.email;
-      postReq.phonenumber = data.phonenumber;
-      this.mainService.addAdmins(postReq).subscribe(
+      this.mainService.addAdmins(data).subscribe(
         suc => {
-          this.admins.push(postReq);
-
+          this.admins.push(data);
         },
         err => {
           console.log(err);
@@ -60,7 +70,6 @@ export class AppComponent {
     ref.onClose.subscribe(() => {
     });
   }
-
 
   editLocation(data) {
     const ref = this.dialogService.open(AddLocations, {

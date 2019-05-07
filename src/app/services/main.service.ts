@@ -5,19 +5,28 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class MainService {
-    auth: any;
+  private url = 'http://23.96.83.133:8080/';
+
   constructor(private http: HttpClient) {
-    this.auth = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTU4MjkwNjEsImV4cCI6MTU1NTkxNTQ2MX0.bdbtn8zFuf9tbdd32HWkFXe2oZIip6WjNQChaf7bqKc';
 
   }
 
+  getAdmins() {
+    return this.http
+      .get(`${this.url}admin/viewList`);
+  }
   addAdmins(data) {
     return this.http
-      .post(`http://34.73.98.162:8080/admin`,
-      data, {
-        headers: { 'Content-Type': 'application/json ', accept: 'application/json', Authorization: this.auth }
-
-      });
+      .post(`${this.url}admin`,
+      data);
   }
-
+  addLocation(data) {
+    return this.http
+      .post(`${this.url}clinic`,
+      data);
+  }
+  getAllLocations() {
+    return this.http
+      .get(`${this.url}clinic/viewList`);
+  }
 }

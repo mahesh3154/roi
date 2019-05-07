@@ -17,7 +17,8 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { DialogModule } from 'primeng/dialog';
-
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { AddEmployee } from './settings/addEmployee';
 import { AddPos } from './settings/addPos';
 import { AddLocations } from './modelboxes/addLocations';
@@ -40,11 +41,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from './services/employee.service';
 import { PatientService } from './services/patients.service';
 import { MainService } from './services/main.service';
+import { AuthService } from './services/auth.service';
+import { BillingService } from './services/billing.service';
 
 import { DialogService } from 'primeng/api';
+import { PanelModule } from 'primeng/panel';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -61,7 +69,9 @@ import { SidebarModule } from 'primeng/sidebar';
     AddSchedule,
     PatientsViewDetailsComponent,
     SidebarComponent,
-    TopbarComponent],
+    TopbarComponent,
+    LoginComponent,
+    RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -82,7 +92,10 @@ import { SidebarModule } from 'primeng/sidebar';
     SidebarModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MessagesModule,
+    MessageModule,
+    PanelModule
   ],
   entryComponents: [
     AddEmployee,
@@ -92,7 +105,12 @@ import { SidebarModule } from 'primeng/sidebar';
     AddSchedule,
     AddAdmin
   ],
-  providers: [EmployeeService, PatientService, MainService,  DialogService],
+  providers: [EmployeeService, PatientService, MainService, AuthService, AuthGuard, DialogService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
