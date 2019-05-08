@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem; 
+    color: #555555;
+    line-height: 120%;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.main-container {
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;
+} 
+.main-color {
+    color: #b51f23;
+}
+.gray-color {
+    color: #aaaaaa;
+}
+.dark-gray-color {
+    color: #707070;
+}
+.rich-black-color {
+    color: #000000;
+}
+body a {
+    color: #555555;
+}
+body a:hover, body a:active, body a:focus {
+    color: #b51f23;
+}
+body .ui-widget {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
