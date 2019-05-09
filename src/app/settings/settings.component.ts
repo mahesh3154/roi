@@ -34,7 +34,7 @@ export class SettingsComponent implements OnInit {
         const ref = this.dialogService.open(AddEmployee, {
             header: 'Add Employee',
             width: '70%',
-            contentStyle: { "max-height": "650px" }
+            contentStyle: { "max-height": "680px" }
         });
 
         ref.onClose.subscribe((data) => {
@@ -54,7 +54,7 @@ export class SettingsComponent implements OnInit {
         const ref = this.dialogService.open(AddEmployee, {
             header: 'Edit Employee',
             width: '70%',
-            contentStyle: { "max-height": "650px" },
+            contentStyle: { "max-height": "680px" },
             data: { data }
         });
 
@@ -63,10 +63,9 @@ export class SettingsComponent implements OnInit {
     }
     addPos() {
         const ref = this.dialogService.open(AddPos, {
-            header: 'Add Pos',
+            header: 'Add POS',
             width: '70%',
-            contentStyle: { "max-height": "650px" },
-
+            contentStyle: { "max-height": "650px" }
         });
 
         ref.onClose.subscribe((data) => {

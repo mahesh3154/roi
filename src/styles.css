@@ -8,9 +8,12 @@ body {
     font-size: 1.2rem; 
     color: #555555;
     line-height: 120%;
-    background-color: #ffffff;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
+}
+:focus {
+    outline: #555555 dotted 1px;
 }
 .main-container {
     max-width: 1366px;
@@ -38,4 +41,133 @@ body a:hover, body a:active, body a:focus {
 body .ui-widget {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
+}
+.cui-pad0 {
+    padding: 0;
+}
+.cui-min-hgt {
+    min-height: 60rem;
+}
+.cui-body-space {
+    padding: 3.8rem 6rem;
+}
+.center {
+    text-align: center;
+}
+.mtop-80 {
+    margin-top: 8rem;
+}
+/*plus btn*/
+.cui-plus-btn.ui-button,
+.cui-plus-btn.ui-button:enabled:hover {
+    background: #b51f23;
+    border: none;
+    color:#fff;
+}
+.cui-plus-btn.ui-button.ui-button-icon-only {
+    height: 6.4rem;
+    width:6.4rem;
+}
+.cui-plus-btn.ui-button.ui-corner-all {
+    border-radius: 35px;
+    float: right;
+    position: relative;
+    bottom: 30px;
+    right: -30px;
+}
+.cui-plus-btn.ui-button.ui-button-icon-only .ui-button-icon-left {
+    color:#fff;
+    font-weight: bold;
+}
+/* buttons */
+.cui-main-btn.ui-button,
+.cui-main-btn.ui-button:enabled:hover,
+.cui-main-btn.ui-button:enabled:active {
+  background: #b51f23;
+  border: none;
+  color:#fff;
+  padding: 1.5rem 3.3rem;
+}
+.cui-main-btn.ui-button.ui-button-text-only .ui-button-text {
+  padding: 0;
+  font-size: 1.4rem;
+}
+
+.cui-gray-btn.ui-button,
+.cui-gray-btn.ui-button:enabled:hover,
+.cui-gray-btn.ui-button:enabled:active {
+  background: #fff;
+  border: solid #707070 1px;
+  color:#707070;
+  padding: 1.5rem 3.3rem;
+}
+.cui-gray-btn.ui-button.ui-button-text-only .ui-button-text {
+  padding: 0;
+  font-size: 1.4rem;
+}
+
+body .ui-button:enabled:focus {
+    box-shadow: none;
+}
+.width100 {
+    width: 100%;
+}
+.mbtm-80 {
+    margin-bottom: 8rem;
+}
+/*form input styles*/
+.cui-input-box {
+    background-color: #fff;
+    padding: 2.2rem 2.4rem 2.2rem 3.4rem;
+}
+.cui-input-box:first-child {
+    margin-right: 2rem;
+}
+.cui-input-space {
+    padding-bottom: 1.5rem;
+    padding-right: 1rem;
+    width: 100%;
+}
+body .ui-inputtext,
+body .ui-inputtext:enabled:hover:not(.ui-state-error),
+body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border: 1px solid #ccc;
+  color:#aaa;
+  padding: 1.7rem 2rem 1.6rem;
+  width: 100%;
+}
+body .ui-corner-all {
+  border-radius: 3px;
+}
+
+/* Tile icon text*/
+.cui-tile-box .ui-selectbutton .ui-button {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    color: #aaa;
+    margin: 1rem 1.2rem;
+}
+.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover {
+    background-color: #fff;
+    border: 1px solid #b51f23;
+    color: #b51f23;
+}
+.cui-tile-box .cui-tile-ibox {
+    padding: 2.3rem 3.2rem 1rem;
+}
+.cui-tile-box .cui-tile-ibox i, .cui-tile-box .cui-tile-ibox span {
+    display: block;
+}
+.cui-tile-box .cui-tile-ibox i {
+    padding-bottom: 1.8rem;
+    font-size: 3rem; 
+}
+.cui-tile-box .cui-tile-ibox span {
+    font-size: 1.1rem;
+}
+.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover .cui-tile-ibox i {
+    color: #b51f23;
+}
+.sub-btns {
+    margin-top: 3rem;
 }

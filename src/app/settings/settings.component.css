@@ -1,3 +1,41 @@
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top {
+  padding: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav {
+  margin-left: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li {
+  border: none;
+  color: #AAAAAA;
+  background-color: #fff;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: #fff;
+  border: none;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-default a:hover {
+  color: #B51F23;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  color: #AAAAAA;
+  padding: 1.4rem 3rem 1.3rem;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-corner-top {
+  border-radius: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  padding:0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels .ui-tabview-panel {
+  padding-top: 5.4rem;
+}
+
+
 .employessModelBox li {
   float: left;
   padding: 10px 20px;
@@ -24,32 +62,30 @@ button {
   margin-right: 30px
 }
 
-.employee-footer {
-  margin-top: 30px
+.cui-edit-sbox {
+  padding: 0 3rem 2rem 0;
 }
-.employee-footer {
-  margin-top: 30px
-}
-
 .sticker {
-  margin: 20px;
-  background: #bbb;
-  padding: 20px
+  margin: 0;
+  background: #fff;
+  padding: 2.3rem 4.2rem;
+}
+.sticker .title {
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 0.6rem; 
+}
+.sticker .title .edit {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.sticker .title .edit .roi-edit-icon {
+  color: #B51F23;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.sticker .designation {
+  font-size: 1rem;
 }
 
-.sticker>.title {
-  font-size: 16px
-}
-
-.sticker>.designation {
-  font-size: 12px
-}
-
-.sticker>.edit {
-  float: right;
-  padding-left: 30px
-}
-
-.sticker>.description {
-  float: left;
-}
