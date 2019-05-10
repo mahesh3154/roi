@@ -66,6 +66,8 @@
   padding: 0;
   width: 26rem;
   margin: 3.3rem 0 0 0;
+  border: none;
+  color: #555;
 }
 :host ::ng-deep .roi-sidebar.ui-sidebar .ui-sidebar-close {
   position: relative;
@@ -93,10 +95,11 @@
 }
 .location-sticker>.wrapper>.title .roi-edit-icon {
   position: absolute;
-  right: 0;
+  right: -1.5rem;
   top:0;
   font-size: 1.7rem;
   color: #b51f23;
+  cursor: pointer;
 }
 
 .location-sticker>.wrapper>.address {
@@ -119,31 +122,100 @@
  .clear {
    clear: both;
  }
-
- h3 {
-   padding: 0px;
-   font-size: 14px
- }
-
- :host ::ng-deep .ui-table .ui-table-tbody>tr>td {
-   border: none !important;
- }
-
- :host ::ng-deep .ui-table .ui-table-thead>tr>th {
-   background: none;
-   padding: 0px;
-   border: none;
- }
-
- :host ::ng-deep .ui-table .ui-table-tbody>tr:nth-child(even) {
-   background: none;
- }
- :host ::ng-deep   .ui-table .ui-sortable-column.ui-state-highlight{
-   color: #000;
- }
-:host ::ng-deep  .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon{
-  color:#000;
+ :host ::ng-deep .ui-table .ui-table-caption {
+  border: none;
+  font-weight: 700;
+  background: none;
+  padding: 0;
+  text-align: right;
+}
+ :host ::ng-deep .ui-table .ui-table-tbody > tr {
+  background-color: transparent;
+  color: #000;
+}
+:host ::ng-deep .ui-table .ui-table-thead>tr>th,
+:host ::ng-deep .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+  background: none;
+  border: none;
+  color: #555;
+}
+:host ::ng-deep .ui-table .ui-table-tbody>tr>td,
+:host ::ng-deep .ui-table .ui-table-thead>tr>th {
+  border: none !important;
+  padding: 2rem 0;
+  text-align: center;
+  font-weight: 800;
+}
+:host ::ng-deep .ui-table .ui-table-tbody>tr>td a.link {
+  color: #b51f23;
+}
+:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+  color:#555;
+}
+:host ::ng-deep .ui-table .ui-table-summary {
+  border: none;
+  background: none;
+  padding: 0;
+}
+:host ::ng-deep .pi {
+  font-size: 1rem;
+}
+:host ::ng-deep .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
+  color: #b51f23;
 }
 
+/*custom tab view*/
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top {
+  padding: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav {
+  margin-left: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li {
+  border: none;
+  color: #AAAAAA;
+  background-color: #fff;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: #fff;
+  border: none;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-default a:hover {
+  color: #B51F23;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  color: #AAAAAA;
+  padding: 1.4rem 3rem 1.3rem;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-corner-top {
+  border-radius: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  padding:0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels .ui-tabview-panel {
+  padding-top: 5.4rem;
+}
 
+:host ::ng-deep .icon.ui-button,
+:host ::ng-deep .icon.ui-button:enabled:active,
+:host ::ng-deep .icon.ui-button:enabled:focus,
+:host ::ng-deep .icon.ui-button:enabled:hover {
+  background: transparent;
+  border: none;
+  margin-right: 0;
+}
+:host ::ng-deep .icon.ui-button .ui-button-icon-left,
+:host ::ng-deep .icon.ui-button .ui-button-icon-right {
+  font-size: 13px;
+  color: #B51F23;
+}
+:host ::ng-deep .icon.ui-button.ui-button-icon-only .ui-button-text {
+  padding: 0;
+}
 

@@ -42,6 +42,15 @@ body .ui-widget {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
 }
+.f10 {
+    font-size: 1rem;
+}
+.f12 {
+    font-size: 1.2rem;
+}
+.mb15 {
+    margin-bottom: 15px;
+} 
 .cui-pad0 {
     padding: 0;
 }
@@ -80,6 +89,9 @@ body .ui-widget {
     font-weight: bold;
 }
 /* buttons */
+body .ui-button {
+    margin-right:2.5rem;
+}
 .cui-main-btn.ui-button,
 .cui-main-btn.ui-button:enabled:hover,
 .cui-main-btn.ui-button:enabled:active {
@@ -128,13 +140,30 @@ body .ui-button:enabled:focus {
     padding-right: 1rem;
     width: 100%;
 }
+.cui-input-space h3 {
+    margin: 0 0 0.6rem 0.6rem; 
+    font-size: 1.2rem;
+}
 body .ui-inputtext,
 body .ui-inputtext:enabled:hover:not(.ui-state-error),
 body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   border: 1px solid #ccc;
   color:#aaa;
-  padding: 1.7rem 2rem 1.6rem;
+  padding: 1.7rem 2.4rem 1.6rem;
   width: 100%;
+  font-size: 1.2rem;
+}
+body .ui-dropdown,
+body .ui-dropdown:not(.ui-state-disabled):hover,
+body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+  border: 1px solid #ccc;
+  color:#aaa;
+  width: 100%;
+}
+.cui-calender {
+    border-color: #ccc;
+    color:#aaa;
+    width: 100%; 
 }
 body .ui-corner-all {
   border-radius: 3px;
@@ -147,7 +176,11 @@ body .ui-corner-all {
     color: #aaa;
     margin: 1rem 1.2rem;
 }
-.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover {
+.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-focus:not(.ui-state-disabled):focus,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-active,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-focus {
     background-color: #fff;
     border: 1px solid #b51f23;
     color: #b51f23;
@@ -165,7 +198,10 @@ body .ui-corner-all {
 .cui-tile-box .cui-tile-ibox span {
     font-size: 1.1rem;
 }
-.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover .cui-tile-ibox i {
+.cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover .cui-tile-ibox i,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover .cui-tile-ibox i,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-active .cui-tile-ibox i,
+.cui-tile-box .ui-selectbutton .ui-button.ui-state-active .cui-tile-ibox span {
     color: #b51f23;
 }
 .sub-btns {

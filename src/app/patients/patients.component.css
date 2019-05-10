@@ -1,21 +1,50 @@
+.htitle {
+  float: left;
+  margin: 1.2rem 0 0;
+}
+.patient-search {
+  float: right;
+  position: relative;
+}
+.patient-search .ui-inputtext,
+.patient-search .ui-inputtext:enabled:hover:not(.ui-state-error), 
+.patient-search .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border: none;
+  width: 20rem;
+  height: 4.2rem;
+  padding-right: 3.8rem;
+}
+.patient-search .roi-search-icon {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #aaa;
+  font-size: 1.8rem;
+}
+:host ::ng-deep .ui-table .ui-table-thead>tr>th{
+  padding-top: 4rem;
+}
+
 ul.timeline {
   list-style-type: none;
   position: relative;
+  margin: 0;
+  padding: 0 0 0 4rem;
 }
 
 ul.timeline:before {
   content: ' ';
-  background: #d4d9df;
+  background: #707070;
   display: inline-block;
   position: absolute;
-  left: 29px;
-  width: 2px;
+  left: 16px;
+  width: 1px;
   height: 100%;
   z-index: 400;
 }
 
 ul.timeline>li {
-  margin: 20px 0;
+  margin: 45px 0 0;
   padding-left: 20px;
 }
 
@@ -25,20 +54,46 @@ ul.timeline>li:before {
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  border: 3px solid #eee;
-  left: 20px;
-  width: 20px;
-  height: 20px;
+  border: 1px solid #707070;
+  left: 8px;
+  width: 15px;
+  height: 15px;
+  z-index: 400;
+}
+ul.timeline>li:first-child::before {
+  content: '+';
+  border: 1px dotted #B51F23;
+  color: #B51F23;
+  left: 4px;
+  width: auto;
+  height: auto;
+  font-size: 23px;
+  padding: 5px;
+}
+ul.timeline>li:first-child::after {
+  content: ' ';
+  border-left: #B51F23 dotted 1px;
+  width: 1px;
+  height: 30%;
+  position: absolute;
+  top: 25px;
+  left: 16px;
   z-index: 400;
 }
 
-.patient-details>.details>.title {
-  font-size: 13px;
-  color: #bbb
-}
 
-.patient-details>.details>.designation {
-  font-size: 18px;
+.patient-details {
+  background: #fff;
+  padding: 2.6rem 2rem;
+}
+.patient-details>.details {
+  padding-bottom: 4rem;
+}
+.patient-details>.details>.title {
+  color: #555;
+  font-size: 1rem;
+}
+.patient-details>.details>.description {
   font-weight: 700;
 }
 
@@ -59,8 +114,8 @@ ul.timeline>li:before {
   table-layout: fixed;
   text-align: center;
   vertical-align: middle;
-  padding-left: 0;
-  padding-top: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .step-indicator li {
@@ -72,13 +127,14 @@ ul.timeline>li:before {
 }
 
 .step-indicator li:after {
-  background-color: #ccc;
+  border-top: #aaa dotted 1px;
   content: "";
   display: block;
   height: 1px;
   position: absolute;
   width: 100%;
-  top: 32px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .step-indicator li:after {
@@ -97,24 +153,27 @@ ul.timeline>li:before {
 
 .step-indicator li.disable .step {
   border-style: dotted ;
-  color: #B51F23;
+  color: #aaa;
+  border-color: #aaa;
 }
 
 .step-indicator li.active .caption {
-  color: #4183D7;
+  color: #B51F23;
 }
 
 .step-indicator li.complete:after {
-  background-color: #87D37C;
+  background-color: #fff;
 }
 
 .step-indicator li.complete .step {
-  border-color: #87D37C;
-  color: #87D37C;
+  border-color: #B51F23;
+  color: #B51F23;
 }
-
+.step-indicator li.complete:after {
+  border-top: #B51F23 solid 1px;
+}
 .step-indicator li.complete .caption {
-  color: #87D37C;
+  color: #B51F23;
 }
 
 .step-indicator .step {
@@ -122,13 +181,13 @@ ul.timeline>li:before {
   border: 1px solid #B51F23;
   color: #B51F23;
   font-weight: 700;
-  font-size: 12px;
-  height: 64px;
-  padding-top: 15px;
+  font-size: 10px;
+  height: 42px;
   margin: 0 auto;
   position: relative;
-  width: 120px;
+  width: 100px;
   z-index: 1;
+  padding-top: 8px;
 }
 
 .step-indicator .step:hover {
@@ -136,6 +195,6 @@ ul.timeline>li:before {
 }
 
 .step-indicator .caption {
-  color: #ccc;
+  color: #aaa;
   padding: 11px 16px;
 }

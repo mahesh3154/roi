@@ -1,39 +1,4 @@
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top {
-  padding: 0;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav {
-  margin-left: 0;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li {
-  border: none;
-  color: #AAAAAA;
-  background-color: #fff;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
-  background: #fff;
-  border: none;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-default a:hover {
-  color: #B51F23;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li a {
-  color: #AAAAAA;
-  padding: 1.4rem 3rem 1.3rem;
-}
-:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-corner-top {
-  border-radius: 0;
-}
-:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels {
-  background-color: transparent;
-  border: none;
-  color: #555;
-  padding:0;
-}
-:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels .ui-tabview-panel {
-  padding-top: 5.4rem;
-}
+
 
 
 .employessModelBox li {
@@ -41,25 +6,11 @@
   padding: 10px 20px;
   border: 2px solid #eee;
   list-style-type: none;
-  margin: 30px
+  margin: 30px;
 }
 
 .clear {
   clear: both;
-}
-
-h3 {
-  margin: 5px;
-  font-size: 13px
-}
-
-.employee-icons {
-  font-size: 40px;
-  padding: 10px
-}
-
-button {
-  margin-right: 30px
 }
 
 .cui-edit-sbox {
