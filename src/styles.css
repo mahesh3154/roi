@@ -42,6 +42,9 @@ body .ui-widget {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
 }
+.f8 {
+    font-size: 0.8rem;
+}
 .f10 {
     font-size: 1rem;
 }
@@ -60,8 +63,14 @@ body .ui-widget {
 .cui-body-space {
     padding: 3.8rem 6rem;
 }
+.left {
+    text-align: left;
+}
 .center {
     text-align: center;
+}
+.right {
+    text-align: right;
 }
 .mtop-80 {
     margin-top: 8rem;
@@ -105,6 +114,19 @@ body .ui-button {
   font-size: 1.4rem;
 }
 
+.cui-main-bdr-btn.ui-button,
+.cui-main-bdr-btn.ui-button:enabled:hover,
+.cui-main-bdr-btn.ui-button:enabled:active {
+  background: #fff;
+  border: solid #b51f23 1px;
+  color:#b51f23;
+  padding: 1.5rem 3.3rem;
+}
+.cui-main-bdr-btn.ui-button.ui-button-text-only .ui-button-text {
+  padding: 0;
+  font-size: 1.4rem;
+}
+
 .cui-gray-btn.ui-button,
 .cui-gray-btn.ui-button:enabled:hover,
 .cui-gray-btn.ui-button:enabled:active {
@@ -143,6 +165,7 @@ body .ui-button:enabled:focus {
 .cui-input-space h3 {
     margin: 0 0 0.6rem 0.6rem; 
     font-size: 1.2rem;
+    color: #555;
 }
 body .ui-inputtext,
 body .ui-inputtext:enabled:hover:not(.ui-state-error),
@@ -160,13 +183,42 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   color:#aaa;
   width: 100%;
 }
-.cui-calender {
+.cui-calender, .ui-calender {
     border-color: #ccc;
     color:#aaa;
     width: 100%; 
 }
+body .ui-radiobutton {
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;
+}
+body .ui-radiobutton .ui-radiobutton-box {
+    border: 1px solid #707070;
+    width: 16px;
+    height: 16px;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active,
+body .ui-radiobutton .ui-radiobutton-box.ui-state-focus,
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover,
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active.ui-state-focus,
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border-color: #707070;
+    background-color: #fff;
+    color: #ffffff;
+}
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon {
+    background-color: #b51f23;
+}
+body .ui-radiobutton-label {
+    margin: 0 2.5rem 0 0.5rem;
+}
 body .ui-corner-all {
   border-radius: 3px;
+}
+
+body .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
+    color: #b51f23;
 }
 
 /* Tile icon text*/
@@ -184,6 +236,9 @@ body .ui-corner-all {
     background-color: #fff;
     border: 1px solid #b51f23;
     color: #b51f23;
+}
+.cui-tile-box {
+    width: 100%;
 }
 .cui-tile-box .cui-tile-ibox {
     padding: 2.3rem 3.2rem 1rem;
@@ -206,4 +261,10 @@ body .ui-corner-all {
 }
 .sub-btns {
     margin-top: 3rem;
+}
+.add-payment-box {
+    border: solid 1px #b51f23;
+    padding: 1.7rem 2rem;
+    margin: 0 0 3rem;
+    width: 50%;
 }

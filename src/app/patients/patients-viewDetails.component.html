@@ -89,60 +89,52 @@
           </ng-template>
         </p-table>
 
-        <p-dialog header="Add Payments" [style]="{width: '500px', height: '200px'}" [(visible)]="displayDialog" [responsive]="true"
-          showEffect="fade" [modal]="true" [style]="{width: '300px'}">
+        <p-dialog header="Add Payments" [style]="{width: '75%'}" [(visible)]="displayDialog" [responsive]="true"
+          showEffect="fade" [modal]="true">
           <div class="ui-g ui-fluid" *ngIf="patient">
-            <div class="ui-g-12">
+            <div class="ui-g-10 ui-g ui-g-offset-1">
+              <h2 class="width100 mbtm-80 center">Add Payments</h2>
               <div class="ui-g-12">
-                <label for="invoivedate">Invoice Date</label>
+                <div class="add-payment-box">
+                  <h5 class="main-color f8">Patient</h5>
+                  <p>Mr Peter Parker</p>
+                  <p class="gray-color f10">Male, 32</p>
+                </div>
               </div>
-              <div class="ui-g-8">
-                <p-calendar [(ngModel)]="patient.invoice_date"></p-calendar>
+              <div class="ui-g-6">
+                <div class="cui-input-space">
+                  <h3>Invoice Date</h3>
+                  <p-calendar [(ngModel)]="patient.invoice_date"></p-calendar>
+                </div>
               </div>
-            </div>
-            <div class="ui-g-12">
+              <div class="ui-g-6">
+                <div class="cui-input-space">
+                  <h3>Amount</h3>
+                  <input pInputText id="amount" [(ngModel)]="patient.amount" />
+                </div>
+              </div>
               <div class="ui-g-12">
-                <label for="amount">Amount</label>
-              </div>
-              <div class="ui-g-8">
-                <input pInputText id="amount" [(ngModel)]="patient.amount" />
-              </div>
-            </div>
-            <div class="ui-g-12">
-              <div class="ui-g-12">
-                <label for="amount">Payment Mode</label>
+                <div class="cui-input-space">
+                  <h3>Payment Mode</h3>
+                  <p-radioButton name="group2" styleClass="radio-btn" value="cash" label="Cash" [(ngModel)]="patient.payment_method" inputId="preopt1"></p-radioButton>
+                  <p-radioButton name="group2" styleClass="radio-btn" value="card" label="Card" [(ngModel)]="patient.payment_method" inputId="preopt2"></p-radioButton>
+                  <p-radioButton name="group2" styleClass="radio-btn" value="net banking" label="Net Banking" [(ngModel)]="patient.payment_method" inputId="preopt3"></p-radioButton>
+                </div>
               </div>
               <div class="ui-g-12">
-                <div class="ui-g" style="width:250px;margin-bottom:10px">
-                  <div class="ui-g-4">
-                    <p-radioButton name="group2" value="cash" label="Cash" [(ngModel)]="patient.payment_method" inputId="preopt1"></p-radioButton>
-                  </div>
-                  <div class="ui-g-4">
-                    <p-radioButton name="group2" value="card" label="Card" [(ngModel)]="patient.payment_method" inputId="preopt2"></p-radioButton>
-                  </div>
-                  <div class="ui-g-4">
-                    <p-radioButton name="group2" value="net banking" label="Net Banking" [(ngModel)]="patient.payment_method" inputId="preopt3"></p-radioButton>
-                  </div>
+                <div class="cui-input-space">
+                  <h3>Description</h3>
+                  <input pInputText id="description" [(ngModel)]="patient.description" />
                 </div>
               </div>
             </div>
-
-            <div class="ui-g-12">
-              <div class="ui-g-12">
-                <label for="description">Description</label>
-              </div>
-              <div class="ui-g-8">
-                <input pInputText id="description" [(ngModel)]="patient.description" />
-              </div>
-            </div>
-
           </div>
-          <p-footer>
-            <div class="ui-dialog-buttonpane ui-helper-clearfix">
-              <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
-              <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+          <div class="ui-g-12 center">
+            <div class="sub-btns">
+              <button pButton type="button" label="Delete" class="cui-gray-btn" (click)="delete()"></button>
+              <button pButton type="button" label="Save" class="cui-main-btn" (click)="save()"></button>
             </div>
-          </p-footer>
+          </div>
         </p-dialog>
       </p-tabPanel>
     </p-tabView>

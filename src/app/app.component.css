@@ -1,4 +1,10 @@
- /*header css*/
+:host ::ng-deep a {
+  color: #555555;
+}
+:host ::ng-deep a:hover, :host ::ng-deep a:active, :host ::ng-deep a:focus {
+  color: #b51f23;
+}
+/*header css*/
 .topbar {
   padding: 0;
   background: #fff;
@@ -158,7 +164,7 @@
   padding: 0;
 }
 :host ::ng-deep .pi {
-  font-size: 1rem;
+  font-size: 1.7rem;
 }
 :host ::ng-deep .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
   color: #b51f23;
