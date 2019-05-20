@@ -1,28 +1,26 @@
 <div class="ui-g">
-  
     <form [formGroup]="addScheduleForm">
       <div class="ui-g">
         <div class="ui-g-10 ui-g ui-g-offset-1">
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>Doctor</h3>
-              <p-dropdown [options]="doctors" formControlName="doctor_empid"></p-dropdown>
+              <p-dropdown [options]="doctors" formControlName="doctor" optionLabel="name"></p-dropdown>
             </div>
             <div class="cui-input-space">
               <h3>Appoitment Type</h3>
-              <input type="text" formControlName="apptmt_type"  value="" pInputText />
-
+              <p-dropdown [options]="doctors" formControlName="appointmentType"  optionLabel="name"></p-dropdown>
             </div>
           </div>
   
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>Patient</h3>
-              <input id="float-input" formControlName="patient" value="config.data.patientname" type="text" size="30" pInputText />
+              <input id="float-input" formControlName="patient" type="text" size="30" pInputText />
             </div>
             <div class="cui-input-space" [hidden]="config.header != 'Schedule Procedure'">
               <h3>Procedure Name</h3>
-              <p-dropdown [options]="procedureName" formControlName="procedure_name"   optionLabel="name"></p-dropdown>
+              <p-dropdown [options]="doctors" formControlName="procedureName" optionLabel="name"></p-dropdown>
             </div>
           </div>
   

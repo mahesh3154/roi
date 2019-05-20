@@ -1,0 +1,9 @@
+body a {
+    color: #555555;
+}
+body a:hover, body a:active, body a:focus {
+    color: #b51f23;
+}
+.ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
+    color: #b51f23;
+}

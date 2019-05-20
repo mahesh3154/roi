@@ -1,0 +1,23 @@
+.billing-expenses {
+    padding: 1.7rem 2.5rem;
+    background-color: #fff;
+    border: solid #EBEDF5 1px;
+    position: relative;
+    margin: 0 0 2rem;
+}
+.billing-expenses h4 {
+    margin: 0 0 0.8rem;
+    color: #B51F23;
+    font-size: 1.8rem;
+}
+.billing-expenses p {
+    margin: 0;
+    color: #555555;
+}
+.billing-expenses [class^="roi-"] {
+    position: absolute;
+    color: #aaa;
+    top: 2.4rem;
+    right: 2.4rem;
+}
+
