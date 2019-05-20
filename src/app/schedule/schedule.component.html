@@ -1,1 +1,22 @@
-aaaa
+<div>
+
+
+</div>
+
+<div class="ui-g">
+  <div class="ui-g-2">
+     
+    <p-dropdown [options]="doctors" [(ngModel)]="selectedDoctorId" (onChange)=getAllSchedules() ></p-dropdown>
+  </div>
+  <div class="ui-g-8">
+    <p-calendar [(ngModel)]="dateFormat" (onSelect) =getAllSchedules()></p-calendar>
+
+    <div *ngFor="let schedule of schedules">
+      <div>{{schedule.patientname}}</div>
+    </div>
+
+     <li class="disable" (click)="addScheduleModelBox()">
+                <div class="step">Schedule Procedure</div>
+              </li>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 <div class="ui-g">
   <form [formGroup]="addAdminForm" >
-    <div>
-      <div>
+      <div class="ui-g">
+          <div class="ui-g-10 ui-g ui-g-offset-1">
+              <h2 class="width100 mbtm-80 center">Add Admin</h2>
         <!----
         <ul class="employessModelBox" >
           <li *ngFor="let type of typeofEmployess">
@@ -19,29 +20,37 @@
             </div>
           </ng-template>
         </p-selectButton>
-      </div>
+
       <div class="clear"></div>
-      <div>
-        <h3>Name</h3>
-        <span class="ui-float-label">
-    <input id="float-input" formControlName="name"  class="form-control" type="text" size="30" pInputText  > 
-</span>
-        <h3>Email Id</h3>
-        <span class="ui-float-label">
-    <input id="float-input" formControlName="email"  class="form-control" type="text" size="30" pInputText > 
-</span>
-   <h3>Phone Number</h3>
-        <span class="ui-float-label">
-    <input id="float-input" formControlName="phonenumber"  class="form-control" type="text" size="30" pInputText > 
-</span>
 
-
+      <div class="ui-g">
+        <div class="ui-g-6">
+          <div class="cui-input-space">
+            <h3 class="first">Name</h3>
+            <input id="float-input" formControlName="name" type="text" size="30" pInputText  />
+          </div>
+          <div class="cui-input-space">
+            <h3 class="first">Phone Number</h3>
+            <input id="float-input" formControlName="phonenumber" type="text" size="30" pInputText />
+            <span id="text">{{text}}</span>
+          </div>
+        </div>
+        <div class="ui-g-6">
+          <div class="cui-input-space">
+            <h3 class="first">Email Id</h3>
+            <input id="float-input" formControlName="email" type="text" size="30" pInputText />
+            <span id="text">{{text}}</span>
+          </div>
+        </div>
       </div>
-      <div class="employee-footer">
-        <button pButton type="button" label="Disable" (click)="handleClick($event)"></button>
-        <button pButton type="button" label="Cancel" (click)="handleClick($event)"></button>
-        <button pButton type="button" label="Update" (click)="submitaddAdmin($event)"></button>
+      <div class="ui-g-12 center">
+          <div class="sub-btns">
+            <button pButton type="button" label="Disable" class="cui-gray-btn" (click)="handleClick($event)"></button>
+            <button pButton type="button" label="Cance" class="cui-gray-btn" (click)="handleClick($event)"></button>
+            <button pButton type="button" label="Update" class="cui-main-btn" (click)="submitaddAdmin($event)"></button>
+          </div>
       </div>
+    </div>
     </div>
   </form>
 </div>

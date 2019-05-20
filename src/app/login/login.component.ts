@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginUser(value).subscribe(
       suc => {
       
-     //   localStorage.setItem('token', 'Bearer ' + suc.token);
+        localStorage.setItem('token', 'Bearer ' + suc['token']);
        this.router.navigate(['/settings'])
 
       },

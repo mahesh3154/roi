@@ -16,11 +16,11 @@ export class AddEmployee {
     user: any;
     constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, private formBuilder: FormBuilder) { }
     ngOnInit() {
-        this.typeofEmployess = [{ id: 1, logo: 'fas fa-stethoscope', label: 'doctor' },
-        { id: 2, logo: 'fas fa-headset', label: 'Front Desk' },
-        { id: 3, logo: 'fas fa-briefcase', label: 'Manager' },
-        { id: 4, logo: 'fas fa-bullhorn', label: 'Marketing' },
-        { id: 5, logo: 'fas  fa-file-invoice', label: 'Accounts' }];
+        this.typeofEmployess = [{ id: 1, logo: 'roi-stethoscope-icon', label: 'Doctor' },
+        { id: 2, logo: 'roi-reception-icon', label: 'Front Desk' },
+        { id: 3, logo: 'roi-briefcase-icon', label: 'Manager' },
+        { id: 4, logo: 'roi-promotion-icon', label: 'Marketing' },
+        { id: 5, logo: 'roi-budget-icon', label: 'Accounts' }];
         this.addEmployeeForm = this.formBuilder.group({
             role: ['', Validators.required],
             empname: ['', Validators.required],
@@ -41,6 +41,10 @@ export class AddEmployee {
         }
     }
     addEmployee() {
+                    console.log('eeeeeeeeeeeeeeeeee')
+
+       
         this.ref.close(this.addEmployeeForm.value);
+
     }
 }

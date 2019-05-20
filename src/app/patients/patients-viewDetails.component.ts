@@ -46,7 +46,6 @@ export class PatientsViewDetailsComponent implements OnInit {
 
   }
 
-
   addScheduleConsultationModelBox() {
     const ref = this.dialogService.open(AddSchedule, {
       header: 'Schedule Consultation',
@@ -58,8 +57,13 @@ export class PatientsViewDetailsComponent implements OnInit {
 
     ref.onClose.subscribe((patient) => {
       if (patient) {
-        console.log(patient);
+ this.patientService.addSchedules(patient).subscribe(
+     suc => {
+      },
+      err => {
+        console.log(err);
       }
+    );      }
     });
   }
   addScheduleProcedureModelBox() {
@@ -92,6 +96,10 @@ export class PatientsViewDetailsComponent implements OnInit {
     );
 
     this.displayDialog = false;
+  }
+
+  addReminder(){
+    
   }
 
 

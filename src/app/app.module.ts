@@ -25,6 +25,7 @@ import { AddLocations } from './modelboxes/addLocations';
 import { AddPatients } from './modelboxes/addPatients';
 import { AddSchedule } from './modelboxes/addSchedule';
 import { AddAdmin } from './modelboxes/addAdmin';
+import { AddPatientSchedule } from './modelboxes/addPatientSchedule';
 
 
 import { StepsModule } from 'primeng/steps';
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import {ListboxModule} from 'primeng/listbox';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from './services/employee.service';
@@ -46,6 +48,7 @@ import { BillingService } from './services/billing.service';
 
 import { DialogService } from 'primeng/api';
 import { PanelModule } from 'primeng/panel';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
@@ -53,6 +56,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
+import { SelectlocationsComponent } from './selectlocations/selectlocations.component';
 
 @NgModule({
   declarations: [
@@ -67,17 +71,20 @@ import { AuthGuard } from './auth.guard';
     AddLocations,
     AddPatients,
     AddSchedule,
+    AddPatientSchedule,
     PatientsViewDetailsComponent,
     SidebarComponent,
     TopbarComponent,
     LoginComponent,
-    RegisterComponent],
+    RegisterComponent,
+    SelectlocationsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AccordionModule,
     InputTextareaModule,
+    ListboxModule,
     InputTextModule,
     ButtonModule,
     CalendarModule,
@@ -87,6 +94,7 @@ import { AuthGuard } from './auth.guard';
     DropdownModule,
     DynamicDialogModule,
     DialogModule,
+    ProgressSpinnerModule,
     RatingModule,
     SelectButtonModule,
     SidebarModule,
@@ -103,7 +111,8 @@ import { AuthGuard } from './auth.guard';
     AddLocations,
     AddPatients,
     AddSchedule,
-    AddAdmin
+    AddAdmin,
+    AddPatientSchedule
   ],
   providers: [EmployeeService, PatientService, MainService, AuthService, AuthGuard, DialogService,
     {

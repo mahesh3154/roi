@@ -9,7 +9,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     let authService = this.injector.get(AuthService);
     let tokenizedReq = req.clone(
       {
-        headers: req.headers.set('Authorization', authService.getToken())
+        headers: req.headers.set('Authorization', authService.getToken() || '')
       }
     )
     return next.handle(tokenizedReq);

@@ -19,15 +19,13 @@ export class AppComponent {
   ngOnInit() {
     this.mainService.getAllLocations().subscribe(data => this.locations = data);
     this.mainService.getAdmins().subscribe(data => this.admins = data);
-
-
   }
 
   addLocation() {
     const ref = this.dialogService.open(AddLocations, {
       header: 'Add Locations',
       width: '70%',
-      contentStyle: { "max-height": "650px" }
+      contentStyle: { "max-height": "700px" }
     });
     ref.onClose.subscribe((data) => {
       data.city = data.city.name;
@@ -46,7 +44,7 @@ export class AppComponent {
   addAdminModelbox() {
     const ref = this.dialogService.open(AddAdmin, {
       header: 'Add Admin',
-      width: '70%',
+      width: '50%',
       contentStyle: { "max-height": "650px" }
     });
     ref.onClose.subscribe((data) => {
@@ -63,7 +61,7 @@ export class AppComponent {
   editAdminModelbox(data) {
     const ref = this.dialogService.open(AddAdmin, {
       header: 'Add Admin',
-      width: '70%',
+      width: '50%',
       contentStyle: { "max-height": "650px" },
       data: { data }
     });
@@ -75,7 +73,7 @@ export class AppComponent {
     const ref = this.dialogService.open(AddLocations, {
       header: 'Edit Location',
       width: '70%',
-      contentStyle: { "max-height": "650px" },
+      contentStyle: { "max-height": "700px" },
       data: { data }
 
     });

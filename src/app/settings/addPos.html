@@ -1,21 +1,23 @@
 <form [formGroup]="addPosForm">
-
-  <div>
-    <h3>Item Name</h3>
-    <span class="ui-float-label">
-<input id="float-input" formControlName="itemname"  class="form-control" type="text" size="30" pInputText > 
-</span>
-
-    <h3>Amount</h3>
-    <span class="ui-float-label">
-      <input id="float-input" formControlName="amount"  class="form-control" type="text" size="30" pInputText > 
-
-</span>
-
+  <div class="ui-g">
+    <div class="ui-g-4 ui-g ui-g-offset-4">
+      <h2 class="width100 mbtm-80 center">Create POS Item</h2>
+      <div class="cui-input-space">
+        <h3>Item Name</h3>
+        <input id="float-input" formControlName="itemname" type="text" size="30" pInputText > 
+      </div>
+      <div class="cui-input-space">
+        <h3>Amount</h3>
+        <input id="float-input" formControlName="amount" type="text" size="30" pInputText > 
+      </div>
+    </div>
+    <div class="ui-g-12 center">
+      <div class="sub-btns">
+        <button pButton class="disable" type="button" class="cui-gray-btn" label="Disable" (click)="disable($event)"></button>
+        <button pButton class="Cancel" type="button" class="cui-gray-btn" label="Cancel" (click)="cancel($event)"></button>
+        <button pButton class="Update" type="button" class="cui-main-btn" label="Update" (click)="sumbmit($event)"></button>
+      </div>
+    </div>
   </div>
-  <div class="employee-footer">
-    <button pButton class="disable" type="button" label="Disable" (click)="disable($event)"></button>
-    <button pButton class="Cancel" type="button" label="Cancel" (click)="cancel($event)"></button>
-    <button pButton class="Update" type="button" label="Update" (click)="sumbmit($event)"></button>
-  </div>
+  
 </form>

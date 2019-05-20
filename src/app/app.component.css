@@ -1,77 +1,221 @@
+ /*header css*/
+.topbar {
+  padding: 0;
+  background: #fff;
+}
+.header-section {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1rem 4.8rem;
+}
+.header-section .logo img{
+  float: left;
+}
+.header-section .logo img{
+  height: 2.9rem;
+  width: 17.6rem;
+}
+.top-utility-bar {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+.top-utility-bar li {
+  display: inline-block;
+  padding: 8px;
+}
+.top-utility-bar li .ui-button {
+  background: transparent;
+  border: none;
+}
+/* header end*/
+/* sidebar start */
+:host ::ng-deep .roi-sidebar.ui-sidebar {
+  width: 38rem;
+  padding: 1.5rem 4.4rem 1.5rem 5.6rem;
+  overflow-y: scroll;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top {
+  padding: 0;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav {
+  margin-left: 1rem;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li {
+  margin: 0;
+  border-color: #AAAAAA;
+  color: #AAAAAA;
+  background-color: transparent;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: transparent;
+  border-color: #B51F23;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li a:hover {
+  color: #B51F23;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  color: #AAAAAA;
+  padding: 1.4rem 3.3rem 1.3rem;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-corner-top {
+  border-radius: 0;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview .ui-tabview-panels {
+  padding: 0;
+  width: 26rem;
+  margin: 3.3rem 0 0 0;
+  border: none;
+  color: #555;
+}
+:host ::ng-deep .roi-sidebar.ui-sidebar .ui-sidebar-close {
+  position: relative;
+  top: 0;
+  right: -3rem;
+}
+.location-sticker {
+  margin-top: 1.5rem;
+  border: 1px solid #555;
+  padding: 2rem 3.9rem 1.4rem 2.8rem;
+}
+
+.location-sticker>.wrapper {
+  float: left;
+  width: 100%;
+}
+.location-sticker>.edit {
+  float: right;
+  color: #b51f23
+}
+.location-sticker>.wrapper>.title {
+  font-weight: 900;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.location-sticker>.wrapper>.title .roi-edit-icon {
+  position: absolute;
+  right: -1.5rem;
+  top:0;
+  font-size: 1.7rem;
+  color: #b51f23;
+  cursor: pointer;
+}
+
+.location-sticker>.wrapper>.address {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1.2rem;
+}
+.location-sticker>.wrapper>.phone,
+.location-sticker>.wrapper>.email {
+  color: #b51f23;
+  margin-bottom: 1rem;
+}
+.location-sticker>.wrapper>.phone>i,
+.location-sticker>.wrapper>.email>i {
+  font-size: 0.9rem;
+  color: #b51f23;
+}
+
+/* sidebar end */
  .clear {
    clear: both;
  }
-
- h3 {
-   padding: 0px;
-   font-size: 14px
- }
-
- :host ::ng-deep .ui-table .ui-table-tbody>tr>td {
-   border: none !important;
- }
-
- :host ::ng-deep .ui-table .ui-table-thead>tr>th {
-   background: none;
-   padding: 0px;
-   border: none;
- }
-
- :host ::ng-deep .ui-table .ui-table-tbody>tr:nth-child(even) {
-   background: none;
- }
-
- :host ::ng-deep .ui-corner-all {
-   border-radius: 0px
- }
- :host ::ng-deep   .ui-table .ui-sortable-column.ui-state-highlight{
-   color: #000;
- }
-:host ::ng-deep  .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon{
-  color:#000;
+ :host ::ng-deep .ui-table .ui-table-caption {
+  border: none;
+  font-weight: 700;
+  background: none;
+  padding: 0;
+  text-align: right;
 }
- :host ::ng-deep .ui-inputtext {
-   border: 1px solid #a6a6a6;
- }
+ :host ::ng-deep .ui-table .ui-table-tbody > tr {
+  background-color: transparent;
+  color: #000;
+}
+:host ::ng-deep .ui-table .ui-table-thead>tr>th,
+:host ::ng-deep .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+  background: none;
+  border: none;
+  color: #555;
+}
+:host ::ng-deep .ui-table .ui-table-tbody>tr>td,
+:host ::ng-deep .ui-table .ui-table-thead>tr>th {
+  border: none !important;
+  padding: 2rem 0;
+  text-align: center;
+  font-weight: 800;
+}
+:host ::ng-deep .ui-table .ui-table-tbody>tr>td a.link {
+  color: #b51f23;
+}
+:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+  color:#555;
+}
+:host ::ng-deep .ui-table .ui-table-summary {
+  border: none;
+  background: none;
+  padding: 0;
+}
+:host ::ng-deep .pi {
+  font-size: 1rem;
+}
+:host ::ng-deep .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
+  color: #b51f23;
+}
 
- :host ::ng-deep .ui-tabview .ui-tabview-panels {
-   border: none
- }
+/*custom tab view*/
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top {
+  padding: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav {
+  margin-left: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li {
+  border: none;
+  color: #AAAAAA;
+  background-color: #fff;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: #fff;
+  border: none;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-default a:hover {
+  color: #B51F23;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  color: #AAAAAA;
+  padding: 1.4rem 3rem 1.3rem;
+}
+:host ::ng-deep .custom-tabview.ui-tabview.ui-tabview-top .ui-corner-top {
+  border-radius: 0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  padding:0;
+}
+:host ::ng-deep .custom-tabview.ui-tabview .ui-tabview-panels .ui-tabview-panel {
+  padding-top: 5.4rem;
+}
 
- .location-sticker {
-   margin: 1px;
-   border: 1px solid #000;
-   padding: 10px
- }
+:host ::ng-deep .icon.ui-button,
+:host ::ng-deep .icon.ui-button:enabled:active,
+:host ::ng-deep .icon.ui-button:enabled:focus,
+:host ::ng-deep .icon.ui-button:enabled:hover {
+  background: transparent;
+  border: none;
+  margin-right: 0;
+}
+:host ::ng-deep .icon.ui-button .ui-button-icon-left,
+:host ::ng-deep .icon.ui-button .ui-button-icon-right {
+  font-size: 13px;
+  color: #B51F23;
+}
+:host ::ng-deep .icon.ui-button.ui-button-icon-only .ui-button-text {
+  padding: 0;
+}
 
- .location-sticker>.wrapper {
-   float: left;
- }
-.location-sticker>.edit {
-   float: right;
-   color: #b51f23
- }
- .location-sticker>.wrapper>.title {
-   font-size: 16px
- }
-
- .location-sticker>.wrapper>.address {
-   font-size: 12px;
-   color: #DBDBDB
- }
-
- .location-sticker>.wrapper>.phone>i,
- .location-sticker>.wrapper>.email>i {
-   font-size: 12px;
-   color: #b51f23
- }
-
- 
-
- .location-sticker>.wrapper>.phone {
-   color: #b51f23
- }
-
- .location-sticker>.wrapper>.email {
-   color: #b51f23
- }

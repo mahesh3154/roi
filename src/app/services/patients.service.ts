@@ -5,10 +5,10 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class PatientService {
-        private url = 'http://23.96.83.133:8080/';
+    private url = 'http://23.96.83.133:8080/';
 
     auth: any;
-    
+
     constructor(private http: HttpClient) {
     }
     getAllPatients() {
@@ -30,6 +30,13 @@ export class PatientService {
 
             });
     }
+    addSchedules(data) {
+        return this.http
+            .post(`${this.url}patient/schedule/${data.apptmt_type}/${data.patientId}`, data, {
+                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
+
+            });
+    }
 
     addPayments(data, id) {
         return this.http
@@ -43,7 +50,7 @@ export class PatientService {
     getAllPayments() {
         return this.http
             .get(`${this.url}patient/payment/list/9164`, {
-                headers: { 'Content-Type': 'application/json; charset=utf-8'}
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
             });
     }
     getAllDoctors() {

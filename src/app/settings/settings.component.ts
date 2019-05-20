@@ -23,7 +23,18 @@ export class SettingsComponent implements OnInit {
             }
         );
         this.employeeService.getAllPosList().subscribe(suc => {
-            this.pos = suc;
+            if (suc) {
+                if (suc== 0) {
+                    this.pos = [];
+
+                }
+                else{
+                    this.pos = suc
+                }
+            }
+            else {
+                this.pos = suc;
+            }
         },
             err => {
                 console.log(err);
@@ -34,10 +45,23 @@ export class SettingsComponent implements OnInit {
         const ref = this.dialogService.open(AddEmployee, {
             header: 'Add Employee',
             width: '70%',
-            contentStyle: { "max-height": "650px" }
+            contentStyle: { "max-height": "680px" }
         });
 
         ref.onClose.subscribe((data) => {
+            if (data.role.label == "Doctor") {
+                console.log('eeeeeeeeeeeeeeeeee')
+                data.role.label = "doctor"
+            }
+            else if (data.role.label == "Accounts") {
+                data.role.label = "accountant"
+            }
+            else if (data.role.label == "Marketing") {
+                data.role.label = "representative"
+            }
+            else if (data.role.label == "Manager") {
+                data.role.label = "Marketing"
+            }
             data.role = data.role.label
             this.employeeService.createEmployees(data).subscribe(
                 suc => {
@@ -54,7 +78,7 @@ export class SettingsComponent implements OnInit {
         const ref = this.dialogService.open(AddEmployee, {
             header: 'Edit Employee',
             width: '70%',
-            contentStyle: { "max-height": "650px" },
+            contentStyle: { "max-height": "680px" },
             data: { data }
         });
 
@@ -63,10 +87,9 @@ export class SettingsComponent implements OnInit {
     }
     addPos() {
         const ref = this.dialogService.open(AddPos, {
-            header: 'Add Pos',
+            header: 'Add POS',
             width: '70%',
-            contentStyle: { "max-height": "650px" },
-
+            contentStyle: { "max-height": "650px" }
         });
 
         ref.onClose.subscribe((data) => {

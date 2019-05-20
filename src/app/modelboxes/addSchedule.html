@@ -1,52 +1,53 @@
 <div class="ui-g">
-  <form [formGroup]="addScheduleForm">
-    <div>
-      <div class="clear"></div>
-      <div>
-        <div class="ui-g">
+  
+    <form [formGroup]="addScheduleForm">
+      <div class="ui-g">
+        <div class="ui-g-10 ui-g ui-g-offset-1">
           <div class="ui-g-6">
-            <h3>Doctor</h3>
-            <span class="ui-float-label">
-<p-dropdown [options]="doctors" formControlName="doctor"  optionLabel="name"></p-dropdown>
-</span>
-          </div>
-          <div class="ui-g-6">
+            <div class="cui-input-space">
+              <h3>Doctor</h3>
+              <p-dropdown [options]="doctors" formControlName="doctor_empid"></p-dropdown>
+            </div>
+            <div class="cui-input-space">
+              <h3>Appoitment Type</h3>
+              <input type="text" formControlName="apptmt_type"  value="" pInputText />
 
-            <h3>Patient</h3>
-            <span class="ui-float-label">
-    <input id="float-input" formControlName="patient"  class="form-control" type="text" size="30" pInputText > 
-</span>
+            </div>
+          </div>
+  
+          <div class="ui-g-6">
+            <div class="cui-input-space">
+              <h3>Patient</h3>
+              <input id="float-input" formControlName="patient" value="config.data.patientname" type="text" size="30" pInputText />
+            </div>
+            <div class="cui-input-space" [hidden]="config.header != 'Schedule Procedure'">
+              <h3>Procedure Name</h3>
+              <p-dropdown [options]="procedureName" formControlName="procedure_name"   optionLabel="name"></p-dropdown>
+            </div>
+          </div>
+  
+          <div class="ui-g-12">
+            <div class="ui-g-6">
+              <div class="cui-input-space">
+                <h3>Appoimtment Date</h3>
+                <p-calendar styleClass="cui-calender" formControlName="date"></p-calendar>
+              </div>
+            </div>
+            <div class="ui-g-6">
+              <div class="cui-input-space">
+                <h3>Appoimtment Time</h3>
+                <p-calendar styleClass="cui-calender" formControlName="time" [timeOnly]="true"></p-calendar>
+              </div>
+            </div>
+          </div>
+          <div class="ui-g-12 center">
+            <div class="sub-btns">
+              <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
+              <button pButton type="button" label="Add" class="cui-main-btn" (click)="addSchedule($event)"></button>
+            </div>
           </div>
         </div>
-        <div class="ui-g">
-          <div class="ui-g-6">
-            <h3>Appoitment Type</h3>
-            <span class="ui-float-label">
-<p-dropdown [options]="doctors" formControlName="appointmentType"  optionLabel="name"></p-dropdown>
-</span></div>
-          <div class="ui-g-6" [hidden]="config.header != 'Schedule Procedure'">
-            <h3>Procedure Name</h3>
-            <span class="ui-float-label">
-<p-dropdown [options]="doctors"  formControlName="procedureName"  optionLabel="name"></p-dropdown>
-</span></div>
-        </div>
-        <div class="ui-g">
-          <div class="ui-g-6">
-            <h3>Appoimtment Date</h3>
-            <span class="ui-float-label">
-<p-calendar formControlName="date"></p-calendar>
-</span></div>
-          <div class="ui-g-6">
-            <h3>Appoimtment Time</h3>
-            <span class="ui-float-label">
-        <p-calendar formControlName="time" [timeOnly]="true"></p-calendar>
-</span></div>
-        </div>
       </div>
-      <div class="employee-footer">
-        <button pButton type="button" label="Cancel" (click)="cancel($event)"></button>
-        <button pButton type="button" label="Add" (click)="addSchedule($event)"></button>
-      </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
+  

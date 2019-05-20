@@ -1,55 +1,42 @@
+
+
+
 .employessModelBox li {
   float: left;
   padding: 10px 20px;
   border: 2px solid #eee;
   list-style-type: none;
-  margin: 30px
+  margin: 30px;
 }
 
 .clear {
   clear: both;
 }
 
-h3 {
-  margin: 5px;
-  font-size: 13px
+.cui-edit-sbox {
+  padding: 0 3rem 2rem 0;
 }
-
-.employee-icons {
-  font-size: 40px;
-  padding: 10px
-}
-
-button {
-  margin-right: 30px
-}
-
-.employee-footer {
-  margin-top: 30px
-}
-.employee-footer {
-  margin-top: 30px
-}
-
 .sticker {
-  margin: 20px;
-  background: #bbb;
-  padding: 20px
+  margin: 0;
+  background: #fff;
+  padding: 2.3rem 4.2rem;
+}
+.sticker .title {
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 0.6rem; 
+}
+.sticker .title .edit {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.sticker .title .edit .roi-edit-icon {
+  color: #B51F23;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.sticker .designation {
+  font-size: 1rem;
 }
 
-.sticker>.title {
-  font-size: 16px
-}
-
-.sticker>.designation {
-  font-size: 12px
-}
-
-.sticker>.edit {
-  float: right;
-  padding-left: 30px
-}
-
-.sticker>.description {
-  float: left;
-}

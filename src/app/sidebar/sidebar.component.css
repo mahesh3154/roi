@@ -1,0 +1,25 @@
+.ui-menu {
+    padding: 0;
+    background-color: #ffffff;
+    border: none;
+    width: 100%;
+}
+.ui-menu .ui-menuitem-link {
+    padding: 1.7rem 1.5rem;
+    font-weight: 700;
+}
+.ui-menu .ui-menuitem-link:hover,
+.ui-menu .ui-menuitem-link:focus,
+.ui-menu .ui-menuitem-link:active {
+    background-color: transparent;
+    color: #b51f23;
+}
+.ui-menu .ui-menuitem-link:hover .ui-menuitem-text,
+.ui-menu .ui-menuitem-link:focus .ui-menuitem-text,
+.ui-menu .ui-menuitem-link:active .ui-menuitem-text,
+.ui-menu .ui-menuitem-link:hover .ui-menuitem-icon,
+.ui-menu .ui-menuitem-link:focus .ui-menuitem-icon,
+.ui-menu .ui-menuitem-link:active .ui-menuitem-icon {
+    color: #b51f23;
+}
+

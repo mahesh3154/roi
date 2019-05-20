@@ -1,89 +1,85 @@
-<p-tabView>
+<p-tabView styleClass="custom-tabview">
   <p-tabPanel header="Basic Info">
-    <div class="ui-g">
-      <div class="ui-g-4">
-        <div>
-          <h3 class="first">Address</h3>
-          <textarea rows="5" cols="30" pInputTextarea></textarea>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-4 cui-input-box">
+        <div class="cui-input-space">
+          <h3>Address</h3>
+          <textarea rows="5" cols="30" placeholder="Address" pInputTextarea></textarea>
         </div>
-        <div>
-          <h3 class="first">Google Map Url</h3>
-          <input id="input" type="text" size="30" pInputText>
+        <div class="cui-input-space">
+          <h3>Google Map Url</h3>
+          <input id="input" type="text" size="30" placeholder="Google Map Url" pInputText>
           <span id="text">{{text}}</span>
         </div>
       </div>
-      <div class="ui-g-8">
-        <h3 class="mainHeader">Bank Details</h3>
-        <div class="ui-g">
-          <div class="ui-g-6">
-
-            <div>
-              <h3 class="first">Account Number</h3>
-              <input id="input" type="text" size="30" pInputText>
+      <div class="ui-g-7 cui-input-box">
+        <h3 class="mainHeader cui-input-space">Bank Details</h3>
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-5">
+            <div class="cui-input-space">
+              <h3>Account Number</h3>
+              <input id="input" type="text" size="30" placeholder="Account Number" pInputText>
               <span id="text">{{text}}</span>
             </div>
-            <div>
-              <h3 class="first">Email Address</h3>
-              <input id="input" type="text" size="30" pInputText>
+            <div class="cui-input-space">
+              <h3>Email Address</h3>
+              <input id="input" type="text" size="30" placeholder="Email Address" pInputText>
               <span id="text">{{text}}</span>
             </div>
           </div>
-          <div class="ui-g-6">
-            <div>
-              <h3 class="first">IFSC Code</h3>
-              <input id="input" type="text" size="30" pInputText>
+          <div class="ui-g-5">
+            <div class="cui-input-space">
+              <h3>IFSC Code</h3>
+              <input id="input" type="text" size="30" placeholder="IFSC Code" pInputText>
               <span id="text">{{text}}</span>
             </div>
-            <div>
-              <h3 class="first">Pan</h3>
-              <input id="input" type="text" size="30" pInputText>
+            <div class="cui-input-space">
+              <h3>PAN</h3>
+              <input id="input" type="text" size="30" placeholder="PAN" pInputText>
               <span id="text">{{text}}</span>
             </div>
           </div>
 
         </div>
       </div>
-      <p-button label="Save"></p-button>
+      <div class="ui-g-12 center mtop-80">
+        <p-button styleClass="cui-main-btn" label="Save"></p-button>
+      </div>
 
     </div>
   </p-tabPanel>
   <p-tabPanel header="Employee">
     <div class="ui-g">
-
-      <div class="ui-g-6" *ngFor="let employee of employees">
+      <div class="ui-g-5 cui-edit-sbox" *ngFor="let employee of employees">
         <div class="sticker">
           <div class="description">
-            <div class="title"> {{employee.empname}}</div>
+            <div class="title"> {{employee.empname}}
+                <span class="edit"><i  (click)="EditEmployeeModelBox(employee)" class="roi-edit-icon"></i></span>
+            </div>
             <div class="designation"> {{employee.email}}</div>
           </div>
-          <div class="edit"><i  (click)="EditEmployeeModelBox(employee)"  class="fas fa-pencil-alt"></i></div>
           <div class="clear"></div>
-
         </div>
-
       </div>
-
     </div>
-    <button type="button" (click)="addEmployeeModelBox()" pButton icon="pi pi-info-circle" label="Show"></button>
+    <button type="button" (click)="addEmployeeModelBox()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
 
   </p-tabPanel>
   <p-tabPanel header="POS">
     <div class="ui-g">
-
-      <div class="ui-g-6" *ngFor="let po of pos">
+      {{pos | json}}
+      <div class="ui-g-5 cui-edit-sbox" *ngFor="let po of pos">
         <div class="sticker">
           <div class="description">
-            <div class="title"> {{po.itemname}}</div>
+            <div class="title"> {{po.itemname}}
+                <span class="edit"><i  (click)="editPos(po)" class="roi-edit-icon"></i></span>
+            </div>
             <div class="designation"> {{po.amount}}</div>
           </div>
-          <div class="edit"><i  (click)="editPos(po)"  class="fas fa-pencil-alt"></i></div>
           <div class="clear"></div>
-
         </div>
-
       </div>
-
     </div>
-    <button type="button" (click)="addPos()" pButton icon="pi pi-info-circle" label="Show"></button>
+    <button type="button" (click)="addPos()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
   </p-tabPanel>
 </p-tabView>

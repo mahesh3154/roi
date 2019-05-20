@@ -1,5 +1,6 @@
+
 <div class="ui-g">
-  <div class="ui-g-4">
+  <div class="ui-g-3">
     <div class="patient-details">
       <div class="details">
         <div class="description">{{details.patientname}}</div>
@@ -29,13 +30,13 @@
       </div>
     </div>
   </div>
-  <div class="ui-g-8">
-    <p-tabView>
+  <div class="ui-g-8  ui-g-offset-1">
+    <p-tabView styleClass="custom-tabview">
       <p-tabPanel header="History">
         <div class="ui-g">
-          <div class="ui-g-8">
+          <div class="ui-g-12">
             <ol class="step-indicator">
-              <li class="">
+              <li class="complete">
                 <div class="step">Enquiry</div>
               </li>
               <li class="active">
@@ -50,16 +51,16 @@
             </ol>
             <ul class="timeline">
               <li>
-                <p>Lorem ipsum dolor sit amet, consectetur </p>
+                  <div class="mb15">
+                    <button type="button" class="icon" pButton icon="roi-reminders-icon"></button> <span class="main-color f10" (click)="addReminder()">Add Reminder</span>
+                  </div> 
+                  <div class="mb15">
+                    <button type="button" class="icon" pButton icon="roi-document-icon"></button> <span class="main-color f10">Add Note</span>
+                  </div>
               </li>
-              <li>
-
-                <p>Curabitur purus sem, malesuada eu luctus eget</p>
-              </li>
-              <li>
-
-                <p>Fusce ullamcorper ligula sit </p>
-              </li>
+              <li><button type="button" class="icon" pButton icon="roi-document-icon"></button>Lorem ipsum dolor sit amet, consectetur<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><button type="button" class="icon" pButton icon="roi-reminders-icon"></button>Curabitur purus sem, malesuada eu luctus eget<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><button type="button" class="icon" pButton icon="roi-schedule-icon"></button>Fusce ullamcorper ligula sit<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
             </ul>
           </div>
         </div>
@@ -83,8 +84,8 @@
             </tr>
           </ng-template>
           <ng-template pTemplate="summary" let-rowData>
-            <div style="text-align:left">
-              <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+            <div class="ui-g-12">
+                <button type="button" (click)="showDialogToAdd()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
             </div>
           </ng-template>
         </p-table>

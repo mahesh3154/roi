@@ -29,4 +29,11 @@ export class MainService {
     return this.http
       .get(`${this.url}clinic/viewList`);
   }
+  getAllClinics() {
+    return this.http
+      .get(`${this.url}clinic/viewList`);
+  }
+  selectclinic(id) {
+    return this.http.post(`${this.url}clinic/setclinic/${id}`,'');
+  }
 }

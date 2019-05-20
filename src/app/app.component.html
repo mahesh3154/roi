@@ -1,50 +1,71 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<button type="text" (click)="display = true" pButton icon="pi pi-plus" label="Show"></button>
-
-
-
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
-<p-sidebar [(visible)]="display">
-  <p-tabView>
-    <p-tabPanel header="Location" [selected]="true">
-      <div>
-
-        <div>
-          <div class="location-sticker" *ngFor="let location of locations">
-            <div class="wrapper">
-              <div class="title"> {{location.name}}</div>
-              <div class="address">{{location.address}}</div>
-              <div class="phone"><i class="fas fa-phone"></i> {{location.phone}}</div>
-              <div class="email"><i class="fas fa-envelope"></i> {{location.email}}</div>
-            </div>
-            <div class="edit"><i (click)="editLocation(location)" class="fas fa-pencil-alt"></i></div>
-            <div class="clear"></div>
-
-          </div>
-
-        </div>
-        <button pButton type="button" (click)="addLocation()" label="Click"></button>
-
+<div class="ui-g">
+  <div class="ui-g-12 topbar">
+    <header>
+      <div class="header-section">
+        <a href="/" class="logo">
+          <img src="../assets/regenortho-logo.png" alt="logo">
+        </a>
+        <ul class="top-utility-bar">
+          <li>
+            <button type="button" (click)="display = true" pButton icon="roi-location-details-icon"></button>
+          </li>
+          <li>
+            <button type="button" (click)="display = true" pButton icon="roi-reminders-icon"></button>
+          </li>
+          <li>
+            user
+          </li>
+        </ul>
       </div>
-    </p-tabPanel>
-    <p-tabPanel header="Admin">
-      <div>
-        <div>
-          <div class="location-sticker" *ngFor="let admin of admins">
-            <div class="wrapper">
-              <div class="title"> {{admin.empname}}</div>
-              <div class="address">{{admin.email}}</div>
+        <!--The content below is only a placeholder and can be replaced.-->
+      
+      <p-sidebar [(visible)]="display" position="right" styleClass="roi-sidebar" showCloseIcon="true">
+        <p-tabView>
+          <p-tabPanel header="Location" [selected]="true">
+              <div class="cui-sidebar">
+              <div>
+                <div class="location-sticker" *ngFor="let location of locations">
+                  <div class="wrapper">
+                    <div class="title"> {{location.name}}
+                        <span class="edit"><i (click)="editLocation(location)" class="roi-edit-icon"></i></span>
+                    </div>
+                    <div class="address">{{location.address}}</div>
+                    <div class="phone"><i class="roi-call-answer-icon"></i> {{location.phone}}</div>
+                    <div class="email"><i class="roi-envelope-icon"></i> {{location.email}}</div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <button pButton type="button" (click)="addLocation()" class="cui-plus-btn" icon="roi-plus-icon"></button>
             </div>
-            <div class="edit"><i (click)="editAdminModelbox(location)" class="fas fa-pencil-alt"></i></div>
-            <div class="clear"></div>
-
-          </div>
-
-        </div>
-        <button pButton type="button" (click)="addAdminModelbox()" label="Add Admin"></button>
-
-      </div>
-    </p-tabPanel>
-  </p-tabView>
-</p-sidebar>
+          </p-tabPanel>
+          <p-tabPanel header="Admin">
+            <div class="cui-sidebar">
+              <div>
+                <div class="location-sticker" *ngFor="let admin of admins">
+                  <div class="wrapper">
+                    <div class="title"> {{admin.empname}}
+                      <span class="edit"><i (click)="editAdminModelbox(location)" class="roi-edit-icon"></i></span>
+                    </div>
+                    <div class="address">{{admin.email}}</div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <button pButton type="button" (click)="addAdminModelbox()" class="cui-plus-btn" icon="roi-plus-icon"></button>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </p-sidebar>
+    </header>
+  </div>
+  <div class="ui-g-12 ui-md-3 ui-lg-2 cui-pad0">
+      <app-sidebar></app-sidebar>
+  </div>
+  <div class="ui-g-12 ui-md-9 ui-lg-10 cui-pad0 cui-body-space">
+      <router-outlet></router-outlet>
+  </div>
+  <div class="ui-g-12 cui-pad0">
+    <footer>footer</footer>
+  </div>
+</div>
