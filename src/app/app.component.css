@@ -155,8 +155,10 @@
 :host ::ng-deep .ui-table .ui-table-tbody>tr>td a.link {
   color: #b51f23;
 }
-:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon,
+:host ::ng-deep .ui-table .ui-sortable-column .ui-sortable-column-icon {
   color:#555;
+  font-size: 1.2rem;
 }
 :host ::ng-deep .ui-table .ui-table-summary {
   border: none;

@@ -80,7 +80,7 @@ export class ScheduleComponent implements OnInit {
   addScheduleModelBox() {
     const ref = this.dialogService.open(AddPatientSchedule, {
       header: 'Schedule Consultation',
-      width: '70%',
+      width: '50%',
       contentStyle: { "max-height": "650px" }
 
     });

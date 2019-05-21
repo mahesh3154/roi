@@ -49,8 +49,7 @@ export class PatientsViewDetailsComponent implements OnInit {
   addScheduleConsultationModelBox() {
     const ref = this.dialogService.open(AddSchedule, {
       header: 'Schedule Consultation',
-      width: '70%',
-      contentStyle: { "max-height": "650px" },
+      width: '50%',
       data: this.details,
 
     });
@@ -69,8 +68,7 @@ export class PatientsViewDetailsComponent implements OnInit {
   addScheduleProcedureModelBox() {
     const ref = this.dialogService.open(AddSchedule, {
       header: 'Schedule Procedure',
-      width: '70%',
-      contentStyle: { "max-height": "650px" },
+      width: '50%',
       data: this.details
     });
 

@@ -28,9 +28,7 @@ export class PatientsComponent implements OnInit {
 
   addPatientsModelBox() {
     const ref = this.dialogService.open(AddPatients, {
-      header: 'Add Patients',
       width: '75%',
-      contentStyle: { "max-height": "75%" }
     });
 
     ref.onClose.subscribe((patient) => {

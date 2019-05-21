@@ -22,9 +22,9 @@ export class AppComponent {
     this.mainService.getAdmins().subscribe(data => this.admins = data);
 
     this.items = [
-      {label: 'My Profile', icon: 'pi pi-user', routerLink: ['/myprofile']},
-      {label: 'Change Password', icon: 'pi pi-key', routerLink: ['/changepassword']},
-      {label: 'Logout', icon: 'pi pi-power-off', routerLink: ['/logout']}
+      {label: 'My Profile', icon: 'roi-user-icon', routerLink: ['/myprofile']},
+      {label: 'Change Password', icon: 'roi-key-icon', routerLink: ['/changepassword']},
+      {label: 'Logout', icon: 'roi-logout-icon', routerLink: ['/logout']}
     ];
   }
 
@@ -32,7 +32,6 @@ export class AppComponent {
     const ref = this.dialogService.open(AddLocations, {
       header: 'Add Locations',
       width: '70%',
-      contentStyle: { "max-height": "700px" }
     });
     ref.onClose.subscribe((data) => {
       data.city = data.city.name;
@@ -52,7 +51,6 @@ export class AppComponent {
     const ref = this.dialogService.open(AddAdmin, {
       header: 'Add Admin',
       width: '50%',
-      contentStyle: { "max-height": "650px" }
     });
     ref.onClose.subscribe((data) => {
       this.mainService.addAdmins(data).subscribe(
@@ -69,7 +67,6 @@ export class AppComponent {
     const ref = this.dialogService.open(AddAdmin, {
       header: 'Add Admin',
       width: '50%',
-      contentStyle: { "max-height": "650px" },
       data: { data }
     });
     ref.onClose.subscribe(() => {
@@ -80,7 +77,6 @@ export class AppComponent {
     const ref = this.dialogService.open(AddLocations, {
       header: 'Edit Location',
       width: '70%',
-      contentStyle: { "max-height": "700px" },
       data: { data }
 
     });

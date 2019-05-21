@@ -1,27 +1,27 @@
 <div class="ui-menu cui-min-hgt">
   <ul class="ui-menu-list">
     <li class="ui-menuitem">
+      <a [routerLink]="['/schedule']" class="ui-menuitem-link">
+        <span class="ui-menuitem-icon roi-schedule-icon"></span>
+        <span class="ui-menuitem-text">Schedule</span>
+      </a>
+    </li>
+    <li class="ui-menuitem">
         <a [routerLink]="['/patients']" class="ui-menuitem-link">
           <span class="ui-menuitem-icon roi-patients-icon"></span>
           <span class="ui-menuitem-text">Patients</span>
         </a>
     </li>
     <li class="ui-menuitem">
-      <a [routerLink]="['/settings']" class="ui-menuitem-link">
-        <span class="ui-menuitem-icon roi-settings-icon"></span>
-        <span class="ui-menuitem-text">Settings</span>
-      </a>
-    </li>
-    <li class="ui-menuitem">
-      <a [routerLink]="['/schedule']" class="ui-menuitem-link">
-        <span class="ui-menuitem-icon roi-schedule-icon"></span>
-        <span class="ui-menuitem-text">schedule</span>
-      </a>
-    </li>
-    <li class="ui-menuitem">
       <a [routerLink]="['/billing']" class="ui-menuitem-link">
         <span class="ui-menuitem-icon roi-billing-icon"></span>
         <span class="ui-menuitem-text">Billing</span>
+      </a>
+    </li>
+    <li class="ui-menuitem">
+      <a [routerLink]="['/settings']" class="ui-menuitem-link">
+        <span class="ui-menuitem-icon roi-settings-icon"></span>
+        <span class="ui-menuitem-text">Settings</span>
       </a>
     </li>
   </ul>

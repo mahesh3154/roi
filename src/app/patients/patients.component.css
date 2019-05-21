@@ -198,6 +198,7 @@ ul.timeline>li:first-child::after {
   z-index: 1;
   padding: 13px;
   margin-left: 30px;
+  border-radius: 2.5rem;
 }
 
 .step-indicator .step:hover {

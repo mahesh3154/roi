@@ -5,7 +5,7 @@
     width: 100%;
 }
 .ui-menu .ui-menuitem-link {
-    padding: 1.7rem 1.5rem;
+    padding: 1.3rem 1.5rem;
     font-weight: 700;
 }
 .ui-menu .ui-menuitem-link:hover,
@@ -22,4 +22,7 @@
 .ui-menu .ui-menuitem-link:active .ui-menuitem-icon {
     color: #b51f23;
 }
-
+.ui-menu .ui-menuitem-link .ui-menuitem-icon,
+.ui-menu .ui-menuitem-link .ui-menuitem-text {
+    color: #555;
+}
