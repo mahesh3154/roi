@@ -1,6 +1,10 @@
 <div class="ui-g">
   <div class="ui-g-3">
+      <div>
+        <a class="go-back" [routerLink]="['/patients']"><i class="pi-arrow-left pi"></i> Go Back</a>
+      </div>
     <div class="patient-details">
+      <a href="#" class="link edit-btn">Edit</a>
       <div class="details">
         <div class="description">{{details.patientname}}</div>
         <div class="title"> {{details.gender}} , {{details.age}} </div>
@@ -57,9 +61,9 @@
                     <button type="button" class="icon" pButton icon="roi-document-icon"></button> <span class="main-color f10">Add Note</span>
                   </div>
               </li>
-              <li><button type="button" class="icon" pButton icon="roi-document-icon"></button>Lorem ipsum dolor sit amet, consectetur<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
-              <li><button type="button" class="icon" pButton icon="roi-reminders-icon"></button>Curabitur purus sem, malesuada eu luctus eget<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
-              <li><button type="button" class="icon" pButton icon="roi-schedule-icon"></button>Fusce ullamcorper ligula sit<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-document-icon"></button>Lorem ipsum dolor sit amet, consectetur<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-reminders-icon"></button>Curabitur purus sem, malesuada eu luctus eget<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-schedule-icon"></button>Fusce ullamcorper ligula sit<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
             </ul>
           </div>
         </div>

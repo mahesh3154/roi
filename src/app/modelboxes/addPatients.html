@@ -3,103 +3,68 @@
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
         <h2 class="width100 mbtm-80 center">Add Patient</h2>
-        <div *ngIf="step1">
-          <h3 class="width100 mbtm-80 left">1<span class="gray-color f12">/3</span> Basic Details</h3>
-          <div class="ui-g-6">
-            <div class="cui-input-space">
-              <h3>Patient Name</h3>
-              <input id="float-input" formControlName="patientname" type="text" size="30" pInputText />
-            </div>
-            <div class="cui-input-space">
-              <h3>Patient Age</h3>
-              <input id="float-input" formControlName="age" type="text" size="30" pInputText /> 
-            </div>
-          </div>
-          <div class="ui-g-6">
-            <div class="cui-input-space">
-              <h3>Patient Problem</h3>
-              <p-dropdown [options]="problems" formControlName="problem" optionLabel="name"></p-dropdown>
-            </div>
-            <div class="cui-input-space">
-              <h3>Gender</h3>
-              <p-dropdown [options]="genders" formControlName="gender" optionLabel="name"></p-dropdown>
-            </div>
-          </div>
-          <div class="ui-g-12 right">
-            <div class="sub-btns">
-                <button pButton type="button" label="Next" class="cui-main-btn" (click)="step(2)"></button>
-            </div>
-          </div>
-        </div>
-      <!--- 2 step ---->
 
-      <div *ngIf="step2">
-        <h3 class="width100 mbtm-80 left">2<span class="gray-color f12">/3</span> Contact Details</h3>
-        <div class="ui-g-6">
+        <div class="ui-g-4">
           <div class="cui-input-space">
-            <h3>Email Address</h3>
-            <input id="float-input" formControlName="email" type="text" size="30" pInputText />
+            <h3>Patient Name</h3>
+            <input id="float-input" formControlName="patientname" type="text" size="30" pInputText />
+          </div>
+          <div class="cui-input-space">
+            <h3>Patient Age</h3>
+            <input id="float-input" formControlName="age" type="text" size="30" pInputText /> 
           </div>
           <div class="cui-input-space">
             <h3>Additional Phone Number</h3>
             <input id="float-input" formControlName="additional_phonenum" type="text" size="30" pInputText />
           </div>
-        </div>
-        <div class="ui-g-6">
           <div class="cui-input-space">
-            <h3>Phone Number</h3>
-            <input id="float-input" formControlName="phonenumber" type="text" size="30" pInputText /> 
+            <h3>Opinion</h3>
+            <p-rating formControlName="opinion" stars="3" [cancel]="false"></p-rating>
+          </div>
+        </div>
+        <div class="ui-g-4">
+          <div class="cui-input-space">
+            <h3>Patient Problem</h3>
+            <p-dropdown [options]="problems" formControlName="problem" optionLabel="name"></p-dropdown>
+          </div>
+          <div class="cui-input-space">
+            <h3>Email Address</h3>
+            <input id="float-input" formControlName="email" type="text" size="30" pInputText />
           </div>
           <div class="cui-input-space">
             <h3>City / Country</h3>
             <p-dropdown [options]="datasource" formControlName="city_country" optionLabel="name"></p-dropdown>
           </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g-6 left">
-            <div class="sub-btns">
-                <button pButton type="button" label="Previous" class="cui-main-bdr-btn" (click)="step(1)"></button>
-            </div>
-          </div>
-          <div class="ui-g-6 right">
-            <div class="sub-btns">
-                <button pButton type="button" label="Next" class="cui-main-btn" (click)="step(3)"></button>
-            </div>
+          <div class="cui-input-space">
+            <h3>Remarks</h3>
+            <input id="float-input" formControlName="remarks" type="text" size="30" pInputText /> 
           </div>
         </div>
-      </div>
-      <!--- 3rd Step ---->
-      <div *ngIf="step3">
-        <h3 class="width100 mbtm-80 left">3<span class="gray-color f12">/3</span> Additional Details</h3>
-        <div class="ui-g-6">
+        <div class="ui-g-4">
+          <div class="cui-input-space">
+            <h3>Gender</h3>
+            <p-dropdown [options]="genders" formControlName="gender" optionLabel="name"></p-dropdown>
+          </div>
+          <div class="cui-input-space">
+            <h3>Phone Number</h3>
+            <input id="float-input" formControlName="phonenumber" type="text" size="30" pInputText /> 
+          </div>
           <div class="cui-input-space">
             <h3>Source</h3>
             <p-dropdown [options]="datasource" formControlName="source" optionLabel="name"></p-dropdown>
           </div>
           <div class="cui-input-space">
-              <h3>Remarks</h3>
-              <input id="float-input" formControlName="remarks" type="text" size="30" pInputText /> 
+            <h3>Assign to</h3>
+            <p-dropdown [options]="assignto" formControlName="assignto" optionLabel="name"></p-dropdown>
           </div>
         </div>
-        <div class="ui-g-6">
-          <div class="cui-input-space center">
-            <h3>Opinion</h3>
-            <p-rating formControlName="opinion" stars="3" [cancel]="false"></p-rating>
-          </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g-6 left">
+
+        <div class="ui-g-12 right">
             <div class="sub-btns">
-                <button pButton type="button" label="Previous" class="cui-main-bdr-btn" (click)="step(2)"></button>
+                <button pButton type="button" label="Add" class="cui-main-btn" (click)="sumbmit(addPatientsForm)"></button>
             </div>
-          </div>
-          <div class="ui-g-6 right">
-            <div class="sub-btns">
-                <button pButton type="button" label="Next" class="cui-main-btn" (click)="sumbmit(addPatientsForm)"></button>
-            </div>
-          </div>
         </div>
-      </div>
+
     </div>
   </div>
   </form>

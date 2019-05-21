@@ -1,44 +1,32 @@
-
 <form [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)">
-    <p-panel header="Validate">
-        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    User Name *:
-                </div>
-                <div class="ui-grid-col-6">
-                    <input pInputText type="text" formControlName="email" placeholder="Required"/>
-                </div>
-                <div class="ui-grid-col-4">
+    <p-panel header="LOGIN" styleClass="loginForm">
+        <div class="ui-g">
+            <div class="ui-g-4 ui-g-offset-4">
+                <div class="cui-input-space">
+                    <h3>Email ID</h3>
+                    <input pInputText type="text" formControlName="email" placeholder="Email ID"/>
                     <p-message severity="error" text="EmailId is required" *ngIf="!loginform.controls['email'].valid&&loginform.controls['email'].dirty"></p-message>
                 </div>
-            </div>
-
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    Password *:
-                </div>
-                <div class="ui-grid-col-6">
+                <div class="cui-input-space">
+                    <h3>Password</h3>
                     <input pInputText type="password" formControlName="password" placeholder="Required - Min(6)"/>
+                    <p-message severity="error" [text]="loginform.controls['password'].errors['required'] ? 'Password is required' : loginform.controls['password'].errors['minlength'] ? 'Must be longer than 6 characters' : ''" 
+                    *ngIf="!loginform.controls['password'].valid&&loginform.controls['password'].dirty"></p-message>
                 </div>
-                <div class="ui-grid-col-4">
-                <p-message severity="error" [text]="loginform.controls['password'].errors['required'] ? 'Password is required' : loginform.controls['password'].errors['minlength'] ? 'Must be longer than 6 characters' : ''" 
-                        *ngIf="!loginform.controls['password'].valid&&loginform.controls['password'].dirty"></p-message>
+                <div class="cui-input-space">
+                    <p>Remember me</p>
                 </div>
             </div>
-        
-   
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-2"></div>
-                <div class="ui-grid-col-6">
-                    <button pButton type="submit" label="Submit" [disabled]="!loginform.valid"></button>
+            <div class="ui-g-12 center">
+                <div class="sub-btns">
+                    <button pButton type="submit" label="Login" class="cui-main-btn login" [disabled]="!loginform.valid"></button>
                 </div>
-                <div class="ui-grid-col-4"></div>
-            </div>
-            <div style="text-align:center;margin-top:20px" *ngIf="submitted">
-                Form Submitted
-                <br>
-                {{diagnostic}}
+                <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                    Form Submitted
+                    <br>
+                    {{diagnostic}}
+                </div>
+                <p><a class="forgotpwd" href="#">Forgot Password?</a></p>
             </div>
         </div>
     </p-panel>

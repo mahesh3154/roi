@@ -29,7 +29,7 @@ ul.timeline {
   list-style-type: none;
   position: relative;
   margin: 0;
-  padding: 0 0 0 4rem;
+  padding: 0 0 0 2.8rem;
 }
 
 ul.timeline:before {
@@ -39,15 +39,21 @@ ul.timeline:before {
   position: absolute;
   left: 16px;
   width: 1px;
-  height: 100%;
+  height: 98%;
   z-index: 400;
 }
 
 ul.timeline>li {
   margin: 45px 0 0;
   padding-left: 20px;
+  font-weight: 600;
 }
-
+ul.timeline li .timeline-date {
+  position: absolute;
+  left: -70px;
+  color:#AAAAAA;
+  font-size: 1rem;
+}
 ul.timeline>li:before {
   content: ' ';
   background: white;
@@ -55,19 +61,19 @@ ul.timeline>li:before {
   position: absolute;
   border-radius: 50%;
   border: 1px solid #707070;
-  left: 8px;
-  width: 15px;
-  height: 15px;
+  left: 11px;
+  width: 11px;
+  height: 11px;
   z-index: 400;
 }
 ul.timeline>li:first-child::before {
   content: '+';
   border: 1px dotted #B51F23;
   color: #B51F23;
-  left: 4px;
+  left: 5px;
   width: auto;
   height: auto;
-  font-size: 23px;
+  font-size: 20px;
   padding: 5px;
 }
 ul.timeline>li:first-child::after {
@@ -85,6 +91,7 @@ ul.timeline>li:first-child::after {
 .patient-details {
   background: #fff;
   padding: 2.6rem 2rem;
+  position: relative;
 }
 .patient-details>.details {
   padding-bottom: 4rem;
@@ -96,7 +103,11 @@ ul.timeline>li:first-child::after {
 .patient-details>.details>.description {
   font-weight: 700;
 }
-
+.edit-btn {
+  position: absolute;
+  top: 3.5rem;
+  right: 3.1rem;
+}
 .step-wrapper {
   padding: 20px 0;
   display: none;
@@ -182,12 +193,11 @@ ul.timeline>li:first-child::after {
   color: #B51F23;
   font-weight: 700;
   font-size: 10px;
-  height: 42px;
   margin: 0 auto;
   position: relative;
-  width: 100px;
   z-index: 1;
-  padding-top: 8px;
+  padding: 13px;
+  margin-left: 30px;
 }
 
 .step-indicator .step:hover {
@@ -198,3 +208,5 @@ ul.timeline>li:first-child::after {
   color: #aaa;
   padding: 11px 16px;
 }
+
+

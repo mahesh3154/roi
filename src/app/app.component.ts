@@ -14,11 +14,18 @@ export class AppComponent {
   locations: any = [];
   admins: any = [];
   postReq: any = {};
+  items: MenuItem[];
   constructor(public dialogService: DialogService, public mainService: MainService) { }
 
   ngOnInit() {
     this.mainService.getAllLocations().subscribe(data => this.locations = data);
     this.mainService.getAdmins().subscribe(data => this.admins = data);
+
+    this.items = [
+      {label: 'My Profile', icon: 'pi pi-user', routerLink: ['/myprofile']},
+      {label: 'Change Password', icon: 'pi pi-key', routerLink: ['/changepassword']},
+      {label: 'Logout', icon: 'pi pi-power-off', routerLink: ['/logout']}
+    ];
   }
 
   addLocation() {

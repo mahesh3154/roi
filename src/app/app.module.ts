@@ -26,6 +26,7 @@ import { AddPatients } from './modelboxes/addPatients';
 import { AddSchedule } from './modelboxes/addSchedule';
 import { AddAdmin } from './modelboxes/addAdmin';
 import { AddPatientSchedule } from './modelboxes/addPatientSchedule';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 
 import { StepsModule } from 'primeng/steps';
@@ -103,7 +104,8 @@ import { SelectlocationsComponent } from './selectlocations/selectlocations.comp
     HttpClientModule,
     MessagesModule,
     MessageModule,
-    PanelModule
+    PanelModule,
+    SplitButtonModule
   ],
   entryComponents: [
     AddEmployee,

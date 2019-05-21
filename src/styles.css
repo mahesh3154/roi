@@ -75,6 +75,18 @@ body .ui-widget {
 .mtop-80 {
     margin-top: 8rem;
 }
+a.forgotpwd {
+    color: #b51f23 !important;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 3.3rem 0 0 -1.8rem;
+    display: block;
+}
+.link {
+    color: #B51F23 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
 /*plus btn*/
 .cui-plus-btn.ui-button,
 .cui-plus-btn.ui-button:enabled:hover {
@@ -139,6 +151,26 @@ body .ui-button {
   padding: 0;
   font-size: 1.4rem;
 }
+.go-back {
+    padding: 1.4rem 2.2rem 1.3rem;
+    color: #555;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: #fff;
+    margin-bottom: 3.5rem;
+    display: inline-block;
+}
+.go-back .pi {
+    position: relative;
+    top: 3px;
+    left: -5px;
+}
+
+.login.ui-button,
+.login.ui-button:enabled:hover,
+.login.ui-button:enabled:active {
+    padding: 1.3rem 8rem 1.2rem;
+}
 
 body .ui-button:enabled:focus {
     box-shadow: none;
@@ -175,6 +207,7 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   padding: 1.7rem 2.4rem 1.6rem;
   width: 100%;
   font-size: 1.2rem;
+  background-color: #fff;
 }
 body .ui-dropdown,
 body .ui-dropdown:not(.ui-state-disabled):hover,
@@ -182,11 +215,13 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   border: 1px solid #ccc;
   color:#aaa;
   width: 100%;
+  background-color: #fff;
 }
 .cui-calender, .ui-calender {
     border-color: #ccc;
     color:#aaa;
     width: 100%; 
+    background-color: #fff;
 }
 body .ui-radiobutton {
     width: 16px;
@@ -220,7 +255,21 @@ body .ui-corner-all {
 body .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
     color: #b51f23;
 }
-
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #aaa;
+  -webkit-text-fill-color: #ccc;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 /* Tile icon text*/
 .cui-tile-box .ui-selectbutton .ui-button {
     background-color: #fff;
@@ -237,7 +286,7 @@ body .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
     border: 1px solid #b51f23;
     color: #b51f23;
 }
-.cui-tile-box {
+.cui-tile-box, form {
     width: 100%;
 }
 .cui-tile-box .cui-tile-ibox {
@@ -267,4 +316,76 @@ body .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
     padding: 1.7rem 2rem;
     margin: 0 0 3rem;
     width: 50%;
+}
+/* Login form*/
+body .loginForm.ui-panel .ui-panel-titlebar {
+    border: 1px solid transparent;
+    padding: 1.7rem 12.4rem;
+    background-color: #fff;
+    color: #555;
+    border-radius: 0px;
+}
+body .loginForm.ui-panel .ui-panel-titlebar .ui-panel-title {
+    position: relative;
+    padding: 0 0 8px;
+}
+body .loginForm.ui-panel .ui-panel-titlebar .ui-panel-title:after {
+    content: " ";
+    display:table-cell;
+    padding:15px;
+    border-bottom: solid #B51F23 2px;
+    position: absolute;
+    bottom: 0;
+    left: 6px;
+}
+body .loginForm.ui-panel .ui-panel-content {
+    background-color: #ffffff;
+    color: #555;
+    padding: 9rem 0;
+    border: none;
+}
+img.user-icon {
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    left: -2px;
+}
+body .user-name.ui-splitbutton .ui-button {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: #555555;
+    font-weight: 600;
+}
+body .user-name.ui-splitbutton .ui-button.ui-button-text-only .ui-button-text {
+    padding: 0.5rem;
+}
+body .user-name.ui-splitbutton .ui-corner-left {
+    border-radius: 0;
+}
+body .user-name.ui-splitbutton .ui-splitbutton-menubutton .pi.pi-chevron-down {
+    font-size: 1.2rem;
+}
+body .user-name.ui-splitbutton .ui-splitbutton-menubutton .pi-chevron-down:before {
+    content: "\e906";
+}
+body .user-name.ui-splitbutton.ui-buttonset .ui-menu {
+    top: 3.5rem !important;
+    left: auto !important;
+    right: 0;
+    width: 18.4rem;
+}
+body .user-name.ui-splitbutton.ui-buttonset .ui-menu.ui-shadow {
+    border: 1px solid transparent;
+    box-shadow: 1px 1px 6px 0px rgba(156, 107, 107, 0.16);
+}
+body .user-name.ui-splitbutton .ui-menu .ui-menuitem-link {
+    padding: 1rem 1.5rem;
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+body .user-name.ui-splitbutton .ui-menu .ui-menuitem-link .ui-menuitem-icon {
+    color: #B51F23;
 }

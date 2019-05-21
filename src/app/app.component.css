@@ -27,7 +27,7 @@
 }
 .top-utility-bar li {
   display: inline-block;
-  padding: 8px;
+  padding: 0 0 18px;
 }
 .top-utility-bar li .ui-button {
   background: transparent;
@@ -224,4 +224,3 @@
 :host ::ng-deep .icon.ui-button.ui-button-icon-only .ui-button-text {
   padding: 0;
 }
-

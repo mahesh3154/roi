@@ -2,7 +2,7 @@
   <div class="ui-g-12 topbar">
     <header>
       <div class="header-section">
-        <a href="/" class="logo">
+        <a [routerLink]="['/']" class="logo">
           <img src="../assets/regenortho-logo.png" alt="logo">
         </a>
         <ul class="top-utility-bar">
@@ -12,8 +12,8 @@
           <li>
             <button type="button" (click)="display = true" pButton icon="roi-reminders-icon"></button>
           </li>
-          <li>
-            user
+          <li> <img class="user-icon" src="https://www.w3schools.com/howto/img_avatar.png" alt="user icon">
+            <p-splitButton label="User Name" styleClass="user-name" [model]="items"></p-splitButton> 
           </li>
         </ul>
       </div>
