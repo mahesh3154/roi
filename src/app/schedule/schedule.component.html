@@ -1,22 +1,38 @@
-<div>
 
-
-</div>
-
-<div class="ui-g">
-  <div class="ui-g-2">
-     
+<div class="ui-g schedule-wrapper">
+  <div class="ui-g-12 center">
+      <p-calendar [(ngModel)]="dateFormat" (onSelect) =getAllSchedules()></p-calendar>
+  </div>
+  <div class="ui-g-3 left">
     <p-dropdown [options]="doctors" [(ngModel)]="selectedDoctorId" (onChange)=getAllSchedules() ></p-dropdown>
   </div>
-  <div class="ui-g-8">
-    <p-calendar [(ngModel)]="dateFormat" (onSelect) =getAllSchedules()></p-calendar>
-
-    <div *ngFor="let schedule of schedules">
+  <div class="ui-g-9 schedule-box">
+    <div class="schedules">
+      <h5><img src="../assets/sunrise.png" alt="Morning"> Morning</h5>
+      <ul class="schedule-list">
+        <li>10:00 - Mr. Peter Parker - SD: Pre</li>
+        <li class="white">11:00 - Mr. Radha Krishnan Chinnappa</li>
+      </ul>
+    </div>
+    <div class="schedules">
+      <h5><img src="../assets/sun.png" alt="Afternoon"> Afternoon</h5>
+      <ul class="schedule-list">
+        <li>10:00 - Mr. Peter Parker - SD: PRP</li>
+        <li class="white">10:00 - Mr. Peter Parker</li>
+        <li>10:00 - Mr. Peter Parker - AVN</li>
+        <li>11:00 - Mr. Radha Krishnan Chinnappa - PL</li>
+      </ul>
+    </div>
+  
+  <!--  <div *ngFor="let schedule of schedules">
       <div>{{schedule.patientname}}</div>
     </div>
 
-     <li class="disable" (click)="addScheduleModelBox()">
-                <div class="step">Schedule Procedure</div>
-              </li>
+    <li class="disable" (click)="addScheduleModelBox()">
+      <div class="step">Schedule Procedure</div>
+    </li> -->
+    <div class="ui-g-12">
+      <button type="button" (click)="addScheduleModelBox()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
+    </div>
   </div>
 </div>

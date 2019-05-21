@@ -208,6 +208,7 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   width: 100%;
   font-size: 1.2rem;
   background-color: #fff;
+  font-weight: 600;
 }
 body .ui-dropdown,
 body .ui-dropdown:not(.ui-state-disabled):hover,
@@ -216,6 +217,17 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   color:#aaa;
   width: 100%;
   background-color: #fff;
+}
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, 
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight {
+    color: #000;
+    background-color: #fff;
+}
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item, 
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
+    padding: 1rem 3rem 1rem;
+    border: 0 none;
+    color: #000;
 }
 .cui-calender, .ui-calender {
     border-color: #ccc;
@@ -388,4 +400,39 @@ body .user-name.ui-splitbutton .ui-menu .ui-menuitem-link {
 }
 body .user-name.ui-splitbutton .ui-menu .ui-menuitem-link .ui-menuitem-icon {
     color: #B51F23;
+}
+/*schedules page*/
+body .schedule-wrapper .ui-dropdown, 
+body .schedule-wrapper .ui-dropdown:not(.ui-state-disabled):hover, 
+body .schedule-wrapper .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+    border: 1px solid #aaa;
+    color: #000;
+    background-color: #fff;
+}
+body .schedule-wrapper .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+    margin-top: -0.5rem;
+    margin-left: -2rem;
+    font-size: 1.2rem;
+}
+body .schedule-wrapper .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon.pi-chevron-down:before {
+    content: "\e906";
+}
+body .schedule-wrapper .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, 
+body .schedule-wrapper .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight {
+    color: #000;
+    background-color: #fff;
+}
+body .schedule-wrapper .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item, 
+body .schedule-wrapper .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
+    padding: 1rem 3rem 1rem;
+    border: 0 none;
+    color: #000;
+    font-weight: 600;
+}
+body .schedule-wrapper .ui-inputtext, 
+body .schedule-wrapper .ui-inputtext:enabled:hover:not(.ui-state-error), 
+body .schedule-wrapper .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    color: #000;
+    padding: 1.7rem 2.8rem 1.6rem;
+    font-weight: 600;
 }
