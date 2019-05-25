@@ -23,6 +23,7 @@
             <p-rating [(ngModel)]="patient.opinion" stars="3" [cancel]="false"></p-rating>
           </td>
           <td>{{patient.doctor}}</td>
+          <td><a class="link">Edit</a></td>
           <td><a class="link" [routerLink]="['/patients-viewdetails',patient.patientid]">View Details</a></td>
         </tr>
       </ng-template>

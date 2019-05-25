@@ -27,9 +27,9 @@ export class BillingComponent implements OnInit {
   constructor(private billingService: BillingService, public dialogService: DialogService) { }
   ngOnInit() {
     this.expensesType = [
-      { icon: "far fa-money-bill-alt", type: "cash" },
-      { icon: "far fa-credit-card", type: "card" },
-      { icon: "fas fa-university", type: "bank" }
+      { icon: "roi-money-icon", type: "CASH" },
+      { icon: "roi-credit-card-icon", type: "CARD" },
+      { icon: "roi-bank-icon", type: "BANK" }
     ]
     this.colsBilling = [
       { field: 'invoice_date', header: 'Invoice Date' },

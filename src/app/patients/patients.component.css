@@ -39,7 +39,7 @@ ul.timeline:before {
   position: absolute;
   left: 16px;
   width: 1px;
-  height: 98%;
+  height: 93%;
   z-index: 400;
 }
 
@@ -47,12 +47,19 @@ ul.timeline>li {
   margin: 45px 0 0;
   padding-left: 20px;
   font-weight: 600;
+  color: #000;
 }
 ul.timeline li .timeline-date {
   position: absolute;
   left: -70px;
   color:#AAAAAA;
   font-size: 1rem;
+}
+ul.timeline li .text-note {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin: 0.3rem 0 0 0.8rem;
 }
 ul.timeline>li:before {
   content: ' ';
@@ -80,13 +87,12 @@ ul.timeline>li:first-child::after {
   content: ' ';
   border-left: #B51F23 dotted 1px;
   width: 1px;
-  height: 30%;
+  height: 23%;
   position: absolute;
   top: 25px;
-  left: 16px;
+  left: 17px;
   z-index: 400;
 }
-
 
 .patient-details {
   background: #fff;
@@ -97,8 +103,9 @@ ul.timeline>li:first-child::after {
   padding-bottom: 4rem;
 }
 .patient-details>.details>.title {
-  color: #555;
+  color: #aaa;
   font-size: 1rem;
+  line-height: 2rem;
 }
 .patient-details>.details>.description {
   font-weight: 700;

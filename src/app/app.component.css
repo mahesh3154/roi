@@ -39,6 +39,7 @@
   width: 38rem;
   padding: 1.5rem 4.4rem 1.5rem 5.6rem;
   overflow-y: scroll;
+  box-shadow: -3px 0px 12px rgb(0,0,0,0.16); 
 }
 :host ::ng-deep .roi-sidebar.ui-sidebar .ui-tabview.ui-tabview-top {
   padding: 0;
@@ -83,7 +84,7 @@
 .location-sticker {
   margin-top: 1.5rem;
   border: 1px solid #555;
-  padding: 2rem 3.9rem 1.4rem 2.8rem;
+  padding: 2rem 3.8rem 1.4rem 2.8rem;
 }
 
 .location-sticker>.wrapper {
@@ -122,6 +123,7 @@
 .location-sticker>.wrapper>.email>i {
   font-size: 0.9rem;
   color: #b51f23;
+  padding-right: 1rem;
 }
 
 /* sidebar end */
@@ -222,6 +224,9 @@
 :host ::ng-deep .icon.ui-button .ui-button-icon-right {
   font-size: 13px;
   color: #B51F23;
+}
+:host ::ng-deep .icon.ui-button .ui-button-icon-left.roi-reminders-icon {
+  font-size: 1.7rem;
 }
 :host ::ng-deep .icon.ui-button.ui-button-icon-only .ui-button-text {
   padding: 0;

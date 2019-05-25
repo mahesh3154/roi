@@ -1,7 +1,17 @@
-<p-tabView styleClass="custom-tabview">
-    <div class="ui-g-12 right">
-        
+<p-tabView styleClass="custom-tabview prelative">
+  <div class="billing-filter pabsolute">
+    <div class="dd-filter prelative">
+      <i class="roi-filter-icon"></i> 
+      <p-dropdown dropdownIcon="pi pi-caret-down"></p-dropdown>
     </div>
+    <div class="search-filter prelative">
+      <input type="text" pInputText size="50" placeholder="Search" />
+      <i class="roi-search-icon"></i>
+    </div>
+
+    
+    
+  </div>
   <p-tabPanel header="Income">
     <div class="ui-g">
       <div class="ui-g-8">
@@ -20,6 +30,7 @@
               <td>{{billing.patientname}}</td>
               <td>{{billing.payment_method}}</td>
               <td>{{billing.amount}}</td>
+              <td><a class="link"><i class="roi-receipt-icon"></i> Receipt</a></td>
             </tr>
           </ng-template>
         </p-table>
@@ -93,7 +104,7 @@
               <div class="ui-g-6">
                 <div class="cui-input-space">
                   <h3>Invoice Date</h3>
-                  <p-calendar styleClass="cui-calender" [(ngModel)]="expense.invoice_date"></p-calendar>
+                  <p-calendar styleClass="cui-calender" showIcon="true" icon="roi-calendar-icon" [(ngModel)]="expense.invoice_date"></p-calendar>
                 </div>
                 <div class="cui-input-space">
                   <h3>Vendor Name</h3>
@@ -104,6 +115,10 @@
                 <div class="cui-input-space">
                   <h3>Amount</h3>
                   <input pInputText id="amount" [(ngModel)]="expense.amount" />
+                </div>
+                <div class="cui-input-space">
+                  <h3>Invoice</h3>
+                  <p class="attach-invoice"><a href="#" class="link"><i class="roi-document-icon"></i> Attach Invoice</a></p>
                 </div>
               </div>     
             
