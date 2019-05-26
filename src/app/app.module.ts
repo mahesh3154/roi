@@ -28,6 +28,7 @@ import { AddAdmin } from './modelboxes/addAdmin';
 import { AddPatientSchedule } from './modelboxes/addPatientSchedule';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { ForgotPassword } from './modelboxes/forgotPassword';
+import { ChangePassword } from './modelboxes/changePassword';
 
 
 import { StepsModule } from 'primeng/steps';
@@ -80,7 +81,9 @@ import { SelectlocationsComponent } from './selectlocations/selectlocations.comp
     LoginComponent,
     RegisterComponent,
     SelectlocationsComponent,
-    ForgotPassword],
+    ForgotPassword,
+    ChangePassword
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
