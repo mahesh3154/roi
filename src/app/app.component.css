@@ -125,7 +125,29 @@
   color: #b51f23;
   padding-right: 1rem;
 }
-
+.reminders .head {
+  margin: 2.5rem auto 1rem;
+}
+.reminders .reminder-type {
+  margin: 2.5rem 0 0;
+}
+.reminders .reminder-type ul.rlist {
+  padding: 0;
+  margin: 0.6rem 0 0;
+}
+.reminders .reminder-type ul.rlist li {
+  margin: 0;
+  padding: 1.8rem 0 1.8rem 1.5rem;
+  list-style: none;
+  border-bottom: solid 0.05rem #EBEDF5;
+}
+.reminders .reminder-type ul.rlist li h5 {
+  color: #B51F23;
+  margin: 0.6rem 0 0; 
+}
+.reminders .reminder-type ul.rlist li h4 {
+  margin: 0;
+}
 /* sidebar end */
  .clear {
    clear: both;
