@@ -261,6 +261,22 @@ body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
     width: 100%; 
     background-color: #fff;
 }
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:hover:not(.ui-state-error), 
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:focus:not(.ui-state-error),
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:hover:not(.ui-state-error), 
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:focus:not(.ui-state-error),
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext,
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext {
+    border-right: 1px solid #ccc;
+    border-radius: 3px;
+}
+body .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button,
+body .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+    position: absolute;
+    right: -1rem;
+    background-color: transparent;
+    border: none;
+}
 body .ui-radiobutton {
     width: 16px;
     height: 16px;
