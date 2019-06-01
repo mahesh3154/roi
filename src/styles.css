@@ -75,6 +75,15 @@ body .ui-widget {
 .mtop-80 {
     margin-top: 8rem;
 }
+.mbtm-25 {
+    margin-bottom: 2.5rem !important;
+}
+.prelative {
+    position: relative;
+}
+.pabsolute {
+    position: absolute;
+}
 a.forgotpwd {
     color: #b51f23 !important;
     text-decoration: none;
@@ -86,6 +95,23 @@ a.forgotpwd {
     color: #B51F23 !important;
     text-decoration: none;
     font-weight: 600;
+}
+.link [class^="roi-"], .link [class*=" roi-"]{
+    color: #B51F23;
+    font-size: 1.7rem;
+    position: relative;
+    top: 3px;
+}
+.link-black {
+    color: #000 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+.link-black [class^="roi-"], .link-black [class*=" roi-"]{
+    color: #000;
+    font-size: 1.7rem;
+    position: relative;
+    top: 3px;
 }
 /*plus btn*/
 .cui-plus-btn.ui-button,
@@ -208,7 +234,7 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   width: 100%;
   font-size: 1.2rem;
   background-color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 }
 body .ui-dropdown,
 body .ui-dropdown:not(.ui-state-disabled):hover,
@@ -234,6 +260,22 @@ body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
     color:#aaa;
     width: 100%; 
     background-color: #fff;
+}
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:hover:not(.ui-state-error), 
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:focus:not(.ui-state-error),
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:hover:not(.ui-state-error), 
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext:enabled:focus:not(.ui-state-error),
+body .cui-calendar.ui-calendar-w-btn .ui-inputtext,
+body .ui-calendar.ui-calendar-w-btn .ui-inputtext {
+    border-right: 1px solid #ccc;
+    border-radius: 3px;
+}
+body .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button,
+body .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+    position: absolute;
+    right: -1rem;
+    background-color: transparent;
+    border: none;
 }
 body .ui-radiobutton {
     width: 16px;
@@ -282,12 +324,20 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+    color: #aaa;
+}
 /* Tile icon text*/
+.cui-tile-box .ui-widget {
+    margin-bottom: 3rem; 
+}
 .cui-tile-box .ui-selectbutton .ui-button {
     background-color: #fff;
     border: 1px solid #aaa;
     color: #aaa;
     margin: 1rem 1.2rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
 }
 .cui-tile-box .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover,
 .cui-tile-box .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover,
@@ -389,8 +439,8 @@ body .user-name.ui-splitbutton.ui-buttonset .ui-menu {
     width: 18.4rem;
 }
 body .user-name.ui-splitbutton.ui-buttonset .ui-menu.ui-shadow {
-    border: 1px solid transparent;
-    box-shadow: 1px 1px 6px 0px rgba(156, 107, 107, 0.16);
+    border: 0.05rem solid #EBEDF5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
 }
 body .user-name.ui-splitbutton .ui-menu .ui-menuitem-link {
     padding: 1rem 1.5rem;

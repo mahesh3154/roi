@@ -20,4 +20,54 @@
     top: 2.4rem;
     right: 2.4rem;
 }
+.billing-filter {
+    top: 0;
+    right: 0;
+}
+.billing-filter .dd-filter,
+.billing-filter .search-filter {
+    display: inline-block;
+}
+.billing-filter .dd-filter {
+    margin-right: 1.2rem;
+}
+.billing-filter .dd-filter .roi-filter-icon {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    z-index: 1;
+    font-size: 1.25rem;
+}
+.billing-filter .search-filter .roi-search-icon {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #aaa;
+    z-index: 1;
+}
+
+.billing-filter .ui-inputtext,
+.billing-filter .ui-inputtext:enabled:hover:not(.ui-state-error),
+.billing-filter .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    width: 20rem;
+    border: 0.05rem solid #EBEDF5;
+    color:#aaa;
+    padding: 1.4rem 3.8rem 1.3rem 1.6rem;
+}
+.attach-invoice {
+    margin: 2rem 0 0 1.5rem; 
+}
+:host ::ng-deep .billing-filter .ui-dropdown,
+:host ::ng-deep .billing-filter .ui-dropdown:not(.ui-state-disabled):hover,
+:host ::ng-deep .billing-filter .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+    width: 12rem;
+    border: 0.05rem solid #EBEDF5;
+}
+:host ::ng-deep .billing-filter .ui-dropdown .ui-dropdown-label {
+    padding: 1.4rem 1.6rem 1.3rem;
+}
+:host ::ng-deep .billing-filter .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+    font-size: 1.2rem;
+    margin-left: -1.5em;
+}
 

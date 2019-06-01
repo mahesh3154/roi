@@ -7,3 +7,11 @@ body a:hover, body a:active, body a:focus {
 .ui-rating:not(.ui-state-disabled):not(.ui-rating-readonly) a:hover {
     color: #b51f23;
 }
+.forgot-success .roi-inbox-icon {
+    font-size: 6rem; 
+    color: #B51F23;
+}
+.delete-screen .roi-delete-icon {
+    font-size: 2.4rem; 
+    color: #B51F23;
+} 

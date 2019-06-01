@@ -1,7 +1,7 @@
 <div class="ui-g">
   <form [formGroup]="addEmployeeForm" (ngSubmit)="onRegisterSubmit(addEmployeeForm)">
     <div class="ui-g">
-      <div class="ui-g-6 ui-g ui-g-offset-3">
+      <div class="ui-g-10 ui-g ui-g-offset-1">
           <h2 class="width100 mbtm-80 center">Add New Employee</h2>
         <!----
         <ul class="employessModelBox" >
@@ -12,14 +12,18 @@
 
         </ul>
         ---->
-        <p-selectButton [options]="typeofEmployess" class="cui-tile-box center" formControlName="role" optionLabel="name">
-          <ng-template let-item>
-            <div class="cui-tile-ibox">
-              <i class="{{item.value.logo}}"></i>
-              <span>{{item.value.label}}</span>
-            </div>
-          </ng-template>
-        </p-selectButton>
+        <div class="ui-g">
+          <div class="ui-g-10 ui-g-offset-1">
+            <p-selectButton [options]="typeofEmployess" class="cui-tile-box center" formControlName="role" optionLabel="name">
+              <ng-template let-item>
+                <div class="cui-tile-ibox">
+                  <i class="{{item.value.logo}}"></i>
+                  <span>{{item.value.label}}</span>
+                </div>
+              </ng-template>
+            </p-selectButton>
+          </div>
+        </div>
 
         <div class="ui-g">
           <div class="ui-g-6">
