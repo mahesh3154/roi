@@ -38,6 +38,7 @@ export class AddSchedule {
                 console.log(err);
             }
         );
+
         this.procedureName = [{ name: 'New York', code: 'NY' },
         { name: 'Rome', code: 'RM' },
         { name: 'London', code: 'LDN' },
@@ -47,7 +48,7 @@ export class AddSchedule {
         this.addScheduleForm = this.formBuilder.group({
             doctor_empid: ['', Validators.required],
             patient: ['', Validators.required],
-            apptmt_type : ['', Validators.required],
+            apptmt_type: ['', Validators.required],
             procedure_name: ['', Validators.required],
             date: ['', Validators.required],
             time: ['', Validators.required],
@@ -57,21 +58,13 @@ export class AddSchedule {
 
         //this.data = this.config.data.data;
         this.FormType = this.config.header;
-        if (this.FormType === 'Schedule Consultation') {
-            console.log(this.config);
-            this.addScheduleForm.patchValue({
-                patient: this.config.data.patientname,
-                patientId : this.config.data.patientid,
-                apptmt_type : 'consultation'
-
-            });
-        }
+   
         if (this.FormType === 'Schedule Procedure') {
             //     console.log(this.config.data.patientname);
             this.addScheduleForm.patchValue({
                 patient: this.config.data.patientname,
                 patientId: this.config.data.patientid,
-                apptmt_type : 'procedure'
+                apptmt_type: 'procedure'
 
             });
         }

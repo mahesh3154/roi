@@ -3,6 +3,7 @@ import { ScheduleService } from '../services/schedules.service';
 import { PatientService } from '../services/patients.service';
 import { DialogService } from 'primeng/api';
 import { AddPatientSchedule } from '../modelboxes/addPatientSchedule';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-schedule',
@@ -15,10 +16,11 @@ export class ScheduleComponent implements OnInit {
   selectedDoctorId: any;
   date: any;
   dateFormat: any;
-  schedules: any;
+  schedules: any = [];
   constructor(private scheduleService: ScheduleService,
     public dialogService: DialogService,
-    private patientService: PatientService) { }
+    private patientService: PatientService,
+    private messageService: MessageService) { }
   ngOnInit() {
 
     this.dateFormat = new Date();
@@ -47,6 +49,29 @@ export class ScheduleComponent implements OnInit {
     this.scheduleService.getAllSchedules({ date: finalDate, id: this.selectedDoctorId }).subscribe(
       suc => {
         this.schedules = suc;
+        this.schedules.morning = [];
+        this.schedules.afternoon = [];
+        this.schedules.evening = [];
+
+        for (var i in this.schedules)
+        var ndate = new Date(this.schedules[i].time);
+      //  console.log(this.schedules)
+        var hr = ndate.getHours();
+        var h = hr % 12;
+        console.log(ndate)
+
+        if (hr < 12) {
+          this.schedules.morning.push(suc[i])
+        }
+        else if (hr >= 12 && hr <= 17) {
+          this.schedules.afternoon.push(suc[i])
+
+        }
+        else if (hr >= 17 && hr <= 24) {
+
+          this.schedules.evening.push(suc[i])
+        }
+        // this.schedules = suc
         if (this.schedules.message == "No schedules.") {
           this.schedules = [];
         }
@@ -89,6 +114,8 @@ export class ScheduleComponent implements OnInit {
       if (patient) {
         this.patientService.addSchedules(patient).subscribe(
           suc => {
+        this.messageService.add({severity:'success', summary:'Sucessfully Added ', detail:'Via MessageService'});
+
           },
           err => {
             console.log(err);

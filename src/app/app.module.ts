@@ -50,6 +50,7 @@ import { BillingService } from './services/billing.service';
 import { DialogService } from 'primeng/api';
 import { PanelModule } from 'primeng/panel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {ToastModule} from 'primeng/toast';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
@@ -58,6 +59,7 @@ import { RegisterComponent } from './register/register.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { SelectlocationsComponent } from './selectlocations/selectlocations.component';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,7 @@ import { SelectlocationsComponent } from './selectlocations/selectlocations.comp
     RadioButtonModule,
     DropdownModule,
     DynamicDialogModule,
+    ToastModule,
     DialogModule,
     ProgressSpinnerModule,
     RatingModule,
@@ -116,7 +119,7 @@ import { SelectlocationsComponent } from './selectlocations/selectlocations.comp
     AddAdmin,
     AddPatientSchedule
   ],
-  providers: [EmployeeService, PatientService, MainService, AuthService, AuthGuard, DialogService,
+  providers: [EmployeeService, PatientService, MainService, AuthService, AuthGuard,MessageService, DialogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

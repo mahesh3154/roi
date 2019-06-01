@@ -81,7 +81,7 @@
           <div class="ui-g" *ngIf="newExpenses">
             <div class="ui-g-10 ui-g ui-g-offset-1">
               <h2 class="width100 mbtm-80 center">Add New Employee</h2>
-              <p-selectButton [options]="expensesType" class="cui-tile-box center" [(ngModel)]="payment_method" optionLabel="name">
+              <p-selectButton [options]="expensesType" class="cui-tile-box center" [(ngModel)]="expense.payment_method" optionLabel="name">
                 <ng-template let-item>
                   <div class="cui-tile-ibox">
                     <i class="{{item.value.icon}}"></i>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="cui-input-space">
                   <h3>Vendor Name</h3>
-                  <input id="vendorname" type="text" size="30" pInputText />
+                  <input id="vendorname" type="text" size="30" pInputText [(ngModel)]="expense.vendor"/>
                 </div>
               </div>
               <div class="ui-g-6">
@@ -110,7 +110,7 @@
               <div class="ui-g-12 center">
                 <div class="sub-btns">
                   <button pButton type="button" label="Delete" class="cui-gray-btn" (click)="delete()"></button>
-                  <button pButton type="button" label="Save" class="cui-main-btn" (click)="save(expenses)"></button>
+                  <button pButton type="button" label="Save" class="cui-main-btn" (click)="save(expense)"></button>
                 </div>
               </div>
             </div>

@@ -7,22 +7,13 @@
     <p-dropdown [options]="doctors" [(ngModel)]="selectedDoctorId" (onChange)=getAllSchedules() ></p-dropdown>
   </div>
   <div class="ui-g-9 schedule-box">
-    <div class="schedules">
+    <div class="schedules" >
       <h5><img src="../assets/sunrise.png" alt="Morning"> Morning</h5>
-      <ul class="schedule-list">
-        <li>10:00 - Mr. Peter Parker - SD: Pre</li>
-        <li class="white">11:00 - Mr. Radha Krishnan Chinnappa</li>
+      <ul class="schedule-list" *ngFor = "let schedule of schedules;  let index=index; let odd=odd; let even=white;" >
+        <li> {{schedule.time}} - {{schedule.patientname}} - SD: Pre</li>
       </ul>
     </div>
-    <div class="schedules">
-      <h5><img src="../assets/sun.png" alt="Afternoon"> Afternoon</h5>
-      <ul class="schedule-list">
-        <li>10:00 - Mr. Peter Parker - SD: PRP</li>
-        <li class="white">10:00 - Mr. Peter Parker</li>
-        <li>10:00 - Mr. Peter Parker - AVN</li>
-        <li>11:00 - Mr. Radha Krishnan Chinnappa - PL</li>
-      </ul>
-    </div>
+  
   
   <!--  <div *ngFor="let schedule of schedules">
       <div>{{schedule.patientname}}</div>

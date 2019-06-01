@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       suc => {
       
         localStorage.setItem('token', 'Bearer ' + suc['token']);
-       this.router.navigate(['/settings'])
+       this.router.navigate(['/select-location'])
 
       },
       err => {

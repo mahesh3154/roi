@@ -1,27 +1,7 @@
 <div class="ui-g">
   <form [formGroup]="addScheduleForm">
-    <div class="ui-g-10 ui-g-offset-1">
-      <div class="ui-g-12">
-        <div class="cui-input-space">
-          <h3>Doctor</h3>
-          <p-dropdown [options]="doctors" formControlName="doctor_empid"></p-dropdown>
-        </div>
-      </div>
-      <div class="ui-g-6">
-        <div class="cui-input-space">
-          <h3>Appoitment Type</h3>
-          <p-radioButton name="groupname" value="consultation" label="consultation" formControlName="apptmt_type"></p-radioButton>
-          <p-radioButton name="groupname" value="procedure" label="procedure" formControlName="apptmt_type"></p-radioButton>
-        </div>
-      </div>
-      <div class="ui-g-6">
-        <div class="cui-input-space">
-          <h3>Appoitment Type</h3>
-          <p-radioButton name="groupname" value="consultation" label="consultation" formControlName="apptmt_type"></p-radioButton>
-          <p-radioButton name="groupname" value="procedure" label="procedure" formControlName="apptmt_type"></p-radioButton>
-        </div>
-      </div>
 
+    <div class="ui-g">
       <div class="ui-g-6">
         <div class="cui-input-space">
           <h3>Doctor</h3>
@@ -29,12 +9,37 @@
         </div>
       </div>
       <div class="ui-g-6">
+
+      </div>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-8">
         <div class="cui-input-space">
-          <h3>Patient</h3>
-          <p-dropdown [options]="patients" formControlName="patientId" optionLabel="name"></p-dropdown>
+          <h3>Appoitment Type</h3>
+          <p-radioButton name="groupname" value="consultation" label="Consultation" formControlName="apptmt_type"></p-radioButton>
+          <p-radioButton name="groupname" value="procedure" label="Procedure" formControlName="apptmt_type"></p-radioButton>
         </div>
       </div>
+      <div class="ui-g-4">
 
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <div class="cui-input-space">
+          <h3>Patient Name</h3>
+          <p-dropdown [options]="patients" formControlName="patientId"></p-dropdown>
+
+
+        </div>
+      </div>
+      <div class="ui-g-6">
+      
+      </div>
+    </div>
+
+    <div class="ui-g">
       <div class="ui-g-6">
         <div class="cui-input-space">
           <h3>Appoimtment Date</h3>
@@ -47,12 +52,14 @@
           <p-calendar styleClass="cui-calender" formControlName="time" [timeOnly]="true"></p-calendar>
         </div>
       </div>
+    </div>
 
-      <div class="ui-g-12 center">
-        <div class="sub-btns">
-          <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
-          <button pButton type="button" label="Add" class="cui-main-btn" (click)="addSchedule($event)"></button>
-        </div>
+
+
+    <div class="ui-g-12 center">
+      <div class="sub-btns">
+        <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
+        <button pButton type="button" label="Add" class="cui-main-btn" (click)="addSchedule($event)"></button>
       </div>
     </div>
   </form>

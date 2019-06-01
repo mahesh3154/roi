@@ -14,7 +14,7 @@ export class AppComponent {
   locations: any = [];
   admins: any = [];
   postReq: any = {};
-  items: MenuItem[];
+  items: any = [];
   constructor(public dialogService: DialogService, public mainService: MainService) { }
 
   ngOnInit() {

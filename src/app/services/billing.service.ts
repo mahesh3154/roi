@@ -17,5 +17,8 @@ export class BillingService {
     return this.http
       .get(`${this.url}billing/expense/list`);
   }
-
+  addExpenses(data) {
+    return this.http
+      .post(`${this.url}billing/expense`, data);
+  }
 }

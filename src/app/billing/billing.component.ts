@@ -29,7 +29,7 @@ export class BillingComponent implements OnInit {
     this.expensesType = [
       { icon: "far fa-money-bill-alt", type: "cash" },
       { icon: "far fa-credit-card", type: "card" },
-      { icon: "fas fa-university", type: "bank" }
+      { icon: "fas fa-university", type: "net banking" }
     ]
     this.colsBilling = [
       { field: 'invoice_date', header: 'Invoice Date' },
@@ -53,7 +53,7 @@ export class BillingComponent implements OnInit {
             this.amountByCash += this.billings[i].amount
           }
           if (this.billings[i].payment_method === "card") {
-            this.expensesamountByCard += this.billings[i].amount
+            this.amountByCard += this.billings[i].amount
           }
           if (this.billings.length != 0) {
             this.totalAmount += this.billings[i].amount
@@ -68,23 +68,18 @@ export class BillingComponent implements OnInit {
 
     this.billingService.getAllExpenses().subscribe(
       suc => {
-     /*
-        if (suc.message != "No Expenses.") {
+    
           this.expenses = suc;
-        }
-        */
-        if(true) {
-          this.expenses = [];
-
-        }
+      
         for (var i in this.expenses) {
           if (this.expenses.length !== 0) {
-            //   this.expensestotalAmount += this.expenses[i].amount
+             this.expensestotalAmount += this.expenses[i].amount
           }
           if (this.expenses[i].payment_method === "cash") {
             this.expensesamountByCash += this.expenses[i].amount
           }
           if (this.expenses[i].payment_method === "card") {
+            console.log('carddd')
             this.expensesamountByCard += this.expenses[i].amount
           }
 
@@ -102,10 +97,11 @@ export class BillingComponent implements OnInit {
 
   }
   save(expense) {
-    /*
-     this.billingService.addExpenses(this.patient, this.patientId).subscribe(
+expense.payment_method = expense.payment_method.type;
+
+     this.billingService.addExpenses(expense).subscribe(
        suc => {
-         this.expenses.push(patient);
+         this.expenses.push(expense);
  
        },
        err => {
@@ -114,7 +110,6 @@ export class BillingComponent implements OnInit {
      );
  
      this.displayDialog = false;
-      */
   }
 
 }

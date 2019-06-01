@@ -19,7 +19,7 @@ export class AddPatientSchedule {
     schedule: any;
     showValue: boolean;
     procedureName: any;
-    patients:any;
+    patients:any = [];
     constructor(
         private patientService: PatientService,
         public ref: DynamicDialogRef,
@@ -28,8 +28,17 @@ export class AddPatientSchedule {
         this.doctors = [];
     }
     ngOnInit() {
-         this.patientService.getAllPatients().subscribe(data => this.patients = data);
+   this.patientService.getAllPatients().subscribe(
+            suc => {
+                for (var i in suc) {
+                    this.patients.push({ label: suc[i].patientname, value: suc[i].patientid });
+                }
 
+            },
+            err => {
+                console.log(err);
+            }
+        );
         this.patientService.getAllDoctors().subscribe(
             suc => {
                 for (var i in suc) {
@@ -60,24 +69,8 @@ export class AddPatientSchedule {
 
         //this.data = this.config.data.data;
         this.FormType = this.config.header;
-        if (this.FormType === 'Schedule Consultation') {
-            console.log(this.config);
-            this.addScheduleForm.patchValue({
-                patient: this.config.data.patientname,
-                patientId: this.config.data.patientid,
-                apptmt_type: 'consultation'
-
-            });
-        }
-        if (this.FormType === 'Schedule Procedure') {
-            //     console.log(this.config.data.patientname);
-            this.addScheduleForm.patchValue({
-                patient: this.config.data.patientname,
-                patientId: this.config.data.patientid,
-                apptmt_type: 'procedure'
-
-            });
-        }
+    
+   
     }
     addSchedule() {
         this.ref.close(this.addScheduleForm.value);
