@@ -80,24 +80,26 @@ export class AddPatients {
             opinion: ['', Validators.required],
             remarks: ['', Validators.required]
         });
-        this.data = this.config.data.data;
         this.FormType = this.config.header;
         if (this.FormType === 'Edit Patient') {
+            this.data = this.config.data.data;
             console.log(this.data);
             this.location = this.data;
-            this.addPatientsForm.patchValue({
-                patientname: this.location.patientname,
-                problem: this.location.problem,
-                age: this.location.age,
-                gender: this.location.gender,
-                email: this.location.email,
-                phonenumber: this.location.phonenumber,
-                additional_phonenum: this.location.additional_phonenum,
-                city_country: this.location.city_country,
-                source: this.location.source,
-                opinion: this.location.opinion,
-                remarks: this.location.remarks
-            });
+            if (this.data) {
+                this.addPatientsForm.patchValue({
+                    patientname: this.location.patientname,
+                    problem: this.location.problem,
+                    age: this.location.age,
+                    gender: this.location.gender,
+                    email: this.location.email,
+                    phonenumber: this.location.phonenumber,
+                    additional_phonenum: this.location.additional_phonenum,
+                    city_country: this.location.city_country,
+                    source: this.location.source,
+                    opinion: this.location.opinion,
+                    remarks: this.location.remarks
+                });
+            }
         }
     }
     handleClick() {

@@ -13,7 +13,14 @@ export class SelectlocationsComponent implements OnInit {
   constructor(private mainService: MainService, private router: Router) { }
 
   ngOnInit() {
-    return this.mainService.getAllClinics().subscribe(data => this.clinics = data);
+    return this.mainService.getAllClinics().subscribe( suc => {
+console.log('clinics', suc)  ;
+      this.clinics = suc
+      },
+      err => {
+        console.log(err);
+      }
+    );
 
   }
   selectClinic(data) {

@@ -1,8 +1,8 @@
 <div class="ui-g">
   <div class="ui-g-3">
-      <div>
-        <a class="go-back" [routerLink]="['/patients']"><i class="pi-arrow-left pi"></i> Go Back</a>
-      </div>
+    <div>
+      <a class="go-back" [routerLink]="['/patients']"><i class="pi-arrow-left pi"></i> Go Back</a>
+    </div>
     <div class="patient-details">
       <a href="#" class="link edit-btn">Edit</a>
       <div class="details">
@@ -54,17 +54,35 @@
             </ol>
             <ul class="timeline">
               <li>
-                  <div class="mb15">
-                    <button type="button" class="icon" pButton icon="roi-reminders-icon"></button> <span class="main-color f10">Add Reminder</span>
-                  </div> 
-                  <div class="mb15">
-                    <button type="button" class="icon" pButton icon="roi-paper-icon"></button> <span class="main-color f10">Add Note</span>
+                <div class="mb15">
+                  <button type="button" class="icon" (click)="addCalender()" pButton icon="roi-reminders-icon"></button> <span class="main-color f10">Add Reminder</span>
+                  <p-calendar  *ngIf="showCalender" (onSelect)="addReminder()" [(ngModel)]="calender"></p-calendar>
+
+                </div>
+
+                <div class="mb15" (click)="addNotes()">
+                  <button type="button" class="icon" pButton icon="roi-paper-icon"></button> <span class="main-color f10">Add Note</span>
+                </div>
+                <div>
+                  <div class="ui-inputgroup" *ngIf="showNotes">
+
+                    <input type="text" pInputText placeholder="Enter Notes" [(ngModel)]="enternotes">
+                    <span class="ui-inputgroup-addon"><i class="far fa-check-circle" [attr.disabled]="enternotes==''" (click)="submitNotes()" ></i></span>
+                    <span class="ui-inputgroup-addon" (click)="closeNotes()"><i class="far fa-times-circle"></i></span>
                   </div>
+                </div>
               </li>
-              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-paper-icon"></button>Lorem ipsum dolor sit amet, consectetur<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
-              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-calendar-icon"></button>Curabitur purus sem, malesuada eu luctus eget<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
-              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-reminders-icon"></button>Fusce ullamcorper ligula sit<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
-              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-calendar-icon"></button>Enquiry <span class="text-note">Mr. Ross Barkley</span></li>
+            </ul>
+            <ul *ngFor="let note of notes">
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-paper-icon"></button>note
+                <button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button>
+              </li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-calendar-icon"></button>Curabitur
+                purus sem, malesuada eu luctus eget<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-reminders-icon"></button>Fusce
+                ullamcorper ligula sit<button type="button" pButton class="main-color icon" icon="roi-delete-icon"></button></li>
+              <li><span class="timeline-date">28 Jan 2018<br />9:40 AM</span><button type="button" class="icon" pButton icon="roi-calendar-icon"></button>Enquiry
+                <span class="text-note">Mr. Ross Barkley</span></li>
             </ul>
           </div>
         </div>
@@ -80,7 +98,7 @@
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-patient>
-            <tr >
+            <tr>
               <td>{{patient.invoice_date}}</td>
               <td>{{patient.payment_method}}</td>
               <td>{{patient.amount}}</td>
@@ -89,17 +107,16 @@
           </ng-template>
           <ng-template pTemplate="summary" let-rowData>
             <div class="ui-g-12 left">
-                <p class="mbtm-25"><a class="link"><i class="roi-receipt-icon"></i> Generate Invoice</a></p>
-                <p class="mbtm-25"><a class="link-black"><i class="roi-receipt-icon"></i> Peter_Parker.pdf</a></p>
+              <p class="mbtm-25"><a class="link"><i class="roi-receipt-icon"></i> Generate Invoice</a></p>
+              <p class="mbtm-25"><a class="link-black"><i class="roi-receipt-icon"></i> Peter_Parker.pdf</a></p>
             </div>
             <div class="ui-g-12">
-                <button type="button" (click)="showDialogToAdd()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
+              <button type="button" (click)="showDialogToAdd()" pButton class="cui-plus-btn" icon="roi-plus-icon"></button>
             </div>
           </ng-template>
         </p-table>
 
-        <p-dialog [style]="{width: '50%'}" [(visible)]="displayDialog" [responsive]="true"
-          showEffect="fade" [modal]="true">
+        <p-dialog [style]="{width: '50%'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
           <div class="ui-g ui-fluid" *ngIf="patient">
             <div class="ui-g-10 ui-g ui-g-offset-1">
               <h2 class="width100 mbtm-80 center">Add Payments</h2>
@@ -127,7 +144,8 @@
                   <h3>Payment Mode</h3>
                   <p-radioButton name="group2" styleClass="radio-btn" value="cash" label="Cash" [(ngModel)]="patient.payment_method" inputId="preopt1"></p-radioButton>
                   <p-radioButton name="group2" styleClass="radio-btn" value="card" label="Card" [(ngModel)]="patient.payment_method" inputId="preopt2"></p-radioButton>
-                  <p-radioButton name="group2" styleClass="radio-btn" value="net banking" label="Net Banking" [(ngModel)]="patient.payment_method" inputId="preopt3"></p-radioButton>
+                  <p-radioButton name="group2" styleClass="radio-btn" value="net banking" label="Net Banking" [(ngModel)]="patient.payment_method"
+                    inputId="preopt3"></p-radioButton>
                 </div>
               </div>
               <div class="ui-g-12">

@@ -3,6 +3,7 @@ import { PatientService } from '../services/patients.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/api';
 import { AddPatients } from '../modelboxes/addPatients';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-patients',
@@ -14,7 +15,7 @@ export class PatientsComponent implements OnInit {
   cols: any;
   postReq: any = {};
 
-  constructor(public dialogService: DialogService, private patientService: PatientService) { }
+  constructor(private messageService: MessageService, public dialogService: DialogService, private patientService: PatientService) { }
   ngOnInit() {
     this.cols = [
       { field: 'registered_on', header: 'Registerd On' },
@@ -32,23 +33,28 @@ export class PatientsComponent implements OnInit {
     });
 
     ref.onClose.subscribe((patient) => {
-      this.postReq = patient;
-      this.postReq.gender = patient.gender.name;
-      this.postReq.age = parseInt(patient.age);
-      this.postReq.problem = patient.problem.name;
-      this.postReq.city_country = patient.city_country.name;
-      this.postReq.source = patient.source.name;
+      if (patient) {
+        this.postReq = patient;
+        this.postReq.gender = patient.gender.name;
+        this.postReq.age = parseInt(patient.age);
+        this.postReq.problem = patient.problem.name;
+        this.postReq.city_country = patient.city_country.name;
+        this.postReq.source = patient.source.name;
 
-      return this.patientService.addPatient(this.postReq).subscribe(
-        suc => {
-          console.log(suc);
-          this.patients.push(this.postReq);
-        },
-        err => {
-          console.log(err);
-        }
-      );
+        return this.patientService.addPatient(this.postReq).subscribe(
+          suc => {
+            console.log(suc);
+            this.patients.push(suc[0]);
+            this.messageService.add({ severity: 'success', summary: 'Patient Added Sucessfully ' });
+
+          },
+          err => {
+            this.messageService.add({ severity: 'error', summary: 'Error In Request ' });
+          }
+        );
+      }
     });
+
   }
   EditPatientsModelBox(data) {
     const ref = this.dialogService.open(AddPatients, {

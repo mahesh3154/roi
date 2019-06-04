@@ -18,11 +18,11 @@ export class AddLocations {
     constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, private formBuilder: FormBuilder) { }
     ngOnInit() {
         this.cities2 = this.cities2 = [
-            { name: 'New York', code: 'NY' },
-            { name: 'Rome', code: 'RM' },
-            { name: 'London', code: 'LDN' },
-            { name: 'Istanbul', code: 'IST' },
-            { name: 'Paris', code: 'PRS' }
+            { label: 'New York', value: 'NY' },
+            { label: 'Rome', value: 'RM' },
+            { label: 'London', value: 'LDN' },
+            { label: 'Istanbul', value: 'IST' },
+            { label: 'Paris', value: 'PRS' }
         ];
         this.addLocationForm = this.formBuilder.group({
             name: ['', Validators.required],
@@ -36,9 +36,10 @@ export class AddLocations {
         });
         this.data = this.config.data.data;
         this.FormType = this.config.header;
-        if (this.FormType === 'Edit Location') {
+        if (this.FormType === 'Edit Clinic') {
             console.log(this.data);
             this.location = this.data;
+            this.location.state = 'London'
             this.addLocationForm.patchValue({
                 name: this.location.name,
                 address: this.location.address,

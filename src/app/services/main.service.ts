@@ -31,9 +31,12 @@ export class MainService {
   }
   getAllClinics() {
     return this.http
-      .get(`${this.url}clinic/viewList`);
+      .get(`${this.url}clinic/list`);
   }
   selectclinic(id) {
     return this.http.post(`${this.url}clinic/setclinic/${id}`,'');
+  }
+  changePassword(data) {
+    return this.http.post(`${this.url}employee/changepw`,data);
   }
 }

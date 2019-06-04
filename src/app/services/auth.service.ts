@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
 })
 export class AuthService {
     private registerUrl = 'http://23.96.83.133:8080/';
-    constructor(private http: HttpClient,  private router: Router) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     loginUser(user) {
         return this.http
@@ -26,5 +26,8 @@ export class AuthService {
 
     loggedIn() {
         return !!localStorage.getItem('token');
+    }
+    changePassword(id) {
+        return this.http.post(`${this.registerUrl}clinic/setclinic/${id}`, '');
     }
 }

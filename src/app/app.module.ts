@@ -122,7 +122,9 @@ import {MessageService} from 'primeng/api';
     AddPatients,
     AddSchedule,
     AddAdmin,
-    AddPatientSchedule
+    AddPatientSchedule,
+    ChangePassword,
+    ForgotPassword
   ],
   providers: [EmployeeService, PatientService, MainService, AuthService, AuthGuard,MessageService, DialogService,
     {

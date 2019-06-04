@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AddLocations } from './modelboxes/addLocations';
+import { ChangePassword } from './modelboxes/changePassword';
+
 import { DialogService } from 'primeng/api';
 import { AddAdmin } from './modelboxes/addAdmin';
 import { MainService } from './services/main.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +18,20 @@ export class AppComponent {
   admins: any = [];
   postReq: any = {};
   items: any = [];
-  constructor(public dialogService: DialogService, public mainService: MainService) { }
+  constructor(public dialogService: DialogService, public mainService: MainService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.mainService.getAllLocations().subscribe(data => this.locations = data);
     this.mainService.getAdmins().subscribe(data => this.admins = data);
 
     this.items = [
-      {label: 'My Profile', icon: 'roi-user-icon', routerLink: ['/myprofile']},
-      {label: 'Change Password', icon: 'roi-key-icon', routerLink: ['/changepassword']},
-      {label: 'Logout', icon: 'roi-logout-icon', routerLink: ['/logout']}
+      { label: 'My Profile', icon: 'roi-user-icon', routerLink: ['/myprofile'] },
+      {
+        label: 'Change Password', icon: 'roi-key-icon', command: () => {
+          this.changePassword();
+        }
+      },
+      { label: 'Logout', icon: 'roi-logout-icon', routerLink: ['/logout'] }
     ];
   }
 
@@ -40,6 +47,7 @@ export class AppComponent {
       this.mainService.addLocation(data).subscribe(
         suc => {
           this.locations.push(data);
+          this.messageService.add({ severity: 'success', summary: 'Location Added Sucessfully' });
         },
         err => {
           console.log(err);
@@ -56,6 +64,8 @@ export class AppComponent {
       this.mainService.addAdmins(data).subscribe(
         suc => {
           this.admins.push(data);
+          this.messageService.add({ severity: 'success', summary: 'Admin Added Sucessfully' });
+
         },
         err => {
           console.log(err);
@@ -63,9 +73,28 @@ export class AppComponent {
       );
     });
   }
+  changePassword() {
+    const ref = this.dialogService.open(ChangePassword, {
+      header: 'Change Password',
+      width: '50%',
+    });
+    ref.onClose.subscribe((data) => {
+      if (data) {
+        this.mainService.changePassword(data).subscribe(
+          suc => {
+           this.messageService.add({severity:'success', summary:'Password Changed Sucessfully'});
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      }
+    });
+  }
+
   editAdminModelbox(data) {
     const ref = this.dialogService.open(AddAdmin, {
-      header: 'Add Admin',
+      header: 'Edit Admin',
       width: '50%',
       data: { data }
     });
@@ -75,7 +104,7 @@ export class AppComponent {
 
   editLocation(data) {
     const ref = this.dialogService.open(AddLocations, {
-      header: 'Edit Location',
+      header: 'Edit Clinic',
       width: '70%',
       data: { data }
 

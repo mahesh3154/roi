@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { AddEmployee } from './addEmployee';
 import { AddPos } from './addPos';
 import { DialogService } from 'primeng/api';
 import { EmployeeService } from '../services/employee.service';
+import { MessageService } from 'primeng/api';
+
 @Component({
     selector: 'app-settings',
     templateUrl: './settings.component.html',
@@ -12,9 +15,39 @@ import { EmployeeService } from '../services/employee.service';
 export class SettingsComponent implements OnInit {
     employees: any = [];
     pos: any = [];
-
-    constructor(public dialogService: DialogService, private employeeService: EmployeeService) { }
+    accDetails: any;
+    userform: FormGroup;
+    constructor(private messageService: MessageService, private fb: FormBuilder, public dialogService: DialogService, private employeeService: EmployeeService) { }
     ngOnInit() {
+        this.userform = this.fb.group({
+            'id': new FormControl(''),
+            'address': new FormControl('', Validators.required),
+            'Googlemapurl': new FormControl('', Validators.required),
+            'BankAccName': new FormControl('', Validators.required),
+            'BankAccNo': new FormControl('', Validators.required),
+            'IFSC': new FormControl('', Validators.required),
+            'PAN': new FormControl('', Validators.required)
+
+        });
+
+        this.employeeService.getBasicInfo().subscribe(suc => {
+            this.accDetails = suc;
+            console.log(suc)
+
+            this.userform.setValue({
+                'id': suc[0].id,
+                'address': suc[0].address,
+                'Googlemapurl': suc[0].gglmap_url,
+                'BankAccName': suc[0].bankAccountName,
+                'BankAccNo': suc[0].bankAccountNumber,
+                'IFSC': suc[0].ifscCode,
+                'PAN': suc[0].pan
+            });
+        },
+            err => {
+                console.log(err);
+            }
+        );
         this.employeeService.getAllEmployees().subscribe(suc => {
             this.employees = suc;
         },
@@ -24,11 +57,11 @@ export class SettingsComponent implements OnInit {
         );
         this.employeeService.getAllPosList().subscribe(suc => {
             if (suc) {
-                if (suc== 0) {
+                if (suc == 0) {
                     this.pos = [];
 
                 }
-                else{
+                else {
                     this.pos = suc
                 }
             }
@@ -122,6 +155,18 @@ export class SettingsComponent implements OnInit {
                 }
             );
         });
+    }
+    onSubmit(data) {
+        console.log(data);
+        this.employeeService.editBasicInfo(data).subscribe(suc => {
+
+            this.messageService.add({ severity: 'success', summary: 'Submitted Successfully ', detail: 'Order submitted' });
+
+        },
+            err => {
+                console.log(err);
+            }
+        );
     }
 
 }

@@ -11,9 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/settings', pathMatch: 'full' },
+    { path: '', canActivate: [AuthGuard], redirectTo: '/settings', pathMatch: 'full' },
     { path: 'schedule', canActivate: [AuthGuard],  component: ScheduleComponent },
-    { path: 'select-location', canActivate: [AuthGuard],  component: SelectlocationsComponent },
+    { path: 'select-location',   component: SelectlocationsComponent },
 
     { path: 'billing', canActivate: [AuthGuard], component: BillingComponent },
     { path: 'patients',canActivate: [AuthGuard], component: PatientsComponent },

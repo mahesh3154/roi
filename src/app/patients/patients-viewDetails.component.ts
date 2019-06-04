@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/api';
 import { AddSchedule } from '../modelboxes/addSchedule';
 import { Patient } from '../models/patients.model';
+import { MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-patients',
   templateUrl: './patients-viewDetails.component.html',
@@ -18,15 +20,21 @@ export class PatientsViewDetailsComponent implements OnInit {
   newPatient: boolean;
   patients: any = [];
   cols: any;
-  rating:number;
+  rating: number;
+  notes: any = "";
+  showNotes: boolean = false;
+  showCalender: boolean = false;
+  enternotes: any;
+  calender: any;
   constructor(
     private patientService: PatientService,
     public dialogService: DialogService,
+    private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
-
+    this.showNotes = false;
     this.patientId = this.route.snapshot.paramMap.get('id');
     this.patients = [];
     this.cols = [
@@ -36,8 +44,10 @@ export class PatientsViewDetailsComponent implements OnInit {
     ];
     this.patientService.getAllPayments().subscribe(data => this.patients = data);
     this.patientService.getSinglePatientDetails(this.patientId).subscribe(
-     suc => {
-        this.details= suc[0];
+      suc => {
+        this.details = suc[0];
+        this.notes = suc[1];
+
       },
       err => {
         console.log(err);
@@ -45,6 +55,7 @@ export class PatientsViewDetailsComponent implements OnInit {
     );
 
   }
+
 
   addScheduleConsultationModelBox() {
     const ref = this.dialogService.open(AddSchedule, {
@@ -56,13 +67,14 @@ export class PatientsViewDetailsComponent implements OnInit {
 
     ref.onClose.subscribe((patient) => {
       if (patient) {
- this.patientService.addSchedules(patient).subscribe(
-     suc => {
-      },
-      err => {
-        console.log(err);
+        this.patientService.addSchedules(patient).subscribe(
+          suc => {
+          },
+          err => {
+            console.log(err);
+          }
+        );
       }
-    );      }
     });
   }
   addScheduleProcedureModelBox() {
@@ -96,9 +108,44 @@ export class PatientsViewDetailsComponent implements OnInit {
     this.displayDialog = false;
   }
 
-  addReminder(){
-    
+
+
+  addNotes() {
+    this.showNotes = true;
   }
 
+  closeNotes() {
+    this.showNotes = false;
+  }
 
+  submitNotes() {
+    this.patientService.addnotes(this.patientId, { 'text': this.enternotes }).subscribe(
+      suc => {
+        this.notes.notes.push(suc);
+        this.showNotes = false;
+        this.messageService.add({ severity: 'success', summary: 'Notes Added Sucessfully' });
+
+      },
+      err => {
+        this.messageService.add({ severity: 'error', summary: 'Notes Added Failed' });
+      }
+    );
+  }
+  addCalender() {
+    this.showCalender = true;
+  }
+
+  addReminder() {
+    this.patientService.addReminder(this.patientId, { 'reminder_time': this.calender }).subscribe(
+      suc => {
+        this.notes.notes.push(suc);
+        this.messageService.add({ severity: 'success', summary: 'Reminder Added Sucessfully' });
+    this.showCalender = false;
+
+      },
+      err => {
+        this.messageService.add({ severity: 'error', summary: 'Reminder Added Failed' });
+      }
+    );
+  }
 }

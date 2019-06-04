@@ -32,7 +32,6 @@ export class AddSchedule {
                 for (var i in suc) {
                     this.doctors.push({ label: suc[i].doctorname, value: suc[i].doctor_empid });
                 }
-
             },
             err => {
                 console.log(err);
@@ -58,13 +57,21 @@ export class AddSchedule {
 
         //this.data = this.config.data.data;
         this.FormType = this.config.header;
-   
+
         if (this.FormType === 'Schedule Procedure') {
             //     console.log(this.config.data.patientname);
             this.addScheduleForm.patchValue({
                 patient: this.config.data.patientname,
                 patientId: this.config.data.patientid,
                 apptmt_type: 'procedure'
+
+            });
+        }
+        else{
+               this.addScheduleForm.patchValue({
+                patient: this.config.data.patientname,
+                patientId: this.config.data.patientid,
+                apptmt_type: 'consultation'
 
             });
         }

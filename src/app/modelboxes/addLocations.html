@@ -1,9 +1,9 @@
 <div class="ui-g">
   <form [formGroup]="addLocationForm" (ngSubmit)="onRegisterSubmit(addLocationForm)">
-    <!-- {{location | json}} -->
+   {{location | json}} 
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
-        <h2 class="width100 mbtm-80 center">Add Clinic</h2>
+        <h2 class="width100 mbtm-80 center"></h2>
         <div class="ui-g-6">
           <div class="cui-input-space">
             <h3>Clinic Name</h3>
@@ -20,25 +20,25 @@
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>City</h3>
-              <p-dropdown [options]="cities2" formControlName="city"   optionLabel="name"></p-dropdown>
+              <p-dropdown [options]="cities2" [formControlName]="city"   ></p-dropdown>
             </div>
             <div class="cui-input-space">
               <h3>Country</h3>
-              <p-dropdown [options]="cities2" formControlName="country"  optionLabel="name"></p-dropdown>
+              <p-dropdown [options]="cities2" [formControlName]="country"  ></p-dropdown>
             </div>
             <div class="cui-input-space">
               <h3>Email Address</h3>
-              <input id="float-input" formControlName="email"   type="text" size="30" pInputText > 
+              <input id="float-input" [formControlName]="email"   type="text" size="30" pInputText > 
             </div>
           </div>
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>State</h3>
-              <p-dropdown [options]="cities2" formControlName="state"  optionLabel="name"></p-dropdown>
+              <p-dropdown [options]="cities2" [formControlName]="state"  ></p-dropdown>
             </div>            
             <div class="cui-input-space">
               <h3>Postal Code</h3>
-              <input id="float-input" formControlName="postralcode"    type="text" size="30" pInputText > 
+              <input id="float-input" [formControlName]="postralcode"    type="text" size="30" pInputText > 
             </div>
           </div>
         </div>

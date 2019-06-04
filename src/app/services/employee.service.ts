@@ -29,4 +29,13 @@ export class EmployeeService {
     return this.http
       .post(`${this.url}pos`, data);
   }
+  getBasicInfo() {
+    return this.http
+      .get(`${this.url}clinic/basicinfo`);
+  }
+  editBasicInfo(data) {
+    return this.http
+      .put(`${this.url}clinic/basicinfo`, data);
+  }
+
 }

@@ -1,50 +1,55 @@
 <p-tabView styleClass="custom-tabview">
   <p-tabPanel header="Basic Info">
     <div class="ui-g ui-fluid">
-      <div class="ui-g-4 cui-input-box">
-        <div class="cui-input-space">
-          <h3>Address</h3>
-          <textarea rows="5" cols="30" placeholder="Address" pInputTextarea></textarea>
-        </div>
-        <div class="cui-input-space">
-          <h3>Google Map Url</h3>
-          <input id="input" type="text" size="30" placeholder="Google Map Url" pInputText>
-          <span id="text">{{text}}</span>
-        </div>
-      </div>
-      <div class="ui-g-7 cust-7 cui-input-box">
-        <h4 class="mainHeader cui-input-space">Bank Details</h4>
-        <div class="ui-g ui-fluid">
-          <div class="ui-g-5">
-            <div class="cui-input-space">
-              <h3>Account Number</h3>
-              <input id="input" type="text" size="30" placeholder="Account Number" pInputText>
-              <span id="text">{{text}}</span>
-            </div>
-            <div class="cui-input-space">
-              <h3>Email Address</h3>
-              <input id="input" type="text" size="30" placeholder="Email Address" pInputText>
-              <span id="text">{{text}}</span>
-            </div>
-          </div>
-          <div class="ui-g-5">
-            <div class="cui-input-space">
-              <h3>IFSC Code</h3>
-              <input id="input" type="text" size="30" placeholder="IFSC Code" pInputText>
-              <span id="text">{{text}}</span>
-            </div>
-            <div class="cui-input-space">
-              <h3>PAN</h3>
-              <input id="input" type="text" size="30" placeholder="PAN" pInputText>
-              <span id="text">{{text}}</span>
-            </div>
-          </div>
+      <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
 
+        <div class="ui-g-4 cui-input-box">
+          <div class="cui-input-space">
+            <h3>Address</h3>
+            <textarea rows="5" cols="30" placeholder="Address" formControlName="address" pInputTextarea></textarea>
+          </div>
+          <div class="cui-input-space">
+            <h3>Google Map Url</h3>
+            <input id="input" type="text" size="30" formControlName="Googlemapurl" placeholder="Google Map Url" pInputText>
+            <span id="text">{{text}}</span>
+          </div>
         </div>
-      </div>
-      <div class="ui-g-12 center mtop-80">
-        <p-button styleClass="cui-main-btn" label="Save"></p-button>
-      </div>
+        <div class="ui-g-7 cust-7 cui-input-box">
+          <h4 class="mainHeader cui-input-space">Bank Details</h4>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-5">
+              <div class="cui-input-space">
+                <h3>Account Number</h3>
+                <input id="input" type="text" size="30" formControlName="BankAccNo" placeholder="Account Number" pInputText>
+                <input id="input" [hidden] = "true" type="text" size="30" formControlName="id" placeholder="Account Number" pInputText>
+
+                <span id="text">{{text}}</span>
+              </div>
+              <div class="cui-input-space">
+                <h3>Account Name</h3>
+                <input id="input" type="text" size="30" formControlName="BankAccName" placeholder="Account Name" pInputText>
+                <span id="text">{{text}}</span>
+              </div>
+            </div>
+            <div class="ui-g-5">
+              <div class="cui-input-space">
+                <h3>IFSC Code</h3>
+                <input id="input" type="text" size="30" formControlName="IFSC" placeholder="IFSC Code" pInputText>
+                <span id="text">{{text}}</span>
+              </div>
+              <div class="cui-input-space">
+                <h3>PAN</h3>
+                <input id="input" type="text" size="30" formControlName="IFSC" placeholder="PAN" pInputText>
+                <span id="text">{{text}}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="ui-g-12 center mtop-80">
+          <p-button styleClass="cui-main-btn" label="Save"></p-button>
+        </div>
+      </form>
 
     </div>
   </p-tabPanel>
@@ -54,7 +59,7 @@
         <div class="sticker">
           <div class="description">
             <div class="title"> {{employee.empname}}
-                <span class="edit"><i  (click)="EditEmployeeModelBox(employee)" class="roi-edit-icon"></i></span>
+              <span class="edit"><i  (click)="EditEmployeeModelBox(employee)" class="roi-edit-icon"></i></span>
             </div>
             <div class="designation"> {{employee.email}}</div>
           </div>
@@ -71,7 +76,7 @@
         <div class="sticker">
           <div class="description">
             <div class="title"> {{po.itemname}}
-                <span class="edit"><i  (click)="editPos(po)" class="roi-edit-icon"></i></span>
+              <span class="edit"><i  (click)="editPos(po)" class="roi-edit-icon"></i></span>
             </div>
             <div class="designation"> {{po.amount}}</div>
           </div>

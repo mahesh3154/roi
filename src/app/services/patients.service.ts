@@ -37,8 +37,12 @@ export class PatientService {
 
             });
     }
-
-    addPayments(data, id) {
+    addReminder(id, data) {
+        return this.http
+            .post(`${this.url}patient/reminder/${id}`,
+            data);
+    }
+    addPayments(id, data) {
         return this.http
             .post(`${this.url}patient/payment/${id}`,
             data, {
@@ -46,7 +50,11 @@ export class PatientService {
 
             });
     }
-
+    addnotes(id, data) {
+        return this.http
+            .post(`${this.url}patient/notes/${id}`,
+            data);
+    }
     getAllPayments() {
         return this.http
             .get(`${this.url}patient/payment/list/9164`, {
