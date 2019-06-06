@@ -14,7 +14,7 @@ export class PatientsComponent implements OnInit {
   patients: any = [];
   cols: any;
   postReq: any = {};
-
+  patientDetails: any;
   constructor(private messageService: MessageService, public dialogService: DialogService, private patientService: PatientService) { }
   ngOnInit() {
     this.cols = [
@@ -34,12 +34,9 @@ export class PatientsComponent implements OnInit {
 
     ref.onClose.subscribe((patient) => {
       if (patient) {
+        console.log(patient)
         this.postReq = patient;
-        this.postReq.gender = patient.gender.name;
-        this.postReq.age = parseInt(patient.age);
-        this.postReq.problem = patient.problem.name;
-        this.postReq.city_country = patient.city_country.name;
-        this.postReq.source = patient.source.name;
+       
 
         return this.patientService.addPatient(this.postReq).subscribe(
           suc => {
@@ -57,8 +54,9 @@ export class PatientsComponent implements OnInit {
 
   }
   EditPatientsModelBox(data) {
+    //console.log('aaaaaaaaaaaaa', this.patientDetails[0])
     const ref = this.dialogService.open(AddPatients, {
-      header: 'Edit Patients',
+      header: 'Edit Patient',
       width: '70%',
       contentStyle: { "max-height": "650px" },
       data: { data }

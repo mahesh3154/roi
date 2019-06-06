@@ -1,6 +1,6 @@
 <div class="ui-g">
   <form [formGroup]="addLocationForm" (ngSubmit)="onRegisterSubmit(addLocationForm)">
-   {{location | json}} 
+   {{location | json}} aaaa
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
         <h2 class="width100 mbtm-80 center"></h2>
@@ -20,34 +20,33 @@
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>City</h3>
-              <p-dropdown [options]="cities2" [formControlName]="city"   ></p-dropdown>
+              <p-dropdown [options]="cities" formControlName="city"   ></p-dropdown>
             </div>
             <div class="cui-input-space">
               <h3>Country</h3>
-              <p-dropdown [options]="cities2" [formControlName]="country"  ></p-dropdown>
+              <p-dropdown [options]="cities" formControlName="country"  ></p-dropdown>
             </div>
             <div class="cui-input-space">
               <h3>Email Address</h3>
-              <input id="float-input" [formControlName]="email"   type="text" size="30" pInputText > 
+              <input id="float-input" formControlName="email"   type="text" size="30" pInputText > 
             </div>
           </div>
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>State</h3>
-              <p-dropdown [options]="cities2" [formControlName]="state"  ></p-dropdown>
+              <p-dropdown [options]="cities" formControlName="state"  ></p-dropdown>
             </div>            
             <div class="cui-input-space">
               <h3>Postal Code</h3>
-              <input id="float-input" [formControlName]="postralcode"    type="text" size="30" pInputText > 
+              <input id="float-input" formControlName="postalcode"    type="text" size="30" pInputText > 
             </div>
           </div>
         </div>
         <div class="ui-g-12 center">
           <div class="sub-btns">
-            <button pButton type="button" label="Disable" class="cui-gray-btn" [disabled]="!addLocationForm.valid" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Cance" class="cui-gray-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Update" class="cui-main-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Add" class="cui-main-btn" (click)="addLocation($event)"></button>
+            <button pButton type="button" *ngIf="editmode" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
+            <button pButton type="button" *ngIf="editmode" label="Update" class="cui-main-btn" (click)="update()"></button>
+            <button pButton type="button" *ngIf="!editmode" label="Add" class="cui-main-btn" (click)="addLocation()"></button>
           </div>
         </div>
       </div>

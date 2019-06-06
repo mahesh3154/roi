@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class PatientService {
-    private url = 'http://23.96.83.133:8080/';
+    private url = 'http://139.59.59.179:8888/';
 
     auth: any;
 
@@ -32,10 +32,7 @@ export class PatientService {
     }
     addSchedules(data) {
         return this.http
-            .post(`${this.url}patient/schedule/${data.apptmt_type}/${data.patientId}`, data, {
-                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
-
-            });
+            .post(`${this.url}patient/schedule/${data.apptmt_type}/${data.patientId}`, data);
     }
     addReminder(id, data) {
         return this.http
@@ -45,26 +42,19 @@ export class PatientService {
     addPayments(id, data) {
         return this.http
             .post(`${this.url}patient/payment/${id}`,
-            data, {
-                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
-
-            });
+            data);
     }
     addnotes(id, data) {
         return this.http
             .post(`${this.url}patient/notes/${id}`,
             data);
     }
-    getAllPayments() {
+    getAllPayments(id) {
         return this.http
-            .get(`${this.url}patient/payment/list/9164`, {
-                headers: { 'Content-Type': 'application/json; charset=utf-8' }
-            });
+            .get(`${this.url}patient/payment/list/${id}`);
     }
     getAllDoctors() {
         return this.http
-            .get(`${this.url}schedule/doctorlist`, {
-                headers: { 'Content-Type': 'application/json; charset=utf-8' }
-            });
+            .get(`${this.url}schedule/doctorlist`);
     }
 }

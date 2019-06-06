@@ -13,8 +13,10 @@ export class AddPos {
     addPosForm: FormGroup;
     FormType: string;
     user: any;
+    disableButton: boolean
     constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, private formBuilder: FormBuilder) { }
     ngOnInit() {
+        this.disableButton = true;
         this.addPosForm = this.formBuilder.group({
             itemname: ['', Validators.required],
             amount: ['', Validators.required]
@@ -22,6 +24,7 @@ export class AddPos {
         this.data = this.config.data.data;
         this.FormType = this.config.header;
         if (this.FormType === 'Edit POS') {
+            this.disableButton = false
             this.user = this.data;
             this.addPosForm.patchValue({
                 itemid: this.user.itemid,
@@ -32,5 +35,12 @@ export class AddPos {
     }
     sumbmit() {
         this.ref.close(this.addPosForm.value);
+    }
+    update(data, id) {
+        data.id = id
+        this.ref.close(data);
+    }
+    cancel() {
+        this.ref.close();
     }
 }

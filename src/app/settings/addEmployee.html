@@ -2,16 +2,6 @@
   <form [formGroup]="addEmployeeForm" (ngSubmit)="onRegisterSubmit(addEmployeeForm)">
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
-          <h2 class="width100 mbtm-80 center">Add New Employee</h2>
-        <!----
-        <ul class="employessModelBox" >
-          <li *ngFor="let type of typeofEmployess">
-            <div class="employee-icons"><i class="{{type.logo}}"></i></div>
-            <div>{{type.label}}</div>
-          </li>
-
-        </ul>
-        ---->
         <div class="ui-g">
           <div class="ui-g-10 ui-g-offset-1">
             <p-selectButton [options]="typeofEmployess" class="cui-tile-box center" formControlName="role" optionLabel="name">
@@ -29,7 +19,8 @@
           <div class="ui-g-6">
             <div class="cui-input-space">
               <h3>Name</h3>
-              <input id="float-input" formControlName="empname" type="text" size="30" pInputText  />
+              <input id="float-input" formControlName="empname" type="text" size="30" pInputText />
+
             </div>
             <div class="cui-input-space">
               <h3>Phone Number</h3>
@@ -48,14 +39,14 @@
         </div>
         <div class="ui-g-12 center">
           <div class="sub-btns">
-            <button pButton type="button" label="Disable" class="cui-gray-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Cance" class="cui-gray-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Update" class="cui-main-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Add" class="cui-main-btn" (click)="addEmployee($event)"></button>
+            <button pButton type="button" *ngIf="!disableButton" label="Disable" class="cui-gray-btn" (click)="disable(user.empid)"></button>
+            <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
+            <button pButton type="button" *ngIf="!disableButton" label="Update" class="cui-main-btn" (click)="update(addEmployeeForm.value, user.empid)"></button>
+            <button pButton type="button" *ngIf="disableButton" label="Add" class="cui-main-btn" (click)="addEmployee(addEmployeeForm.value)"></button>
           </div>
         </div>
       </div>
-      
+
     </div>
   </form>
 </div>

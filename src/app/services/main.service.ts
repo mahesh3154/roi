@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class MainService {
-  private url = 'http://23.96.83.133:8080/';
+  private url = 'http://139.59.59.179:8888/';
 
   constructor(private http: HttpClient) {
 
@@ -32,6 +32,10 @@ export class MainService {
   getAllClinics() {
     return this.http
       .get(`${this.url}clinic/list`);
+  }
+    getSingleClinic(id) {
+    return this.http
+      .get(`${this.url}clinic/info/${id}`);
   }
   selectclinic(id) {
     return this.http.post(`${this.url}clinic/setclinic/${id}`,'');

@@ -56,18 +56,9 @@ export class SettingsComponent implements OnInit {
             }
         );
         this.employeeService.getAllPosList().subscribe(suc => {
-            if (suc) {
-                if (suc == 0) {
-                    this.pos = [];
 
-                }
-                else {
-                    this.pos = suc
-                }
-            }
-            else {
-                this.pos = suc;
-            }
+            this.pos = suc
+
         },
             err => {
                 console.log(err);
@@ -115,8 +106,36 @@ export class SettingsComponent implements OnInit {
             data: { data }
         });
 
-        ref.onClose.subscribe(() => {
+        ref.onClose.subscribe((data) => {
+            console.log(data);
+            if (data) {
+                if (data.role.label == "Doctor") {
+                    data.role.label = "doctor"
+                }
+                else if (data.role.label == "Accounts") {
+                    data.role.label = "accountant"
+                }
+                else if (data.role.label == "Marketing") {
+                    data.role.label = "representative"
+                }
+                else if (data.role.label == "Manager") {
+                    data.role.label = "Marketing"
+                }
+                data.role = data.role.label
+                let id = data.id;
+                this.employeeService.editEmployees(data, id).subscribe(
+                    suc => {
+                        this.pos.push(data);
+                        this.messageService.add({ severity: 'success', summary: 'Added EMPLOYEE Successfully ', detail: 'EMPLOYEE submitted' });
+
+                    },
+                    err => {
+                        console.log(err);
+                    }
+                );
+            }
         });
+
     }
     addPos() {
         const ref = this.dialogService.open(AddPos, {
@@ -129,6 +148,8 @@ export class SettingsComponent implements OnInit {
             this.employeeService.submitPosList(data).subscribe(
                 suc => {
                     this.pos.push(data);
+                    this.messageService.add({ severity: 'success', summary: 'Added POS Successfully ', detail: 'EMPLOYEE submitted' });
+
                 },
                 err => {
                     console.log(err);
@@ -146,22 +167,24 @@ export class SettingsComponent implements OnInit {
         });
 
         ref.onClose.subscribe((data) => {
-            this.employeeService.submitPosList(data).subscribe(
-                suc => {
-                    this.pos.push(data);
-                },
-                err => {
-                    console.log(err);
-                }
-            );
+            console.log(data);
+            if (data) {
+                let id = data.id;
+                this.employeeService.editPos(data, id).subscribe(
+                    suc => {
+                        this.messageService.add({ severity: 'success', summary: 'Edited Successfully ', detail: 'POS submitted' });
+                    },
+                    err => {
+                        console.log(err);
+                    }
+                );
+            }
         });
     }
     onSubmit(data) {
         console.log(data);
         this.employeeService.editBasicInfo(data).subscribe(suc => {
-
             this.messageService.add({ severity: 'success', summary: 'Submitted Successfully ', detail: 'Order submitted' });
-
         },
             err => {
                 console.log(err);

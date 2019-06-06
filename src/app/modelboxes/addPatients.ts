@@ -12,15 +12,15 @@ import { PatientService } from '../services/patients.service';
 /*
 interface Gender {
     name: string;
-    code: string;
+    value: string;
 }
 interface Problem {
     name: string;
-    code: string;
+    value: string;
 }
 interface Datasource {
     name: string;
-    code: string;
+    value: string;
 }
 */
 export class AddPatients {
@@ -42,27 +42,28 @@ export class AddPatients {
     patientresponse: any;
     constructor(public ref: DynamicDialogRef, private patientService: PatientService, public config: DynamicDialogConfig, private formBuilder: FormBuilder) {
         this.datasource = [
-            { name: 'Social Media', code: '1' },
-            { name: 'Youtube', code: '2' },
-            { name: 'Whatsapp', code: '3' },
-            { name: 'Google Search', code: '4' },
-            { name: 'Word Of Mounth (Reference)', code: '5' },
-            { name: 'Others', code: '6' }
+            { label: 'Social Media', value: 'Social Media' },
+            { label: 'Youtube', value: 'Youtube' },
+            { label: 'Whatsapp', value: 'Whatsapp' },
+            { label: 'Google Search', value: 'Google Search' },
+            { label: 'Word Of Mounth (Reference)', value: 'Word Of Mounth (Reference)' },
+            { label: 'Others', value: 'Others' }
         ];
         this.problems = [
-            { name: 'Knee', code: '1' },
-            { name: 'Hip', code: '2' },
-            { name: 'Shouder', code: '3' },
-            { name: 'ACL/Meniscus', code: '4' },
-            { name: 'Spine', code: '5' },
-            { name: 'Neck', code: '6' },
-            { name: 'Ancle', code: '7' },
-            { name: 'Wrist', code: '8' },
-            { name: 'Others, we do not treat', code: '9' }
+            { label: 'Knee', value: 'Knee' },
+            { label: 'Hip', value: 'Hip' },
+            { label: 'Shouder', value: 'Shouder' },
+            { label: 'ACL/Meniscus', value: 'ACL/Meniscus' },
+            { label: 'Spine', value: 'Spine' },
+            { label: 'Neck', value: 'Neck' },
+            { label: 'Gastro', value: 'Gastro' },
+            { label: 'Ancle', value: 'Ancle' },
+            { label: 'Wrist', value: 'Wrist' },
+            { label: 'Others, we do not treat', value: 'Others, we do not treat' }
         ];
         this.genders = [
-            { name: 'Male', code: '1' },
-            { name: 'Female', code: '2' }
+            { label: 'Male', value: 'Male' },
+            { label: 'Female', value: 'Female' }
         ];
     }
     ngOnInit() {
@@ -86,19 +87,28 @@ export class AddPatients {
             console.log(this.data);
             this.location = this.data;
             if (this.data) {
-                this.addPatientsForm.patchValue({
-                    patientname: this.location.patientname,
-                    problem: this.location.problem,
-                    age: this.location.age,
-                    gender: this.location.gender,
-                    email: this.location.email,
-                    phonenumber: this.location.phonenumber,
-                    additional_phonenum: this.location.additional_phonenum,
-                    city_country: this.location.city_country,
-                    source: this.location.source,
-                    opinion: this.location.opinion,
-                    remarks: this.location.remarks
-                });
+                this.patientService.getSinglePatientDetails(this.data['patientid']).subscribe(suc => {
+                    this.location = suc[0]
+                    console.log(this.location.problem)
+                    this.addPatientsForm.patchValue({
+                        patientname: this.location.patientname,
+                        problem:  this.location.problem,
+                        age: this.location.age,
+                        gender: this.location.gender,
+                        email: this.location.email,
+                        phonenumber: this.location.phone_num,
+                        additional_phonenum: this.location.additionalphonenum,
+                        city_country: this.location.city_country,
+                        source: this.location.source,
+                        opinion: this.location.opinion,
+                        remarks: this.location.remarks
+
+                    });
+                },
+                    err => {
+                        //this.messageService.add({ severity: 'error', summary: 'Error In Request ' });
+                    }
+                );
             }
         }
     }
@@ -118,7 +128,7 @@ export class AddPatients {
 
         }
     }
-    sumbmit() {
-        this.ref.close(this.addPatientsForm.value);
+    sumbmit(data) {
+        this.ref.close(data);
     }
 }

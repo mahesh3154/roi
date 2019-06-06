@@ -41,9 +41,6 @@ export class AppComponent {
       width: '70%',
     });
     ref.onClose.subscribe((data) => {
-      data.city = data.city.name;
-      data.state = data.state.name;
-      data.country = data.state.country
       this.mainService.addLocation(data).subscribe(
         suc => {
           this.locations.push(data);
@@ -63,7 +60,7 @@ export class AppComponent {
     ref.onClose.subscribe((data) => {
       this.mainService.addAdmins(data).subscribe(
         suc => {
-          this.admins.push(data);
+          this.admins.push(suc);
           this.messageService.add({ severity: 'success', summary: 'Admin Added Sucessfully' });
 
         },

@@ -26,6 +26,7 @@ export class PatientsViewDetailsComponent implements OnInit {
   showCalender: boolean = false;
   enternotes: any;
   calender: any;
+  payments: any = []
   constructor(
     private patientService: PatientService,
     public dialogService: DialogService,
@@ -42,7 +43,14 @@ export class PatientsViewDetailsComponent implements OnInit {
       { field: 'payment_method', header: 'Type' },
       { field: 'amount', header: 'Amount' },
     ];
-    this.patientService.getAllPayments().subscribe(data => this.patients = data);
+    this.patientService.getAllPayments(this.patientId).subscribe(
+      suc => {
+        this.payments = suc
+      },
+      err => {
+        console.log(err);
+      }
+    );
     this.patientService.getSinglePatientDetails(this.patientId).subscribe(
       suc => {
         this.details = suc[0];
@@ -95,9 +103,9 @@ export class PatientsViewDetailsComponent implements OnInit {
     this.displayDialog = true;
   }
   save(patient) {
-    this.patientService.addPayments(this.patient, this.patientId).subscribe(
+    this.patientService.addPayments(this.patientId, patient).subscribe(
       suc => {
-        this.patients.push(patient);
+        this.payments.push(suc);
 
       },
       err => {
@@ -140,7 +148,7 @@ export class PatientsViewDetailsComponent implements OnInit {
       suc => {
         this.notes.notes.push(suc);
         this.messageService.add({ severity: 'success', summary: 'Reminder Added Sucessfully' });
-    this.showCalender = false;
+        this.showCalender = false;
 
       },
       err => {

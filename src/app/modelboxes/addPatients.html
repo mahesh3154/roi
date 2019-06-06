@@ -1,5 +1,7 @@
 <div class="ui-g">
+
   <form [formGroup]="addPatientsForm">
+    
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
         <h2 class="width100 mbtm-80 center">Add Patient</h2>
@@ -25,7 +27,7 @@
         <div class="ui-g-4">
           <div class="cui-input-space">
             <h3>Patient Problem</h3>
-            <p-dropdown [options]="problems" formControlName="problem" optionLabel="name"></p-dropdown>
+            <p-dropdown [options]="problems" formControlName="problem"   ></p-dropdown>
           </div>
           <div class="cui-input-space">
             <h3>Email Address</h3>
@@ -33,7 +35,7 @@
           </div>
           <div class="cui-input-space">
             <h3>City / Country</h3>
-            <p-dropdown [options]="datasource" formControlName="city_country" optionLabel="name"></p-dropdown>
+            <p-dropdown [options]="datasource" formControlName="city_country" ></p-dropdown>
           </div>
           <div class="cui-input-space">
             <h3>Remarks</h3>
@@ -43,7 +45,7 @@
         <div class="ui-g-4">
           <div class="cui-input-space">
             <h3>Gender</h3>
-            <p-dropdown [options]="genders" formControlName="gender" optionLabel="name"></p-dropdown>
+            <p-dropdown [options]="genders" formControlName="gender" ></p-dropdown>
           </div>
           <div class="cui-input-space">
             <h3>Phone Number</h3>
@@ -51,17 +53,14 @@
           </div>
           <div class="cui-input-space">
             <h3>Source</h3>
-            <p-dropdown [options]="datasource" formControlName="source" optionLabel="name"></p-dropdown>
+            <p-dropdown [options]="datasource" formControlName="source" ></p-dropdown>
           </div>
-          <div class="cui-input-space">
-            <h3>Assign to</h3>
-            <p-dropdown [options]="assignto" formControlName="assignto" optionLabel="name"></p-dropdown>
-          </div>
+          
         </div>
 
         <div class="ui-g-12 right">
             <div class="sub-btns">
-                <button pButton type="button" label="Add" class="cui-main-btn" (click)="sumbmit(addPatientsForm)"></button>
+                <button pButton type="button" label="Add" class="cui-main-btn" (click)="sumbmit(addPatientsForm.value)"></button>
             </div>
         </div>
 

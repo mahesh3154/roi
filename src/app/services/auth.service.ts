@@ -7,7 +7,7 @@ import { Router } from '@angular/router'
     providedIn: 'root'
 })
 export class AuthService {
-    private registerUrl = 'http://23.96.83.133:8080/';
+    private registerUrl = 'http://139.59.59.179:8888/';
     constructor(private http: HttpClient, private router: Router) { }
 
     loginUser(user) {

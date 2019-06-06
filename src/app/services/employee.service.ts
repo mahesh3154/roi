@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class EmployeeService {
-  private url = 'http://23.96.83.133:8080/';
+  private url = 'http://139.59.59.179:8888/';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,10 @@ export class EmployeeService {
     return this.http
       .post(`${this.url}employee`, data);
   }
+   editEmployees(data, id) {
+    return this.http
+      .put(`${this.url}employee/info/${id}`, data);
+  }
   getAllPosList() {
     return this.http
       .get(`${this.url}pos/list`);
@@ -25,9 +29,13 @@ export class EmployeeService {
     return this.http
       .post(`${this.url}pos`, data);
   }
-  disablePostId(data) {
+  disablePosId(data, id) {
     return this.http
-      .post(`${this.url}pos`, data);
+      .post(`${this.url}pos/info/${id}`, data);
+  }
+  editPos(data, id) {
+   return this.http
+      .put(`${this.url}pos/info/${id}`, data);
   }
   getBasicInfo() {
     return this.http

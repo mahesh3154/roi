@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class ScheduleService {
-  private url = 'http://23.96.83.133:8080/';
+  private url = 'http://139.59.59.179:8888/';
 
   constructor(private http: HttpClient) {
 

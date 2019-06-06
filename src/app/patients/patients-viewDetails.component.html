@@ -87,21 +87,22 @@
           </div>
         </div>
       </p-tabPanel>
+      {{Payments | json}}
       <p-tabPanel header="Payments">
-        <p-table [columns]="cols" [value]="patients" selectionMode="single">
+        <p-table [columns]="cols" [value]="payments" selectionMode="single">
           <ng-template pTemplate="header" let-columns>
             <tr>
-              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              <th *ngFor="let col of columns" [pSortableColumn]="col.fiPaymentseld">
                 {{col.header}}
                 <p-sortIcon [field]="col.field"></p-sortIcon>
               </th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-patient>
+          <ng-template pTemplate="body" let-payment>
             <tr>
-              <td>{{patient.invoice_date}}</td>
-              <td>{{patient.payment_method}}</td>
-              <td>{{patient.amount}}</td>
+              <td>{{payment.invoice_date}}</td>
+              <td>{{payment.payment_method}}</td>
+              <td>{{payment.amount}}</td>
               <td><a class="link"><i class="roi-receipt-icon"></i> Receipt</a></td>
             </tr>
           </ng-template>
@@ -159,7 +160,7 @@
           <div class="ui-g-12 center">
             <div class="sub-btns">
               <button pButton type="button" label="Delete" class="cui-gray-btn" (click)="delete()"></button>
-              <button pButton type="button" label="Save" class="cui-main-btn" (click)="save()"></button>
+              <button pButton type="button" label="Save" class="cui-main-btn" (click)="save(patient)"></button>
             </div>
           </div>
         </p-dialog>

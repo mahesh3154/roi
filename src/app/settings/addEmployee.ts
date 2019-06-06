@@ -14,14 +14,18 @@ export class AddEmployee {
     typeofEmployess: any;
     FormType: string;
     user: any;
+    disableButton: any = true
     constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, private formBuilder: FormBuilder) { }
     ngOnInit() {
+        this.disableButton = true
+
         this.typeofEmployess = [{ id: 1, logo: 'roi-stethoscope-icon', label: 'Doctor' },
         { id: 2, logo: 'roi-reception-icon', label: 'Front Desk' },
         { id: 3, logo: 'roi-briefcase-icon', label: 'Manager' },
         { id: 4, logo: 'roi-promotion-icon', label: 'Marketing' },
         { id: 5, logo: 'roi-budget-icon', label: 'Accounts' }];
         this.addEmployeeForm = this.formBuilder.group({
+            
             role: ['', Validators.required],
             empname: ['', Validators.required],
             email: ['', Validators.required],
@@ -30,21 +34,32 @@ export class AddEmployee {
         this.data = this.config.data.data;
         this.FormType = this.config.header;
         if (this.FormType === 'Edit Employee') {
+            this.disableButton = false;
             this.user = this.data;
             this.addEmployeeForm.patchValue({
                 index: this.user.empid,
                 empname: this.user.empname,
                 email: this.user.email,
-                phonenumber: this.user.phoneNumeber,
+                phonenumber: this.user.phonenumber,
                 role: this.user.role
             });
         }
     }
-    addEmployee() {
-                    console.log('eeeeeeeeeeeeeeeeee')
+    addEmployee(data) {
+        this.ref.close(data);
 
-       
-        this.ref.close(this.addEmployeeForm.value);
+    }
+    cancel() {
+        this.ref.close();
+
+    }
+    update(data, id) {
+        data.id = id
+        this.ref.close(data);
+
+    }
+    diable (id){
+                this.ref.close(id);
 
     }
 }
