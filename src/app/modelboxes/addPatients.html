@@ -60,7 +60,7 @@
 
         <div class="ui-g-12 right">
             <div class="sub-btns">
-                <button pButton type="button" label="Add" class="cui-main-btn" (click)="sumbmit(addPatientsForm.value)"></button>
+                <button pButton type="button" label="Add" class="cui-main-btn"  [disabled]="!addPatientsForm.valid" (click)="sumbmit(addPatientsForm.value)"></button>
             </div>
         </div>
 

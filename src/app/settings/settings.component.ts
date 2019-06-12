@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit {
             'address': new FormControl('', Validators.required),
             'Googlemapurl': new FormControl('', Validators.required),
             'BankAccName': new FormControl('', Validators.required),
-            'BankAccNo': new FormControl('', Validators.required),
+            'BankAccNumber': new FormControl('', Validators.required),
             'IFSC': new FormControl('', Validators.required),
             'PAN': new FormControl('', Validators.required)
 
@@ -39,7 +39,7 @@ export class SettingsComponent implements OnInit {
                 'address': suc[0].address,
                 'Googlemapurl': suc[0].gglmap_url,
                 'BankAccName': suc[0].bankAccountName,
-                'BankAccNo': suc[0].bankAccountNumber,
+                'BankAccNumber': suc[0].bankAccountNumber,
                 'IFSC': suc[0].ifscCode,
                 'PAN': suc[0].pan
             });
@@ -90,6 +90,8 @@ export class SettingsComponent implements OnInit {
             this.employeeService.createEmployees(data).subscribe(
                 suc => {
                     this.employees.push(data);
+                    this.messageService.add({ severity: 'success', summary: 'Edited Employee Successfully ', detail: 'EMPLOYEE submitted' });
+
                 },
                 err => {
                     console.log(err);
@@ -125,8 +127,8 @@ export class SettingsComponent implements OnInit {
                 let id = data.id;
                 this.employeeService.editEmployees(data, id).subscribe(
                     suc => {
-                        this.pos.push(data);
-                        this.messageService.add({ severity: 'success', summary: 'Added EMPLOYEE Successfully ', detail: 'EMPLOYEE submitted' });
+                        //    this.pos.push(data);
+                        this.messageService.add({ severity: 'success', summary: 'Edited Employee Successfully ', detail: 'EMPLOYEE submitted' });
 
                     },
                     err => {

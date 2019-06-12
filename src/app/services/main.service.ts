@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
   providedIn: 'root'
 })
 export class MainService {
-  private url = 'http://139.59.59.179:8888/';
+  private url = 'http://206.189.132.23:8080/';
 
   constructor(private http: HttpClient) {
 
@@ -20,9 +20,21 @@ export class MainService {
       .post(`${this.url}admin`,
       data);
   }
+
+  editAdmin(data, id) {
+    return this.http
+      .put(`${this.url}clinic/info/${id}`,
+      data);
+  }
   addLocation(data) {
     return this.http
       .post(`${this.url}clinic`,
+      data);
+  }
+
+  editLocation(data, id) {
+    return this.http
+      .put(`${this.url}admin/info/${id}`,
       data);
   }
   getAllLocations() {
@@ -33,14 +45,14 @@ export class MainService {
     return this.http
       .get(`${this.url}clinic/list`);
   }
-    getSingleClinic(id) {
+  getSingleClinic(id) {
     return this.http
       .get(`${this.url}clinic/info/${id}`);
   }
   selectclinic(id) {
-    return this.http.post(`${this.url}clinic/setclinic/${id}`,'');
+    return this.http.post(`${this.url}clinic/setclinic/${id}`, '');
   }
   changePassword(data) {
-    return this.http.post(`${this.url}employee/changepw`,data);
+    return this.http.post(`${this.url}employee/changepw`, data);
   }
 }

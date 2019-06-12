@@ -1,8 +1,7 @@
 <div class="ui-g">
-  <form [formGroup]="addAdminForm" >
-      <div class="ui-g">
-          <div class="ui-g-10 ui-g ui-g-offset-1">
-              <h2 class="width100 mbtm-80 center">Add Admin</h2>
+  <form [formGroup]="addAdminForm">
+    <div class="ui-g">
+      <div class="ui-g-10 ui-g ui-g-offset-1">
         <!----
         <ul class="employessModelBox" >
           <li *ngFor="let type of typeofEmployess">
@@ -21,36 +20,37 @@
           </ng-template>
         </p-selectButton>
 
-      <div class="clear"></div>
+        <div class="clear"></div>
 
-      <div class="ui-g">
-        <div class="ui-g-6">
-          <div class="cui-input-space">
-            <h3>Name</h3>
-            <input id="float-input" formControlName="name" type="text" size="30" pInputText  />
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="cui-input-space">
+              <h3>Name</h3>
+              <input id="float-input" formControlName="name" type="text" size="30" pInputText />
+            </div>
+            <div class="cui-input-space">
+              <h3>Phone Number</h3>
+              <input id="float-input" formControlName="phonenumber" type="text" size="30" pInputText />
+              <span id="text">{{text}}</span>
+            </div>
           </div>
-          <div class="cui-input-space">
-            <h3>Phone Number</h3>
-            <input id="float-input" formControlName="phonenumber" type="text" size="30" pInputText />
-            <span id="text">{{text}}</span>
+          <div class="ui-g-6">
+            <div class="cui-input-space">
+              <h3>Email Id</h3>
+              <input id="float-input" formControlName="email" type="text" size="30" pInputText />
+              <span id="text">{{text}}</span>
+            </div>
           </div>
         </div>
-        <div class="ui-g-6">
-          <div class="cui-input-space">
-            <h3>Email Id</h3>
-            <input id="float-input" formControlName="email" type="text" size="30" pInputText />
-            <span id="text">{{text}}</span>
-          </div>
-        </div>
-      </div>
-      <div class="ui-g-12 center">
+        <div class="ui-g-12 center">
           <div class="sub-btns">
-            <button pButton type="button" label="Disable" class="cui-gray-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Cance" class="cui-gray-btn" (click)="handleClick($event)"></button>
-            <button pButton type="button" label="Update" class="cui-main-btn" (click)="submitaddAdmin($event)"></button>
+            <button pButton type="button" *ngIf="editmode" label="Cancel" class="cui-gray-btn" (click)="handleClick($event)"></button>
+            <button pButton type="button" *ngIf="editmode" label="Update" class="cui-main-btn" [disabled]="!addAdminForm.valid" (click)="update(addAdminForm.value,this.user.empid)"></button>
+            <button pButton type="button" *ngIf="!editmode" label="Add" class="cui-main-btn" [disabled]="!addAdminForm.valid" (click)="submitaddAdmin()"></button>
+
           </div>
+        </div>
       </div>
-    </div>
     </div>
   </form>
 </div>

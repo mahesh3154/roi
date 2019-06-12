@@ -76,4 +76,8 @@ export class AddPatientSchedule {
         this.ref.close(this.addScheduleForm.value);
 
     }
+       cancel() {
+        this.ref.close();
+
+    }
 }

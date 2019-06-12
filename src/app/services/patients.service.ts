@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class PatientService {
-    private url = 'http://139.59.59.179:8888/';
+    private url = 'http://206.189.132.23:8080/';
 
     auth: any;
 
@@ -26,6 +26,14 @@ export class PatientService {
     addPatient(data) {
         return this.http
             .post(`${this.url}patient`, data, {
+                headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
+
+            });
+    }
+
+    editPatient(data) {
+        return this.http
+            .put(`${this.url}patient`, data, {
                 headers: { 'Content-Type': 'application/json ', accept: 'application/json' }
 
             });

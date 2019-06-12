@@ -1,6 +1,5 @@
 <div class="ui-g">
-  <form [formGroup]="addLocationForm" (ngSubmit)="onRegisterSubmit(addLocationForm)">
-   {{location | json}} aaaa
+  <form [formGroup]="addLocationForm" >
     <div class="ui-g">
       <div class="ui-g-10 ui-g ui-g-offset-1">
         <h2 class="width100 mbtm-80 center"></h2>
@@ -44,9 +43,9 @@
         </div>
         <div class="ui-g-12 center">
           <div class="sub-btns">
-            <button pButton type="button" *ngIf="editmode" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
-            <button pButton type="button" *ngIf="editmode" label="Update" class="cui-main-btn" (click)="update()"></button>
-            <button pButton type="button" *ngIf="!editmode" label="Add" class="cui-main-btn" (click)="addLocation()"></button>
+            <button pButton type="button" *ngIf="editmode"  label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
+            <button pButton type="button" *ngIf="editmode"   [disabled]="!addLocationForm.valid"label="Update" class="cui-main-btn" (click)="update(addLocationForm.value, location.id)"></button>
+            <button pButton type="button" *ngIf="!editmode"   [disabled]="!addLocationForm.valid" label="Add" class="cui-main-btn" (click)="addLocation()"></button>
           </div>
         </div>
       </div>

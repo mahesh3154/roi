@@ -67,8 +67,8 @@ export class AddSchedule {
 
             });
         }
-        else{
-               this.addScheduleForm.patchValue({
+        else {
+            this.addScheduleForm.patchValue({
                 patient: this.config.data.patientname,
                 patientId: this.config.data.patientid,
                 apptmt_type: 'consultation'
@@ -78,6 +78,11 @@ export class AddSchedule {
     }
     addSchedule() {
         this.ref.close(this.addScheduleForm.value);
+
+    }
+
+    cancel() {
+        this.ref.close();
 
     }
 }

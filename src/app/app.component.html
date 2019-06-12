@@ -9,7 +9,7 @@
         </a>
         <ul class="top-utility-bar">
           <li>
-            <button type="button" (click)="display = true" pButton icon="roi-location-details-icon"></button>
+            <button type="button" (click)="showSideBar()" pButton icon="roi-location-details-icon"></button>
           </li>
           <li>
             <button type="button" (click)="display = true" pButton icon="roi-reminders-icon"></button>
@@ -87,7 +87,7 @@
                 <div class="location-sticker" *ngFor="let admin of admins">
                   <div class="wrapper">
                     <div class="title"> {{admin.empname}}
-                      <span class="edit"><i (click)="editAdminModelbox(location)" class="roi-edit-icon"></i></span>
+                      <span class="edit"><i (click)="editAdminModelbox(admin)" class="roi-edit-icon"></i></span>
                     </div>
                     <div class="address">{{admin.email}}</div>
                   </div>

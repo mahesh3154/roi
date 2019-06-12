@@ -15,7 +15,7 @@
   <p-tabPanel header="Income">
     <div class="ui-g">
       <div class="ui-g-8">
-        <p-table [value]="billings" [columns]="cols">
+        <p-table [value]="billings" >
           <ng-template pTemplate="header">
             <tr>
               <th *ngFor="let col of colsBilling" [pSortableColumn]="col.field">

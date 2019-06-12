@@ -18,11 +18,11 @@ export class AppComponent {
   admins: any = [];
   postReq: any = {};
   items: any = [];
+  display: any = false;
   constructor(public dialogService: DialogService, public mainService: MainService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.mainService.getAllLocations().subscribe(data => this.locations = data);
-    this.mainService.getAdmins().subscribe(data => this.admins = data);
+
 
     this.items = [
       { label: 'My Profile', icon: 'roi-user-icon', routerLink: ['/myprofile'] },
@@ -79,7 +79,7 @@ export class AppComponent {
       if (data) {
         this.mainService.changePassword(data).subscribe(
           suc => {
-           this.messageService.add({severity:'success', summary:'Password Changed Sucessfully'});
+            this.messageService.add({ severity: 'success', summary: 'Password Changed Sucessfully' });
           },
           err => {
             console.log(err);
@@ -96,6 +96,15 @@ export class AppComponent {
       data: { data }
     });
     ref.onClose.subscribe(() => {
+      let id = data.id;
+      this.mainService.editAdmin(data, id).subscribe(
+        suc => {
+          this.messageService.add({ severity: 'success', summary: 'Location Added Sucessfully' });
+        },
+        err => {
+          console.log(err);
+        }
+      );
     });
   }
 
@@ -107,8 +116,24 @@ export class AppComponent {
 
     });
 
-    ref.onClose.subscribe(() => {
-
+    ref.onClose.subscribe((data) => {
+      console.log(data);
+      let id = data.id;
+      this.mainService.editLocation(data, id).subscribe(
+        suc => {
+          this.messageService.add({ severity: 'success', summary: 'Location Added Sucessfully' });
+        },
+        err => {
+          console.log(err);
+        }
+      );
     });
+  }
+
+  showSideBar() {
+
+    this.display = true
+    this.mainService.getAllLocations().subscribe(data => this.locations = data);
+    this.mainService.getAdmins().subscribe(data => this.admins = data);
   }
 }

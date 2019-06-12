@@ -115,7 +115,9 @@ export class PatientsViewDetailsComponent implements OnInit {
 
     this.displayDialog = false;
   }
-
+delete(){
+  
+}
 
 
   addNotes() {

@@ -51,7 +51,7 @@ export class AddLocations {
                     country: this.location.country,
                     state: this.location.state,
                     city: this.location.city,
-                    postalcode: this.location.postralcode,
+                    postalcode: this.location.postalcode,
                     email: this.location.email
 
                 });
@@ -65,8 +65,9 @@ export class AddLocations {
     addLocation() {
         this.ref.close(this.addLocationForm.value);
     }
-     update() {
-        this.ref.close(this.addLocationForm.value);
+     update(data, id) {
+         data.id = id;
+        this.ref.close(data);
     } 
     cancel() {
         this.ref.close();

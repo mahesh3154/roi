@@ -36,7 +36,7 @@ export class PatientsComponent implements OnInit {
       if (patient) {
         console.log(patient)
         this.postReq = patient;
-       
+
 
         return this.patientService.addPatient(this.postReq).subscribe(
           suc => {
@@ -64,7 +64,17 @@ export class PatientsComponent implements OnInit {
 
     ref.onClose.subscribe((patient) => {
       if (patient) {
-        console.log(patient);
+         this.patientService.editPatient(patient).subscribe(
+          suc => {
+            console.log(suc);
+            this.patients.push(suc[0]);
+            this.messageService.add({ severity: 'success', summary: 'Patient Added Sucessfully ' });
+
+          },
+          err => {
+            this.messageService.add({ severity: 'error', summary: 'Error In Request ' });
+          }
+        );
       }
     });
   }

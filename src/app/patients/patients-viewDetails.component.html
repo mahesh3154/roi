@@ -87,7 +87,6 @@
           </div>
         </div>
       </p-tabPanel>
-      {{Payments | json}}
       <p-tabPanel header="Payments">
         <p-table [columns]="cols" [value]="payments" selectionMode="single">
           <ng-template pTemplate="header" let-columns>

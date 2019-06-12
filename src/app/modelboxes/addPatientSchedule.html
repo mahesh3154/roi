@@ -58,8 +58,8 @@
 
     <div class="ui-g-12 center">
       <div class="sub-btns">
-        <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel($event)"></button>
-        <button pButton type="button" label="Add" class="cui-main-btn" (click)="addSchedule($event)"></button>
+        <button pButton type="button" label="Cancel" class="cui-gray-btn" (click)="cancel()"></button>
+        <button pButton type="button" label="Add" class="cui-main-btn" [disabled]="!addScheduleForm.valid" (click)="addSchedule()"></button>
       </div>
     </div>
   </form>

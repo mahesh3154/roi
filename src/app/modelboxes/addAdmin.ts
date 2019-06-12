@@ -17,11 +17,14 @@ export class AddAdmin {
     FormType: string;
     user: any;
     postReq: any;
+    editmode : any;
+
     constructor(public ref: DynamicDialogRef,
         public mainService: MainService,
         public config: DynamicDialogConfig,
         private formBuilder: FormBuilder) { }
     ngOnInit() {
+            this.editmode = false;
 
         this.addAdminForm = this.formBuilder.group({
             name: ['', Validators.required],
@@ -30,7 +33,9 @@ export class AddAdmin {
         });
         this.data = this.config.data.data;
         this.FormType = this.config.header;
-        if (this.FormType === 'Edit Location') {
+        if (this.FormType === 'Edit Admin') {
+            this.editmode = true;
+
             this.user = this.data;
             this.addAdminForm.patchValue({
                 index: this.user.empid,
@@ -41,6 +46,13 @@ export class AddAdmin {
         }
     }
     submitaddAdmin() {
+        this.ref.close(this.addAdminForm.value);
+    }
+    update(data, id) {
+        data.id = id
+        this.ref.close(this.addAdminForm.value);
+    }
+    cancel() {
         this.ref.close(this.addAdminForm.value);
     }
 }

@@ -13,8 +13,8 @@
     <div class="ui-g-12 center">
       <div class="sub-btns">
         <button pButton class="Cancel"  type="button" class="cui-gray-btn" label="Cancel" (click)="cancel()"></button>
-        <button pButton class="add" *ngIf="disableButton" type="button" class="cui-main-btn" label="Add" (click)="sumbmit()"></button>
-        <button pButton class="Update" *ngIf="!disableButton" type="button" class="cui-main-btn" label="Update" (click)="update(addPosForm.value ,user.itemid)"></button>
+        <button pButton class="add" *ngIf="disableButton" [disabled]="!addPosForm.valid"  type="button" class="cui-main-btn" label="Add" (click)="sumbmit()"></button>
+        <button pButton class="Update" *ngIf="!disableButton" [disabled]="!addPosForm.valid"  type="button" class="cui-main-btn" label="Update" (click)="update(addPosForm.value ,user.itemid)"></button>
       </div>
     </div>
   </div>
